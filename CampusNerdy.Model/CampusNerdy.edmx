@@ -1,0 +1,925 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CampusNerdyModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="CampusNerdyModelStoreContainer">
+          <EntitySet Name="areaInfo" EntityType="CampusNerdyModel.Store.areaInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="dealHistory" EntityType="CampusNerdyModel.Store.dealHistory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="dealRequest" EntityType="CampusNerdyModel.Store.dealRequest" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="goodInfo_superMarket" EntityType="CampusNerdyModel.Store.goodInfo_superMarket" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sender" EntityType="CampusNerdyModel.Store.sender" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="senderForMarket" EntityType="CampusNerdyModel.Store.senderForMarket" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="CampusNerdyModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tb_Dictionary" EntityType="CampusNerdyModel.Store.tb_Dictionary" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tb_GoodInf" EntityType="CampusNerdyModel.Store.tb_GoodInf" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tb_Role" EntityType="CampusNerdyModel.Store.tb_Role" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tb_Role_UserRelations" EntityType="CampusNerdyModel.Store.tb_Role_UserRelations" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tb_SuperMaket" EntityType="CampusNerdyModel.Store.tb_SuperMaket" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tb_User" EntityType="CampusNerdyModel.Store.tb_User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tb_UserInfo" EntityType="CampusNerdyModel.Store.tb_UserInfo" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_dealRequest_goodInfo_superMarket" Association="CampusNerdyModel.Store.FK_dealRequest_goodInfo_superMarket">
+            <End Role="goodInfo_superMarket" EntitySet="goodInfo_superMarket" />
+            <End Role="dealRequest" EntitySet="dealRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dealRequest_sender" Association="CampusNerdyModel.Store.FK_dealRequest_sender">
+            <End Role="sender" EntitySet="sender" />
+            <End Role="dealRequest" EntitySet="dealRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_goodInfo_superMarket_tb_GoodInf" Association="CampusNerdyModel.Store.FK_goodInfo_superMarket_tb_GoodInf">
+            <End Role="tb_GoodInf" EntitySet="tb_GoodInf" />
+            <End Role="goodInfo_superMarket" EntitySet="goodInfo_superMarket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_goodInfo_superMarket_tb_SuperMaket" Association="CampusNerdyModel.Store.FK_goodInfo_superMarket_tb_SuperMaket">
+            <End Role="tb_SuperMaket" EntitySet="tb_SuperMaket" />
+            <End Role="goodInfo_superMarket" EntitySet="goodInfo_superMarket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sender_areaInfo" Association="CampusNerdyModel.Store.FK_sender_areaInfo">
+            <End Role="areaInfo" EntitySet="areaInfo" />
+            <End Role="sender" EntitySet="sender" />
+          </AssociationSet>
+          <AssociationSet Name="FK_senderForMarket_tb_SuperMaket" Association="CampusNerdyModel.Store.FK_senderForMarket_tb_SuperMaket">
+            <End Role="tb_SuperMaket" EntitySet="tb_SuperMaket" />
+            <End Role="senderForMarket" EntitySet="senderForMarket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_Role_UserRelations_tb_Role" Association="CampusNerdyModel.Store.FK_tb_Role_UserRelations_tb_Role">
+            <End Role="tb_Role" EntitySet="tb_Role" />
+            <End Role="tb_Role_UserRelations" EntitySet="tb_Role_UserRelations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_Role_UserRelations_tb_User" Association="CampusNerdyModel.Store.FK_tb_Role_UserRelations_tb_User">
+            <End Role="tb_User" EntitySet="tb_User" />
+            <End Role="tb_Role_UserRelations" EntitySet="tb_Role_UserRelations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_SuperMaket_areaInfo" Association="CampusNerdyModel.Store.FK_tb_SuperMaket_areaInfo">
+            <End Role="areaInfo" EntitySet="areaInfo" />
+            <End Role="tb_SuperMaket" EntitySet="tb_SuperMaket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_SuperMaket_areaInfo1" Association="CampusNerdyModel.Store.FK_tb_SuperMaket_areaInfo1">
+            <End Role="areaInfo" EntitySet="areaInfo" />
+            <End Role="tb_SuperMaket" EntitySet="tb_SuperMaket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_UserInfo_tb_User" Association="CampusNerdyModel.Store.FK_tb_UserInfo_tb_User">
+            <End Role="tb_User" EntitySet="tb_User" />
+            <End Role="tb_UserInfo" EntitySet="tb_UserInfo" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="areaInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="areaID" Type="nvarchar" MaxLength="50" />
+          <Property Name="areaInfo" Type="ntext" />
+        </EntityType>
+        <EntityType Name="dealHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="senderID" Type="nvarchar" MaxLength="50" />
+          <Property Name="dealRequestID" Type="int" />
+          <Property Name="hasDone" Type="int" />
+          <Property Name="hasDoneInfo" Type="ntext" />
+          <Property Name="singleMarketCount" Type="int" />
+          <Property Name="cash" Type="int" />
+        </EntityType>
+        <EntityType Name="dealRequest">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="requestGoodsID" Type="int" />
+          <Property Name="cash" Type="int" />
+          <Property Name="state" Type="int" />
+          <Property Name="senderID" Type="int" />
+        </EntityType>
+        <EntityType Name="goodInfo_superMarket">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="goodInfoID" Type="int" />
+          <Property Name="superMarketID" Type="int" />
+          <Property Name="isNormalEnum" Type="nvarchar" MaxLength="50" />
+          <Property Name="abnormalInfo" Type="nchar" MaxLength="10" />
+          <Property Name="isUse" Type="bit" />
+        </EntityType>
+        <EntityType Name="sender">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="serderID_FromUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="isUse" Type="bit" />
+          <Property Name="canSendNow" Type="bit" />
+          <Property Name="senderAreaID" Type="int" />
+        </EntityType>
+        <EntityType Name="senderForMarket">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="senderID" Type="int" />
+          <Property Name="supermarketID" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tb_Dictionary">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="type" Type="nchar" MaxLength="10" />
+          <Property Name="theKey" Type="nchar" MaxLength="10" />
+          <Property Name="theValue" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tb_GoodInf">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="goodName" Type="nvarchar" MaxLength="50" />
+          <Property Name="goodInfo" Type="ntext" />
+          <Property Name="isUse" Type="bit" />
+        </EntityType>
+        <EntityType Name="tb_Role">
+          <Key>
+            <PropertyRef Name="roleID" />
+          </Key>
+          <Property Name="roleID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="roleName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tb_Role_UserRelations">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="roleID" Type="nvarchar" MaxLength="50" />
+          <Property Name="userID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tb_SuperMaket">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="superMarketName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="info" Type="ntext" />
+          <Property Name="isUse" Type="bit" />
+          <Property Name="showAreaID" Type="int" />
+          <Property Name="factArea" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_User">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="userName" Type="nvarchar" MaxLength="50" />
+          <Property Name="hashed_PassWord" Type="nvarchar" MaxLength="200" />
+          <Property Name="salt" Type="nvarchar" MaxLength="50" />
+          <Property Name="createDate" Type="date" />
+        </EntityType>
+        <EntityType Name="tb_UserInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="userID" Type="nvarchar" MaxLength="50" />
+          <Property Name="userDescribe" Type="nchar" MaxLength="10" />
+          <Property Name="email" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_dealRequest_goodInfo_superMarket">
+          <End Role="goodInfo_superMarket" Type="CampusNerdyModel.Store.goodInfo_superMarket" Multiplicity="0..1" />
+          <End Role="dealRequest" Type="CampusNerdyModel.Store.dealRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="goodInfo_superMarket">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="dealRequest">
+              <PropertyRef Name="requestGoodsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dealRequest_sender">
+          <End Role="sender" Type="CampusNerdyModel.Store.sender" Multiplicity="0..1" />
+          <End Role="dealRequest" Type="CampusNerdyModel.Store.dealRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sender">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="dealRequest">
+              <PropertyRef Name="senderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_goodInfo_superMarket_tb_GoodInf">
+          <End Role="tb_GoodInf" Type="CampusNerdyModel.Store.tb_GoodInf" Multiplicity="0..1" />
+          <End Role="goodInfo_superMarket" Type="CampusNerdyModel.Store.goodInfo_superMarket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_GoodInf">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="goodInfo_superMarket">
+              <PropertyRef Name="goodInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_goodInfo_superMarket_tb_SuperMaket">
+          <End Role="tb_SuperMaket" Type="CampusNerdyModel.Store.tb_SuperMaket" Multiplicity="0..1" />
+          <End Role="goodInfo_superMarket" Type="CampusNerdyModel.Store.goodInfo_superMarket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_SuperMaket">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="goodInfo_superMarket">
+              <PropertyRef Name="superMarketID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sender_areaInfo">
+          <End Role="areaInfo" Type="CampusNerdyModel.Store.areaInfo" Multiplicity="0..1" />
+          <End Role="sender" Type="CampusNerdyModel.Store.sender" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="areaInfo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sender">
+              <PropertyRef Name="senderAreaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_senderForMarket_tb_SuperMaket">
+          <End Role="tb_SuperMaket" Type="CampusNerdyModel.Store.tb_SuperMaket" Multiplicity="0..1" />
+          <End Role="senderForMarket" Type="CampusNerdyModel.Store.senderForMarket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_SuperMaket">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="senderForMarket">
+              <PropertyRef Name="supermarketID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_Role_UserRelations_tb_Role">
+          <End Role="tb_Role" Type="CampusNerdyModel.Store.tb_Role" Multiplicity="0..1" />
+          <End Role="tb_Role_UserRelations" Type="CampusNerdyModel.Store.tb_Role_UserRelations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Role">
+              <PropertyRef Name="roleID" />
+            </Principal>
+            <Dependent Role="tb_Role_UserRelations">
+              <PropertyRef Name="roleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_Role_UserRelations_tb_User">
+          <End Role="tb_User" Type="CampusNerdyModel.Store.tb_User" Multiplicity="0..1" />
+          <End Role="tb_Role_UserRelations" Type="CampusNerdyModel.Store.tb_Role_UserRelations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_User">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="tb_Role_UserRelations">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_SuperMaket_areaInfo">
+          <End Role="areaInfo" Type="CampusNerdyModel.Store.areaInfo" Multiplicity="0..1" />
+          <End Role="tb_SuperMaket" Type="CampusNerdyModel.Store.tb_SuperMaket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="areaInfo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tb_SuperMaket">
+              <PropertyRef Name="showAreaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_SuperMaket_areaInfo1">
+          <End Role="areaInfo" Type="CampusNerdyModel.Store.areaInfo" Multiplicity="0..1" />
+          <End Role="tb_SuperMaket" Type="CampusNerdyModel.Store.tb_SuperMaket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="areaInfo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tb_SuperMaket">
+              <PropertyRef Name="factArea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_UserInfo_tb_User">
+          <End Role="tb_User" Type="CampusNerdyModel.Store.tb_User" Multiplicity="0..1" />
+          <End Role="tb_UserInfo" Type="CampusNerdyModel.Store.tb_UserInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_User">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="tb_UserInfo">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CampusNerdyModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CampusNerdyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="areaInfo" EntityType="CampusNerdyModel.areaInfo" />
+          <EntitySet Name="dealHistory" EntityType="CampusNerdyModel.dealHistory" />
+          <EntitySet Name="dealRequest" EntityType="CampusNerdyModel.dealRequest" />
+          <EntitySet Name="goodInfo_superMarket" EntityType="CampusNerdyModel.goodInfo_superMarket" />
+          <EntitySet Name="sender" EntityType="CampusNerdyModel.sender" />
+          <EntitySet Name="senderForMarket" EntityType="CampusNerdyModel.senderForMarket" />
+          <EntitySet Name="sysdiagrams" EntityType="CampusNerdyModel.sysdiagrams" />
+          <EntitySet Name="tb_Dictionary" EntityType="CampusNerdyModel.tb_Dictionary" />
+          <EntitySet Name="tb_GoodInf" EntityType="CampusNerdyModel.tb_GoodInf" />
+          <EntitySet Name="tb_Role" EntityType="CampusNerdyModel.tb_Role" />
+          <EntitySet Name="tb_Role_UserRelations" EntityType="CampusNerdyModel.tb_Role_UserRelations" />
+          <EntitySet Name="tb_SuperMaket" EntityType="CampusNerdyModel.tb_SuperMaket" />
+          <EntitySet Name="tb_User" EntityType="CampusNerdyModel.tb_User" />
+          <EntitySet Name="tb_UserInfo" EntityType="CampusNerdyModel.tb_UserInfo" />
+          <AssociationSet Name="FK_sender_areaInfo" Association="CampusNerdyModel.FK_sender_areaInfo">
+            <End Role="areaInfo" EntitySet="areaInfo" />
+            <End Role="sender" EntitySet="sender" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_SuperMaket_areaInfo" Association="CampusNerdyModel.FK_tb_SuperMaket_areaInfo">
+            <End Role="areaInfo" EntitySet="areaInfo" />
+            <End Role="tb_SuperMaket" EntitySet="tb_SuperMaket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_SuperMaket_areaInfo1" Association="CampusNerdyModel.FK_tb_SuperMaket_areaInfo1">
+            <End Role="areaInfo" EntitySet="areaInfo" />
+            <End Role="tb_SuperMaket" EntitySet="tb_SuperMaket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dealRequest_goodInfo_superMarket" Association="CampusNerdyModel.FK_dealRequest_goodInfo_superMarket">
+            <End Role="goodInfo_superMarket" EntitySet="goodInfo_superMarket" />
+            <End Role="dealRequest" EntitySet="dealRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dealRequest_sender" Association="CampusNerdyModel.FK_dealRequest_sender">
+            <End Role="sender" EntitySet="sender" />
+            <End Role="dealRequest" EntitySet="dealRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_goodInfo_superMarket_tb_GoodInf" Association="CampusNerdyModel.FK_goodInfo_superMarket_tb_GoodInf">
+            <End Role="tb_GoodInf" EntitySet="tb_GoodInf" />
+            <End Role="goodInfo_superMarket" EntitySet="goodInfo_superMarket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_goodInfo_superMarket_tb_SuperMaket" Association="CampusNerdyModel.FK_goodInfo_superMarket_tb_SuperMaket">
+            <End Role="tb_SuperMaket" EntitySet="tb_SuperMaket" />
+            <End Role="goodInfo_superMarket" EntitySet="goodInfo_superMarket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_senderForMarket_tb_SuperMaket" Association="CampusNerdyModel.FK_senderForMarket_tb_SuperMaket">
+            <End Role="tb_SuperMaket" EntitySet="tb_SuperMaket" />
+            <End Role="senderForMarket" EntitySet="senderForMarket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_Role_UserRelations_tb_Role" Association="CampusNerdyModel.FK_tb_Role_UserRelations_tb_Role">
+            <End Role="tb_Role" EntitySet="tb_Role" />
+            <End Role="tb_Role_UserRelations" EntitySet="tb_Role_UserRelations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_Role_UserRelations_tb_User" Association="CampusNerdyModel.FK_tb_Role_UserRelations_tb_User">
+            <End Role="tb_User" EntitySet="tb_User" />
+            <End Role="tb_Role_UserRelations" EntitySet="tb_Role_UserRelations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_UserInfo_tb_User" Association="CampusNerdyModel.FK_tb_UserInfo_tb_User">
+            <End Role="tb_User" EntitySet="tb_User" />
+            <End Role="tb_UserInfo" EntitySet="tb_UserInfo" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="areaInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="areaID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="areaInfo1" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="sender" Relationship="CampusNerdyModel.FK_sender_areaInfo" FromRole="areaInfo" ToRole="sender" />
+          <NavigationProperty Name="tb_SuperMaket" Relationship="CampusNerdyModel.FK_tb_SuperMaket_areaInfo" FromRole="areaInfo" ToRole="tb_SuperMaket" />
+          <NavigationProperty Name="tb_SuperMaket1" Relationship="CampusNerdyModel.FK_tb_SuperMaket_areaInfo1" FromRole="areaInfo" ToRole="tb_SuperMaket" />
+        </EntityType>
+        <EntityType Name="dealHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="senderID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="dealRequestID" Type="Int32" />
+          <Property Name="hasDone" Type="Int32" />
+          <Property Name="hasDoneInfo" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="singleMarketCount" Type="Int32" />
+          <Property Name="cash" Type="Int32" />
+        </EntityType>
+        <EntityType Name="dealRequest">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="requestGoodsID" Type="Int32" />
+          <Property Name="cash" Type="Int32" />
+          <Property Name="state" Type="Int32" />
+          <Property Name="senderID" Type="Int32" />
+          <NavigationProperty Name="goodInfo_superMarket" Relationship="CampusNerdyModel.FK_dealRequest_goodInfo_superMarket" FromRole="dealRequest" ToRole="goodInfo_superMarket" />
+          <NavigationProperty Name="sender" Relationship="CampusNerdyModel.FK_dealRequest_sender" FromRole="dealRequest" ToRole="sender" />
+        </EntityType>
+        <EntityType Name="goodInfo_superMarket">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="goodInfoID" Type="Int32" />
+          <Property Name="superMarketID" Type="Int32" />
+          <Property Name="isNormalEnum" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="abnormalInfo" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="isUse" Type="Boolean" />
+          <NavigationProperty Name="dealRequest" Relationship="CampusNerdyModel.FK_dealRequest_goodInfo_superMarket" FromRole="goodInfo_superMarket" ToRole="dealRequest" />
+          <NavigationProperty Name="tb_GoodInf" Relationship="CampusNerdyModel.FK_goodInfo_superMarket_tb_GoodInf" FromRole="goodInfo_superMarket" ToRole="tb_GoodInf" />
+          <NavigationProperty Name="tb_SuperMaket" Relationship="CampusNerdyModel.FK_goodInfo_superMarket_tb_SuperMaket" FromRole="goodInfo_superMarket" ToRole="tb_SuperMaket" />
+        </EntityType>
+        <EntityType Name="sender">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="serderID_FromUser" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="isUse" Type="Boolean" />
+          <Property Name="canSendNow" Type="Boolean" />
+          <Property Name="senderAreaID" Type="Int32" />
+          <NavigationProperty Name="areaInfo" Relationship="CampusNerdyModel.FK_sender_areaInfo" FromRole="sender" ToRole="areaInfo" />
+          <NavigationProperty Name="dealRequest" Relationship="CampusNerdyModel.FK_dealRequest_sender" FromRole="sender" ToRole="dealRequest" />
+        </EntityType>
+        <EntityType Name="senderForMarket">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="senderID" Type="Int32" />
+          <Property Name="supermarketID" Type="Int32" />
+          <NavigationProperty Name="tb_SuperMaket" Relationship="CampusNerdyModel.FK_senderForMarket_tb_SuperMaket" FromRole="senderForMarket" ToRole="tb_SuperMaket" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tb_Dictionary">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="theKey" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="theValue" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="tb_GoodInf">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="goodName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="goodInfo" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="isUse" Type="Boolean" />
+          <NavigationProperty Name="goodInfo_superMarket" Relationship="CampusNerdyModel.FK_goodInfo_superMarket_tb_GoodInf" FromRole="tb_GoodInf" ToRole="goodInfo_superMarket" />
+        </EntityType>
+        <EntityType Name="tb_Role">
+          <Key>
+            <PropertyRef Name="roleID" />
+          </Key>
+          <Property Name="roleID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="roleName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="tb_Role_UserRelations" Relationship="CampusNerdyModel.FK_tb_Role_UserRelations_tb_Role" FromRole="tb_Role" ToRole="tb_Role_UserRelations" />
+        </EntityType>
+        <EntityType Name="tb_Role_UserRelations">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="roleID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="userID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="tb_Role" Relationship="CampusNerdyModel.FK_tb_Role_UserRelations_tb_Role" FromRole="tb_Role_UserRelations" ToRole="tb_Role" />
+          <NavigationProperty Name="tb_User" Relationship="CampusNerdyModel.FK_tb_Role_UserRelations_tb_User" FromRole="tb_Role_UserRelations" ToRole="tb_User" />
+        </EntityType>
+        <EntityType Name="tb_SuperMaket">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="superMarketName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="info" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="isUse" Type="Boolean" />
+          <Property Name="showAreaID" Type="Int32" />
+          <Property Name="factArea" Type="Int32" />
+          <NavigationProperty Name="areaInfo" Relationship="CampusNerdyModel.FK_tb_SuperMaket_areaInfo" FromRole="tb_SuperMaket" ToRole="areaInfo" />
+          <NavigationProperty Name="areaInfo1" Relationship="CampusNerdyModel.FK_tb_SuperMaket_areaInfo1" FromRole="tb_SuperMaket" ToRole="areaInfo" />
+          <NavigationProperty Name="goodInfo_superMarket" Relationship="CampusNerdyModel.FK_goodInfo_superMarket_tb_SuperMaket" FromRole="tb_SuperMaket" ToRole="goodInfo_superMarket" />
+          <NavigationProperty Name="senderForMarket" Relationship="CampusNerdyModel.FK_senderForMarket_tb_SuperMaket" FromRole="tb_SuperMaket" ToRole="senderForMarket" />
+        </EntityType>
+        <EntityType Name="tb_User">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="userName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="hashed_PassWord" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="salt" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="createDate" Type="DateTime" />
+          <NavigationProperty Name="tb_Role_UserRelations" Relationship="CampusNerdyModel.FK_tb_Role_UserRelations_tb_User" FromRole="tb_User" ToRole="tb_Role_UserRelations" />
+          <NavigationProperty Name="tb_UserInfo" Relationship="CampusNerdyModel.FK_tb_UserInfo_tb_User" FromRole="tb_User" ToRole="tb_UserInfo" />
+        </EntityType>
+        <EntityType Name="tb_UserInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="userID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="userDescribe" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="email" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="tb_User" Relationship="CampusNerdyModel.FK_tb_UserInfo_tb_User" FromRole="tb_UserInfo" ToRole="tb_User" />
+        </EntityType>
+        <Association Name="FK_sender_areaInfo">
+          <End Role="areaInfo" Type="CampusNerdyModel.areaInfo" Multiplicity="0..1" />
+          <End Role="sender" Type="CampusNerdyModel.sender" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="areaInfo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sender">
+              <PropertyRef Name="senderAreaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_SuperMaket_areaInfo">
+          <End Role="areaInfo" Type="CampusNerdyModel.areaInfo" Multiplicity="0..1" />
+          <End Role="tb_SuperMaket" Type="CampusNerdyModel.tb_SuperMaket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="areaInfo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tb_SuperMaket">
+              <PropertyRef Name="showAreaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_SuperMaket_areaInfo1">
+          <End Role="areaInfo" Type="CampusNerdyModel.areaInfo" Multiplicity="0..1" />
+          <End Role="tb_SuperMaket" Type="CampusNerdyModel.tb_SuperMaket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="areaInfo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tb_SuperMaket">
+              <PropertyRef Name="factArea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dealRequest_goodInfo_superMarket">
+          <End Role="goodInfo_superMarket" Type="CampusNerdyModel.goodInfo_superMarket" Multiplicity="0..1" />
+          <End Role="dealRequest" Type="CampusNerdyModel.dealRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="goodInfo_superMarket">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="dealRequest">
+              <PropertyRef Name="requestGoodsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dealRequest_sender">
+          <End Role="sender" Type="CampusNerdyModel.sender" Multiplicity="0..1" />
+          <End Role="dealRequest" Type="CampusNerdyModel.dealRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sender">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="dealRequest">
+              <PropertyRef Name="senderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_goodInfo_superMarket_tb_GoodInf">
+          <End Role="tb_GoodInf" Type="CampusNerdyModel.tb_GoodInf" Multiplicity="0..1" />
+          <End Role="goodInfo_superMarket" Type="CampusNerdyModel.goodInfo_superMarket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_GoodInf">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="goodInfo_superMarket">
+              <PropertyRef Name="goodInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_goodInfo_superMarket_tb_SuperMaket">
+          <End Role="tb_SuperMaket" Type="CampusNerdyModel.tb_SuperMaket" Multiplicity="0..1" />
+          <End Role="goodInfo_superMarket" Type="CampusNerdyModel.goodInfo_superMarket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_SuperMaket">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="goodInfo_superMarket">
+              <PropertyRef Name="superMarketID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_senderForMarket_tb_SuperMaket">
+          <End Role="tb_SuperMaket" Type="CampusNerdyModel.tb_SuperMaket" Multiplicity="0..1" />
+          <End Role="senderForMarket" Type="CampusNerdyModel.senderForMarket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_SuperMaket">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="senderForMarket">
+              <PropertyRef Name="supermarketID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_Role_UserRelations_tb_Role">
+          <End Role="tb_Role" Type="CampusNerdyModel.tb_Role" Multiplicity="0..1" />
+          <End Role="tb_Role_UserRelations" Type="CampusNerdyModel.tb_Role_UserRelations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Role">
+              <PropertyRef Name="roleID" />
+            </Principal>
+            <Dependent Role="tb_Role_UserRelations">
+              <PropertyRef Name="roleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_Role_UserRelations_tb_User">
+          <End Role="tb_User" Type="CampusNerdyModel.tb_User" Multiplicity="0..1" />
+          <End Role="tb_Role_UserRelations" Type="CampusNerdyModel.tb_Role_UserRelations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_User">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="tb_Role_UserRelations">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_UserInfo_tb_User">
+          <End Role="tb_User" Type="CampusNerdyModel.tb_User" Multiplicity="0..1" />
+          <End Role="tb_UserInfo" Type="CampusNerdyModel.tb_UserInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_User">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="tb_UserInfo">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CampusNerdyModelStoreContainer" CdmEntityContainer="CampusNerdyEntities">
+          <EntitySetMapping Name="areaInfo">
+            <EntityTypeMapping TypeName="CampusNerdyModel.areaInfo">
+              <MappingFragment StoreEntitySet="areaInfo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="areaID" ColumnName="areaID" />
+                <ScalarProperty Name="areaInfo1" ColumnName="areaInfo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dealHistory">
+            <EntityTypeMapping TypeName="CampusNerdyModel.dealHistory">
+              <MappingFragment StoreEntitySet="dealHistory">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="senderID" ColumnName="senderID" />
+                <ScalarProperty Name="dealRequestID" ColumnName="dealRequestID" />
+                <ScalarProperty Name="hasDone" ColumnName="hasDone" />
+                <ScalarProperty Name="hasDoneInfo" ColumnName="hasDoneInfo" />
+                <ScalarProperty Name="singleMarketCount" ColumnName="singleMarketCount" />
+                <ScalarProperty Name="cash" ColumnName="cash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dealRequest">
+            <EntityTypeMapping TypeName="CampusNerdyModel.dealRequest">
+              <MappingFragment StoreEntitySet="dealRequest">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="requestGoodsID" ColumnName="requestGoodsID" />
+                <ScalarProperty Name="cash" ColumnName="cash" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="senderID" ColumnName="senderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="goodInfo_superMarket">
+            <EntityTypeMapping TypeName="CampusNerdyModel.goodInfo_superMarket">
+              <MappingFragment StoreEntitySet="goodInfo_superMarket">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="goodInfoID" ColumnName="goodInfoID" />
+                <ScalarProperty Name="superMarketID" ColumnName="superMarketID" />
+                <ScalarProperty Name="isNormalEnum" ColumnName="isNormalEnum" />
+                <ScalarProperty Name="abnormalInfo" ColumnName="abnormalInfo" />
+                <ScalarProperty Name="isUse" ColumnName="isUse" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sender">
+            <EntityTypeMapping TypeName="CampusNerdyModel.sender">
+              <MappingFragment StoreEntitySet="sender">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="serderID_FromUser" ColumnName="serderID_FromUser" />
+                <ScalarProperty Name="isUse" ColumnName="isUse" />
+                <ScalarProperty Name="canSendNow" ColumnName="canSendNow" />
+                <ScalarProperty Name="senderAreaID" ColumnName="senderAreaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="senderForMarket">
+            <EntityTypeMapping TypeName="CampusNerdyModel.senderForMarket">
+              <MappingFragment StoreEntitySet="senderForMarket">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="senderID" ColumnName="senderID" />
+                <ScalarProperty Name="supermarketID" ColumnName="supermarketID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CampusNerdyModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Dictionary">
+            <EntityTypeMapping TypeName="CampusNerdyModel.tb_Dictionary">
+              <MappingFragment StoreEntitySet="tb_Dictionary">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="theKey" ColumnName="theKey" />
+                <ScalarProperty Name="theValue" ColumnName="theValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_GoodInf">
+            <EntityTypeMapping TypeName="CampusNerdyModel.tb_GoodInf">
+              <MappingFragment StoreEntitySet="tb_GoodInf">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="goodName" ColumnName="goodName" />
+                <ScalarProperty Name="goodInfo" ColumnName="goodInfo" />
+                <ScalarProperty Name="isUse" ColumnName="isUse" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Role">
+            <EntityTypeMapping TypeName="CampusNerdyModel.tb_Role">
+              <MappingFragment StoreEntitySet="tb_Role">
+                <ScalarProperty Name="roleID" ColumnName="roleID" />
+                <ScalarProperty Name="roleName" ColumnName="roleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Role_UserRelations">
+            <EntityTypeMapping TypeName="CampusNerdyModel.tb_Role_UserRelations">
+              <MappingFragment StoreEntitySet="tb_Role_UserRelations">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="roleID" ColumnName="roleID" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_SuperMaket">
+            <EntityTypeMapping TypeName="CampusNerdyModel.tb_SuperMaket">
+              <MappingFragment StoreEntitySet="tb_SuperMaket">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="superMarketName" ColumnName="superMarketName" />
+                <ScalarProperty Name="info" ColumnName="info" />
+                <ScalarProperty Name="isUse" ColumnName="isUse" />
+                <ScalarProperty Name="showAreaID" ColumnName="showAreaID" />
+                <ScalarProperty Name="factArea" ColumnName="factArea" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_User">
+            <EntityTypeMapping TypeName="CampusNerdyModel.tb_User">
+              <MappingFragment StoreEntitySet="tb_User">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="hashed_PassWord" ColumnName="hashed_PassWord" />
+                <ScalarProperty Name="salt" ColumnName="salt" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_UserInfo">
+            <EntityTypeMapping TypeName="CampusNerdyModel.tb_UserInfo">
+              <MappingFragment StoreEntitySet="tb_UserInfo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="userDescribe" ColumnName="userDescribe" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="CampusNerdy">
+        <EntityTypeShape EntityType="CampusNerdyModel.areaInfo" Width="1.5" PointX="0.75" PointY="5.5" Height="2.1610522460937496" IsExpanded="true" />
+        <EntityTypeShape EntityType="CampusNerdyModel.dealHistory" Width="1.5" PointX="7.75" PointY="9.875" Height="2.3520719401041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="CampusNerdyModel.dealRequest" Width="1.5" PointX="5.25" PointY="3.5" Height="2.3520719401041656" IsExpanded="true" />
+        <EntityTypeShape EntityType="CampusNerdyModel.goodInfo_superMarket" Width="1.5" PointX="5.25" PointY="6.75" Height="2.7341113281249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="CampusNerdyModel.sender" Width="1.5" PointX="3" PointY="3.5" Height="2.3520719401041656" IsExpanded="true" />
+        <EntityTypeShape EntityType="CampusNerdyModel.senderForMarket" Width="1.5" PointX="5.25" PointY="10.75" Height="1.7790128580729174" IsExpanded="true" />
+        <EntityTypeShape EntityType="CampusNerdyModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="9.875" Height="1.9700325520833317" IsExpanded="true" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_Dictionary" Width="1.5" PointX="11.75" PointY="9.875" Height="1.7790128580729174" IsExpanded="true" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_GoodInf" Width="1.5" PointX="3" PointY="11.125" Height="1.9700325520833317" IsExpanded="true" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_Role" Width="1.5" PointX="7.75" PointY="0.75" Height="1.5879931640624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_Role_UserRelations" Width="1.5" PointX="10" PointY="3.5" Height="1.9700325520833353" IsExpanded="true" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_SuperMaket" Width="1.5" PointX="3" PointY="6.625" Height="2.9251310221354245" IsExpanded="true" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_User" Width="1.5" PointX="7.75" PointY="3.375" Height="2.3520719401041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_UserInfo" Width="1.5" PointX="10" PointY="6.25" Height="1.9700325520833388" IsExpanded="true" />
+        <AssociationConnector Association="CampusNerdyModel.FK_sender_areaInfo" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="5.6760359700520828" />
+          <ConnectorPoint PointX="3" PointY="5.6760359700520828" />
+        </AssociationConnector>
+        <AssociationConnector Association="CampusNerdyModel.FK_tb_SuperMaket_areaInfo" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="7.1430261230468748" />
+          <ConnectorPoint PointX="3" PointY="7.1430261230468748" />
+        </AssociationConnector>
+        <AssociationConnector Association="CampusNerdyModel.FK_tb_SuperMaket_areaInfo1" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="6.8215130615234374" />
+          <ConnectorPoint PointX="3" PointY="6.8215130615234374" />
+        </AssociationConnector>
+        <AssociationConnector Association="CampusNerdyModel.FK_dealRequest_goodInfo_superMarket" ManuallyRouted="false">
+          <ConnectorPoint PointX="6" PointY="6.75" />
+          <ConnectorPoint PointX="6" PointY="5.8520719401041656" />
+        </AssociationConnector>
+        <AssociationConnector Association="CampusNerdyModel.FK_dealRequest_sender" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="4.6760359700520828" />
+          <ConnectorPoint PointX="5.25" PointY="4.6760359700520828" />
+        </AssociationConnector>
+        <AssociationConnector Association="CampusNerdyModel.FK_goodInfo_superMarket_tb_GoodInf" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="11.126152846153847" />
+          <ConnectorPoint PointX="4.875" PointY="10.751152846153847" />
+          <ConnectorPoint PointX="4.875" PointY="8.1170556640625" />
+          <ConnectorPoint PointX="5.25" PointY="8.1170556640625" />
+        </AssociationConnector>
+        <AssociationConnector Association="CampusNerdyModel.FK_goodInfo_superMarket_tb_SuperMaket" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="7.37102783203125" />
+          <ConnectorPoint PointX="5.25" PointY="7.37102783203125" />
+        </AssociationConnector>
+        <AssociationConnector Association="CampusNerdyModel.FK_senderForMarket_tb_SuperMaket" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="9.4878223298277327" />
+          <ConnectorPoint PointX="4.8160744349011217" PointY="9.8038967647288526" />
+          <ConnectorPoint PointX="4.9339255650988791" PointY="9.9217478949266109" />
+          <ConnectorPoint PointX="5.0625" PointY="10.050322329827733" />
+          <ConnectorPoint PointX="5.0625" PointY="11.639506429036459" />
+          <ConnectorPoint PointX="5.25" PointY="11.639506429036459" />
+        </AssociationConnector>
+        <AssociationConnector Association="CampusNerdyModel.FK_tb_Role_UserRelations_tb_Role" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.25" PointY="1.5439965820312498" />
+          <ConnectorPoint PointX="10.75" PointY="1.5439965820312498" />
+          <ConnectorPoint PointX="10.75" PointY="3.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="CampusNerdyModel.FK_tb_Role_UserRelations_tb_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.25" PointY="4.4850162760416676" />
+          <ConnectorPoint PointX="10" PointY="4.4850162760416676" />
+        </AssociationConnector>
+        <AssociationConnector Association="CampusNerdyModel.FK_tb_UserInfo_tb_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="8.5" PointY="5.7270719401041674" />
+          <ConnectorPoint PointX="8.5" PointY="7.2350162760416694" />
+          <ConnectorPoint PointX="10" PointY="7.2350162760416694" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
