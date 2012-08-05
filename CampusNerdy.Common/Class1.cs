@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CampusNerdy.Common
 {
-    class Class1
+    class Class
     {
     }
 }
