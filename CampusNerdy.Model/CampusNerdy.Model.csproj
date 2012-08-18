@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
@@ -48,7 +49,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CampusNerdy.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Extension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlDBCon.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="CampusNerdy.edmx">

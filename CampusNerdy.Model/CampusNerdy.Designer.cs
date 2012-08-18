@@ -19,17 +19,16 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM 关系源元数据
 
-[assembly: EdmRelationshipAttribute("CampusNerdyModel", "FK_sender_areaInfo", "areaInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CampusNerdy.Model.areaInfo), "sender", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CampusNerdy.Model.sender), true)]
-[assembly: EdmRelationshipAttribute("CampusNerdyModel", "FK_tb_SuperMaket_areaInfo", "areaInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CampusNerdy.Model.areaInfo), "tb_SuperMaket", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CampusNerdy.Model.tb_SuperMaket), true)]
-[assembly: EdmRelationshipAttribute("CampusNerdyModel", "FK_tb_SuperMaket_areaInfo1", "areaInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CampusNerdy.Model.areaInfo), "tb_SuperMaket", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CampusNerdy.Model.tb_SuperMaket), true)]
-[assembly: EdmRelationshipAttribute("CampusNerdyModel", "FK_dealRequest_goodInfo_superMarket", "goodInfo_superMarket", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CampusNerdy.Model.goodInfo_superMarket), "dealRequest", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CampusNerdy.Model.dealRequest), true)]
-[assembly: EdmRelationshipAttribute("CampusNerdyModel", "FK_dealRequest_sender", "sender", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CampusNerdy.Model.sender), "dealRequest", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CampusNerdy.Model.dealRequest), true)]
-[assembly: EdmRelationshipAttribute("CampusNerdyModel", "FK_goodInfo_superMarket_tb_GoodInf", "tb_GoodInf", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CampusNerdy.Model.tb_GoodInf), "goodInfo_superMarket", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CampusNerdy.Model.goodInfo_superMarket), true)]
-[assembly: EdmRelationshipAttribute("CampusNerdyModel", "FK_goodInfo_superMarket_tb_SuperMaket", "tb_SuperMaket", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CampusNerdy.Model.tb_SuperMaket), "goodInfo_superMarket", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CampusNerdy.Model.goodInfo_superMarket), true)]
-[assembly: EdmRelationshipAttribute("CampusNerdyModel", "FK_senderForMarket_tb_SuperMaket", "tb_SuperMaket", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CampusNerdy.Model.tb_SuperMaket), "senderForMarket", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CampusNerdy.Model.senderForMarket), true)]
-[assembly: EdmRelationshipAttribute("CampusNerdyModel", "FK_tb_Role_UserRelations_tb_Role", "tb_Role", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CampusNerdy.Model.tb_Role), "tb_Role_UserRelations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CampusNerdy.Model.tb_Role_UserRelations), true)]
-[assembly: EdmRelationshipAttribute("CampusNerdyModel", "FK_tb_Role_UserRelations_tb_User", "tb_User", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CampusNerdy.Model.tb_User), "tb_Role_UserRelations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CampusNerdy.Model.tb_Role_UserRelations), true)]
-[assembly: EdmRelationshipAttribute("CampusNerdyModel", "FK_tb_UserInfo_tb_User", "tb_User", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CampusNerdy.Model.tb_User), "tb_UserInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CampusNerdy.Model.tb_UserInfo), true)]
+[assembly: EdmRelationshipAttribute("CampusNerdyModel", "FK_areaInfo_tb_Group1", "tb_Group", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CampusNerdy.Model.tb_Group), "tb_Area", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CampusNerdy.Model.tb_Area), true)]
+[assembly: EdmRelationshipAttribute("CampusNerdyModel", "FK_tb_SuperMaket_tb_Area", "tb_Area", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CampusNerdy.Model.tb_Area), "tb_SuperMaket", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CampusNerdy.Model.tb_SuperMaket), true)]
+[assembly: EdmRelationshipAttribute("CampusNerdyModel", "FK_dealRequest_goodInfo_superMarket", "tb_GoodInfoToSuperMarket", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CampusNerdy.Model.tb_GoodInfoToSuperMarket), "tb_DealRequest", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CampusNerdy.Model.tb_DealRequest), true)]
+[assembly: EdmRelationshipAttribute("CampusNerdyModel", "FK_goodInfo_superMarket_tb_GoodInf", "tb_Good", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CampusNerdy.Model.tb_Good), "tb_GoodInfoToSuperMarket", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CampusNerdy.Model.tb_GoodInfoToSuperMarket), true)]
+[assembly: EdmRelationshipAttribute("CampusNerdyModel", "FK_goodInfo_superMarket_tb_SuperMaket", "tb_SuperMaket", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CampusNerdy.Model.tb_SuperMaket), "tb_GoodInfoToSuperMarket", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CampusNerdy.Model.tb_GoodInfoToSuperMarket), true)]
+[assembly: EdmRelationshipAttribute("CampusNerdyModel", "FK_sender_tb_Group", "tb_Group", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CampusNerdy.Model.tb_Group), "tb_Sender", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CampusNerdy.Model.tb_Sender), true)]
+[assembly: EdmRelationshipAttribute("CampusNerdyModel", "FK_tb_SuperMaket_tb_Group", "tb_Group", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CampusNerdy.Model.tb_Group), "tb_SuperMaket", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CampusNerdy.Model.tb_SuperMaket), true)]
+[assembly: EdmRelationshipAttribute("CampusNerdyModel", "FK_tb_Role_ModuleRelation_tb_Module1", "tb_Module", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CampusNerdy.Model.tb_Module), "tb_RoleToModule", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CampusNerdy.Model.tb_RoleToModule), true)]
+[assembly: EdmRelationshipAttribute("CampusNerdyModel", "FK_tb_Role_UserRelations_tb_Role", "tb_Role", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CampusNerdy.Model.tb_Role), "tb_RoleToUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CampusNerdy.Model.tb_RoleToUser), true)]
+[assembly: EdmRelationshipAttribute("CampusNerdyModel", "FK_tb_Role_UserRelations_tb_User", "tb_User", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CampusNerdy.Model.tb_User), "tb_RoleToUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CampusNerdy.Model.tb_RoleToUser), true)]
 
 #endregion
 
@@ -84,102 +83,6 @@ namespace CampusNerdy.Model
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        public ObjectSet<areaInfo> areaInfo
-        {
-            get
-            {
-                if ((_areaInfo == null))
-                {
-                    _areaInfo = base.CreateObjectSet<areaInfo>("areaInfo");
-                }
-                return _areaInfo;
-            }
-        }
-        private ObjectSet<areaInfo> _areaInfo;
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        public ObjectSet<dealHistory> dealHistory
-        {
-            get
-            {
-                if ((_dealHistory == null))
-                {
-                    _dealHistory = base.CreateObjectSet<dealHistory>("dealHistory");
-                }
-                return _dealHistory;
-            }
-        }
-        private ObjectSet<dealHistory> _dealHistory;
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        public ObjectSet<dealRequest> dealRequest
-        {
-            get
-            {
-                if ((_dealRequest == null))
-                {
-                    _dealRequest = base.CreateObjectSet<dealRequest>("dealRequest");
-                }
-                return _dealRequest;
-            }
-        }
-        private ObjectSet<dealRequest> _dealRequest;
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        public ObjectSet<goodInfo_superMarket> goodInfo_superMarket
-        {
-            get
-            {
-                if ((_goodInfo_superMarket == null))
-                {
-                    _goodInfo_superMarket = base.CreateObjectSet<goodInfo_superMarket>("goodInfo_superMarket");
-                }
-                return _goodInfo_superMarket;
-            }
-        }
-        private ObjectSet<goodInfo_superMarket> _goodInfo_superMarket;
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        public ObjectSet<sender> sender
-        {
-            get
-            {
-                if ((_sender == null))
-                {
-                    _sender = base.CreateObjectSet<sender>("sender");
-                }
-                return _sender;
-            }
-        }
-        private ObjectSet<sender> _sender;
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        public ObjectSet<senderForMarket> senderForMarket
-        {
-            get
-            {
-                if ((_senderForMarket == null))
-                {
-                    _senderForMarket = base.CreateObjectSet<senderForMarket>("senderForMarket");
-                }
-                return _senderForMarket;
-            }
-        }
-        private ObjectSet<senderForMarket> _senderForMarket;
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
         public ObjectSet<sysdiagrams> sysdiagrams
         {
             get
@@ -192,6 +95,54 @@ namespace CampusNerdy.Model
             }
         }
         private ObjectSet<sysdiagrams> _sysdiagrams;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<tb_Area> tb_Area
+        {
+            get
+            {
+                if ((_tb_Area == null))
+                {
+                    _tb_Area = base.CreateObjectSet<tb_Area>("tb_Area");
+                }
+                return _tb_Area;
+            }
+        }
+        private ObjectSet<tb_Area> _tb_Area;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<tb_DealHistory> tb_DealHistory
+        {
+            get
+            {
+                if ((_tb_DealHistory == null))
+                {
+                    _tb_DealHistory = base.CreateObjectSet<tb_DealHistory>("tb_DealHistory");
+                }
+                return _tb_DealHistory;
+            }
+        }
+        private ObjectSet<tb_DealHistory> _tb_DealHistory;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<tb_DealRequest> tb_DealRequest
+        {
+            get
+            {
+                if ((_tb_DealRequest == null))
+                {
+                    _tb_DealRequest = base.CreateObjectSet<tb_DealRequest>("tb_DealRequest");
+                }
+                return _tb_DealRequest;
+            }
+        }
+        private ObjectSet<tb_DealRequest> _tb_DealRequest;
     
         /// <summary>
         /// 没有元数据文档可用。
@@ -212,18 +163,66 @@ namespace CampusNerdy.Model
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        public ObjectSet<tb_GoodInf> tb_GoodInf
+        public ObjectSet<tb_Good> tb_Good
         {
             get
             {
-                if ((_tb_GoodInf == null))
+                if ((_tb_Good == null))
                 {
-                    _tb_GoodInf = base.CreateObjectSet<tb_GoodInf>("tb_GoodInf");
+                    _tb_Good = base.CreateObjectSet<tb_Good>("tb_Good");
                 }
-                return _tb_GoodInf;
+                return _tb_Good;
             }
         }
-        private ObjectSet<tb_GoodInf> _tb_GoodInf;
+        private ObjectSet<tb_Good> _tb_Good;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<tb_GoodInfoToSuperMarket> tb_GoodInfoToSuperMarket
+        {
+            get
+            {
+                if ((_tb_GoodInfoToSuperMarket == null))
+                {
+                    _tb_GoodInfoToSuperMarket = base.CreateObjectSet<tb_GoodInfoToSuperMarket>("tb_GoodInfoToSuperMarket");
+                }
+                return _tb_GoodInfoToSuperMarket;
+            }
+        }
+        private ObjectSet<tb_GoodInfoToSuperMarket> _tb_GoodInfoToSuperMarket;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<tb_Group> tb_Group
+        {
+            get
+            {
+                if ((_tb_Group == null))
+                {
+                    _tb_Group = base.CreateObjectSet<tb_Group>("tb_Group");
+                }
+                return _tb_Group;
+            }
+        }
+        private ObjectSet<tb_Group> _tb_Group;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<tb_Module> tb_Module
+        {
+            get
+            {
+                if ((_tb_Module == null))
+                {
+                    _tb_Module = base.CreateObjectSet<tb_Module>("tb_Module");
+                }
+                return _tb_Module;
+            }
+        }
+        private ObjectSet<tb_Module> _tb_Module;
     
         /// <summary>
         /// 没有元数据文档可用。
@@ -244,18 +243,50 @@ namespace CampusNerdy.Model
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
-        public ObjectSet<tb_Role_UserRelations> tb_Role_UserRelations
+        public ObjectSet<tb_RoleToModule> tb_RoleToModule
         {
             get
             {
-                if ((_tb_Role_UserRelations == null))
+                if ((_tb_RoleToModule == null))
                 {
-                    _tb_Role_UserRelations = base.CreateObjectSet<tb_Role_UserRelations>("tb_Role_UserRelations");
+                    _tb_RoleToModule = base.CreateObjectSet<tb_RoleToModule>("tb_RoleToModule");
                 }
-                return _tb_Role_UserRelations;
+                return _tb_RoleToModule;
             }
         }
-        private ObjectSet<tb_Role_UserRelations> _tb_Role_UserRelations;
+        private ObjectSet<tb_RoleToModule> _tb_RoleToModule;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<tb_RoleToUser> tb_RoleToUser
+        {
+            get
+            {
+                if ((_tb_RoleToUser == null))
+                {
+                    _tb_RoleToUser = base.CreateObjectSet<tb_RoleToUser>("tb_RoleToUser");
+                }
+                return _tb_RoleToUser;
+            }
+        }
+        private ObjectSet<tb_RoleToUser> _tb_RoleToUser;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<tb_Sender> tb_Sender
+        {
+            get
+            {
+                if ((_tb_Sender == null))
+                {
+                    _tb_Sender = base.CreateObjectSet<tb_Sender>("tb_Sender");
+                }
+                return _tb_Sender;
+            }
+        }
+        private ObjectSet<tb_Sender> _tb_Sender;
     
         /// <summary>
         /// 没有元数据文档可用。
@@ -288,74 +319,10 @@ namespace CampusNerdy.Model
             }
         }
         private ObjectSet<tb_User> _tb_User;
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        public ObjectSet<tb_UserInfo> tb_UserInfo
-        {
-            get
-            {
-                if ((_tb_UserInfo == null))
-                {
-                    _tb_UserInfo = base.CreateObjectSet<tb_UserInfo>("tb_UserInfo");
-                }
-                return _tb_UserInfo;
-            }
-        }
-        private ObjectSet<tb_UserInfo> _tb_UserInfo;
 
         #endregion
 
         #region AddTo 方法
-    
-        /// <summary>
-        /// 用于向 areaInfo EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
-        /// </summary>
-        public void AddToareaInfo(areaInfo areaInfo)
-        {
-            base.AddObject("areaInfo", areaInfo);
-        }
-    
-        /// <summary>
-        /// 用于向 dealHistory EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
-        /// </summary>
-        public void AddTodealHistory(dealHistory dealHistory)
-        {
-            base.AddObject("dealHistory", dealHistory);
-        }
-    
-        /// <summary>
-        /// 用于向 dealRequest EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
-        /// </summary>
-        public void AddTodealRequest(dealRequest dealRequest)
-        {
-            base.AddObject("dealRequest", dealRequest);
-        }
-    
-        /// <summary>
-        /// 用于向 goodInfo_superMarket EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
-        /// </summary>
-        public void AddTogoodInfo_superMarket(goodInfo_superMarket goodInfo_superMarket)
-        {
-            base.AddObject("goodInfo_superMarket", goodInfo_superMarket);
-        }
-    
-        /// <summary>
-        /// 用于向 sender EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
-        /// </summary>
-        public void AddTosender(sender sender)
-        {
-            base.AddObject("sender", sender);
-        }
-    
-        /// <summary>
-        /// 用于向 senderForMarket EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
-        /// </summary>
-        public void AddTosenderForMarket(senderForMarket senderForMarket)
-        {
-            base.AddObject("senderForMarket", senderForMarket);
-        }
     
         /// <summary>
         /// 用于向 sysdiagrams EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
@@ -363,6 +330,30 @@ namespace CampusNerdy.Model
         public void AddTosysdiagrams(sysdiagrams sysdiagrams)
         {
             base.AddObject("sysdiagrams", sysdiagrams);
+        }
+    
+        /// <summary>
+        /// 用于向 tb_Area EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddTotb_Area(tb_Area tb_Area)
+        {
+            base.AddObject("tb_Area", tb_Area);
+        }
+    
+        /// <summary>
+        /// 用于向 tb_DealHistory EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddTotb_DealHistory(tb_DealHistory tb_DealHistory)
+        {
+            base.AddObject("tb_DealHistory", tb_DealHistory);
+        }
+    
+        /// <summary>
+        /// 用于向 tb_DealRequest EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddTotb_DealRequest(tb_DealRequest tb_DealRequest)
+        {
+            base.AddObject("tb_DealRequest", tb_DealRequest);
         }
     
         /// <summary>
@@ -374,11 +365,35 @@ namespace CampusNerdy.Model
         }
     
         /// <summary>
-        /// 用于向 tb_GoodInf EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// 用于向 tb_Good EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
         /// </summary>
-        public void AddTotb_GoodInf(tb_GoodInf tb_GoodInf)
+        public void AddTotb_Good(tb_Good tb_Good)
         {
-            base.AddObject("tb_GoodInf", tb_GoodInf);
+            base.AddObject("tb_Good", tb_Good);
+        }
+    
+        /// <summary>
+        /// 用于向 tb_GoodInfoToSuperMarket EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddTotb_GoodInfoToSuperMarket(tb_GoodInfoToSuperMarket tb_GoodInfoToSuperMarket)
+        {
+            base.AddObject("tb_GoodInfoToSuperMarket", tb_GoodInfoToSuperMarket);
+        }
+    
+        /// <summary>
+        /// 用于向 tb_Group EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddTotb_Group(tb_Group tb_Group)
+        {
+            base.AddObject("tb_Group", tb_Group);
+        }
+    
+        /// <summary>
+        /// 用于向 tb_Module EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddTotb_Module(tb_Module tb_Module)
+        {
+            base.AddObject("tb_Module", tb_Module);
         }
     
         /// <summary>
@@ -390,11 +405,27 @@ namespace CampusNerdy.Model
         }
     
         /// <summary>
-        /// 用于向 tb_Role_UserRelations EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// 用于向 tb_RoleToModule EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
         /// </summary>
-        public void AddTotb_Role_UserRelations(tb_Role_UserRelations tb_Role_UserRelations)
+        public void AddTotb_RoleToModule(tb_RoleToModule tb_RoleToModule)
         {
-            base.AddObject("tb_Role_UserRelations", tb_Role_UserRelations);
+            base.AddObject("tb_RoleToModule", tb_RoleToModule);
+        }
+    
+        /// <summary>
+        /// 用于向 tb_RoleToUser EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddTotb_RoleToUser(tb_RoleToUser tb_RoleToUser)
+        {
+            base.AddObject("tb_RoleToUser", tb_RoleToUser);
+        }
+    
+        /// <summary>
+        /// 用于向 tb_Sender EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddTotb_Sender(tb_Sender tb_Sender)
+        {
+            base.AddObject("tb_Sender", tb_Sender);
         }
     
         /// <summary>
@@ -412,14 +443,6 @@ namespace CampusNerdy.Model
         {
             base.AddObject("tb_User", tb_User);
         }
-    
-        /// <summary>
-        /// 用于向 tb_UserInfo EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
-        /// </summary>
-        public void AddTotb_UserInfo(tb_UserInfo tb_UserInfo)
-        {
-            base.AddObject("tb_UserInfo", tb_UserInfo);
-        }
 
         #endregion
 
@@ -428,1258 +451,6 @@ namespace CampusNerdy.Model
     #endregion
 
     #region 实体
-    
-    /// <summary>
-    /// 没有元数据文档可用。
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="CampusNerdyModel", Name="areaInfo")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class areaInfo : EntityObject
-    {
-        #region 工厂方法
-    
-        /// <summary>
-        /// 创建新的 areaInfo 对象。
-        /// </summary>
-        /// <param name="id">id 属性的初始值。</param>
-        public static areaInfo CreateareaInfo(global::System.Int32 id)
-        {
-            areaInfo areaInfo = new areaInfo();
-            areaInfo.id = id;
-            return areaInfo;
-        }
-
-        #endregion
-
-        #region 基元属性
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                if (_id != value)
-                {
-                    OnidChanging(value);
-                    ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("id");
-                    OnidChanged();
-                }
-            }
-        }
-        private global::System.Int32 _id;
-        partial void OnidChanging(global::System.Int32 value);
-        partial void OnidChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String areaID
-        {
-            get
-            {
-                return _areaID;
-            }
-            set
-            {
-                OnareaIDChanging(value);
-                ReportPropertyChanging("areaID");
-                _areaID = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("areaID");
-                OnareaIDChanged();
-            }
-        }
-        private global::System.String _areaID;
-        partial void OnareaIDChanging(global::System.String value);
-        partial void OnareaIDChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String areaInfo1
-        {
-            get
-            {
-                return _areaInfo1;
-            }
-            set
-            {
-                OnareaInfo1Changing(value);
-                ReportPropertyChanging("areaInfo1");
-                _areaInfo1 = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("areaInfo1");
-                OnareaInfo1Changed();
-            }
-        }
-        private global::System.String _areaInfo1;
-        partial void OnareaInfo1Changing(global::System.String value);
-        partial void OnareaInfo1Changed();
-
-        #endregion
-
-    
-        #region 导航属性
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_sender_areaInfo", "sender")]
-        public EntityCollection<sender> sender
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<sender>("CampusNerdyModel.FK_sender_areaInfo", "sender");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<sender>("CampusNerdyModel.FK_sender_areaInfo", "sender", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_tb_SuperMaket_areaInfo", "tb_SuperMaket")]
-        public EntityCollection<tb_SuperMaket> tb_SuperMaket
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tb_SuperMaket>("CampusNerdyModel.FK_tb_SuperMaket_areaInfo", "tb_SuperMaket");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tb_SuperMaket>("CampusNerdyModel.FK_tb_SuperMaket_areaInfo", "tb_SuperMaket", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_tb_SuperMaket_areaInfo1", "tb_SuperMaket")]
-        public EntityCollection<tb_SuperMaket> tb_SuperMaket1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tb_SuperMaket>("CampusNerdyModel.FK_tb_SuperMaket_areaInfo1", "tb_SuperMaket");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tb_SuperMaket>("CampusNerdyModel.FK_tb_SuperMaket_areaInfo1", "tb_SuperMaket", value);
-                }
-            }
-        }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// 没有元数据文档可用。
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="CampusNerdyModel", Name="dealHistory")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class dealHistory : EntityObject
-    {
-        #region 工厂方法
-    
-        /// <summary>
-        /// 创建新的 dealHistory 对象。
-        /// </summary>
-        /// <param name="id">id 属性的初始值。</param>
-        public static dealHistory CreatedealHistory(global::System.Int32 id)
-        {
-            dealHistory dealHistory = new dealHistory();
-            dealHistory.id = id;
-            return dealHistory;
-        }
-
-        #endregion
-
-        #region 基元属性
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                if (_id != value)
-                {
-                    OnidChanging(value);
-                    ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("id");
-                    OnidChanged();
-                }
-            }
-        }
-        private global::System.Int32 _id;
-        partial void OnidChanging(global::System.Int32 value);
-        partial void OnidChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String senderID
-        {
-            get
-            {
-                return _senderID;
-            }
-            set
-            {
-                OnsenderIDChanging(value);
-                ReportPropertyChanging("senderID");
-                _senderID = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("senderID");
-                OnsenderIDChanged();
-            }
-        }
-        private global::System.String _senderID;
-        partial void OnsenderIDChanging(global::System.String value);
-        partial void OnsenderIDChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> dealRequestID
-        {
-            get
-            {
-                return _dealRequestID;
-            }
-            set
-            {
-                OndealRequestIDChanging(value);
-                ReportPropertyChanging("dealRequestID");
-                _dealRequestID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("dealRequestID");
-                OndealRequestIDChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _dealRequestID;
-        partial void OndealRequestIDChanging(Nullable<global::System.Int32> value);
-        partial void OndealRequestIDChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> hasDone
-        {
-            get
-            {
-                return _hasDone;
-            }
-            set
-            {
-                OnhasDoneChanging(value);
-                ReportPropertyChanging("hasDone");
-                _hasDone = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("hasDone");
-                OnhasDoneChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _hasDone;
-        partial void OnhasDoneChanging(Nullable<global::System.Int32> value);
-        partial void OnhasDoneChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String hasDoneInfo
-        {
-            get
-            {
-                return _hasDoneInfo;
-            }
-            set
-            {
-                OnhasDoneInfoChanging(value);
-                ReportPropertyChanging("hasDoneInfo");
-                _hasDoneInfo = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("hasDoneInfo");
-                OnhasDoneInfoChanged();
-            }
-        }
-        private global::System.String _hasDoneInfo;
-        partial void OnhasDoneInfoChanging(global::System.String value);
-        partial void OnhasDoneInfoChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> singleMarketCount
-        {
-            get
-            {
-                return _singleMarketCount;
-            }
-            set
-            {
-                OnsingleMarketCountChanging(value);
-                ReportPropertyChanging("singleMarketCount");
-                _singleMarketCount = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("singleMarketCount");
-                OnsingleMarketCountChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _singleMarketCount;
-        partial void OnsingleMarketCountChanging(Nullable<global::System.Int32> value);
-        partial void OnsingleMarketCountChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> cash
-        {
-            get
-            {
-                return _cash;
-            }
-            set
-            {
-                OncashChanging(value);
-                ReportPropertyChanging("cash");
-                _cash = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("cash");
-                OncashChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _cash;
-        partial void OncashChanging(Nullable<global::System.Int32> value);
-        partial void OncashChanged();
-
-        #endregion
-
-    
-    }
-    
-    /// <summary>
-    /// 没有元数据文档可用。
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="CampusNerdyModel", Name="dealRequest")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class dealRequest : EntityObject
-    {
-        #region 工厂方法
-    
-        /// <summary>
-        /// 创建新的 dealRequest 对象。
-        /// </summary>
-        /// <param name="id">id 属性的初始值。</param>
-        public static dealRequest CreatedealRequest(global::System.Int32 id)
-        {
-            dealRequest dealRequest = new dealRequest();
-            dealRequest.id = id;
-            return dealRequest;
-        }
-
-        #endregion
-
-        #region 基元属性
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                if (_id != value)
-                {
-                    OnidChanging(value);
-                    ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("id");
-                    OnidChanged();
-                }
-            }
-        }
-        private global::System.Int32 _id;
-        partial void OnidChanging(global::System.Int32 value);
-        partial void OnidChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> requestGoodsID
-        {
-            get
-            {
-                return _requestGoodsID;
-            }
-            set
-            {
-                OnrequestGoodsIDChanging(value);
-                ReportPropertyChanging("requestGoodsID");
-                _requestGoodsID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("requestGoodsID");
-                OnrequestGoodsIDChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _requestGoodsID;
-        partial void OnrequestGoodsIDChanging(Nullable<global::System.Int32> value);
-        partial void OnrequestGoodsIDChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> cash
-        {
-            get
-            {
-                return _cash;
-            }
-            set
-            {
-                OncashChanging(value);
-                ReportPropertyChanging("cash");
-                _cash = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("cash");
-                OncashChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _cash;
-        partial void OncashChanging(Nullable<global::System.Int32> value);
-        partial void OncashChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> state
-        {
-            get
-            {
-                return _state;
-            }
-            set
-            {
-                OnstateChanging(value);
-                ReportPropertyChanging("state");
-                _state = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("state");
-                OnstateChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _state;
-        partial void OnstateChanging(Nullable<global::System.Int32> value);
-        partial void OnstateChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> senderID
-        {
-            get
-            {
-                return _senderID;
-            }
-            set
-            {
-                OnsenderIDChanging(value);
-                ReportPropertyChanging("senderID");
-                _senderID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("senderID");
-                OnsenderIDChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _senderID;
-        partial void OnsenderIDChanging(Nullable<global::System.Int32> value);
-        partial void OnsenderIDChanged();
-
-        #endregion
-
-    
-        #region 导航属性
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_dealRequest_goodInfo_superMarket", "goodInfo_superMarket")]
-        public goodInfo_superMarket goodInfo_superMarket
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<goodInfo_superMarket>("CampusNerdyModel.FK_dealRequest_goodInfo_superMarket", "goodInfo_superMarket").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<goodInfo_superMarket>("CampusNerdyModel.FK_dealRequest_goodInfo_superMarket", "goodInfo_superMarket").Value = value;
-            }
-        }
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<goodInfo_superMarket> goodInfo_superMarketReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<goodInfo_superMarket>("CampusNerdyModel.FK_dealRequest_goodInfo_superMarket", "goodInfo_superMarket");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<goodInfo_superMarket>("CampusNerdyModel.FK_dealRequest_goodInfo_superMarket", "goodInfo_superMarket", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_dealRequest_sender", "sender")]
-        public sender sender
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<sender>("CampusNerdyModel.FK_dealRequest_sender", "sender").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<sender>("CampusNerdyModel.FK_dealRequest_sender", "sender").Value = value;
-            }
-        }
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<sender> senderReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<sender>("CampusNerdyModel.FK_dealRequest_sender", "sender");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<sender>("CampusNerdyModel.FK_dealRequest_sender", "sender", value);
-                }
-            }
-        }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// 没有元数据文档可用。
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="CampusNerdyModel", Name="goodInfo_superMarket")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class goodInfo_superMarket : EntityObject
-    {
-        #region 工厂方法
-    
-        /// <summary>
-        /// 创建新的 goodInfo_superMarket 对象。
-        /// </summary>
-        /// <param name="id">id 属性的初始值。</param>
-        public static goodInfo_superMarket CreategoodInfo_superMarket(global::System.Int32 id)
-        {
-            goodInfo_superMarket goodInfo_superMarket = new goodInfo_superMarket();
-            goodInfo_superMarket.id = id;
-            return goodInfo_superMarket;
-        }
-
-        #endregion
-
-        #region 基元属性
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                if (_id != value)
-                {
-                    OnidChanging(value);
-                    ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("id");
-                    OnidChanged();
-                }
-            }
-        }
-        private global::System.Int32 _id;
-        partial void OnidChanging(global::System.Int32 value);
-        partial void OnidChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> goodInfoID
-        {
-            get
-            {
-                return _goodInfoID;
-            }
-            set
-            {
-                OngoodInfoIDChanging(value);
-                ReportPropertyChanging("goodInfoID");
-                _goodInfoID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("goodInfoID");
-                OngoodInfoIDChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _goodInfoID;
-        partial void OngoodInfoIDChanging(Nullable<global::System.Int32> value);
-        partial void OngoodInfoIDChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> superMarketID
-        {
-            get
-            {
-                return _superMarketID;
-            }
-            set
-            {
-                OnsuperMarketIDChanging(value);
-                ReportPropertyChanging("superMarketID");
-                _superMarketID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("superMarketID");
-                OnsuperMarketIDChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _superMarketID;
-        partial void OnsuperMarketIDChanging(Nullable<global::System.Int32> value);
-        partial void OnsuperMarketIDChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String isNormalEnum
-        {
-            get
-            {
-                return _isNormalEnum;
-            }
-            set
-            {
-                OnisNormalEnumChanging(value);
-                ReportPropertyChanging("isNormalEnum");
-                _isNormalEnum = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("isNormalEnum");
-                OnisNormalEnumChanged();
-            }
-        }
-        private global::System.String _isNormalEnum;
-        partial void OnisNormalEnumChanging(global::System.String value);
-        partial void OnisNormalEnumChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String abnormalInfo
-        {
-            get
-            {
-                return _abnormalInfo;
-            }
-            set
-            {
-                OnabnormalInfoChanging(value);
-                ReportPropertyChanging("abnormalInfo");
-                _abnormalInfo = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("abnormalInfo");
-                OnabnormalInfoChanged();
-            }
-        }
-        private global::System.String _abnormalInfo;
-        partial void OnabnormalInfoChanging(global::System.String value);
-        partial void OnabnormalInfoChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> isUse
-        {
-            get
-            {
-                return _isUse;
-            }
-            set
-            {
-                OnisUseChanging(value);
-                ReportPropertyChanging("isUse");
-                _isUse = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("isUse");
-                OnisUseChanged();
-            }
-        }
-        private Nullable<global::System.Boolean> _isUse;
-        partial void OnisUseChanging(Nullable<global::System.Boolean> value);
-        partial void OnisUseChanged();
-
-        #endregion
-
-    
-        #region 导航属性
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_dealRequest_goodInfo_superMarket", "dealRequest")]
-        public EntityCollection<dealRequest> dealRequest
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<dealRequest>("CampusNerdyModel.FK_dealRequest_goodInfo_superMarket", "dealRequest");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<dealRequest>("CampusNerdyModel.FK_dealRequest_goodInfo_superMarket", "dealRequest", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_goodInfo_superMarket_tb_GoodInf", "tb_GoodInf")]
-        public tb_GoodInf tb_GoodInf
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_GoodInf>("CampusNerdyModel.FK_goodInfo_superMarket_tb_GoodInf", "tb_GoodInf").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_GoodInf>("CampusNerdyModel.FK_goodInfo_superMarket_tb_GoodInf", "tb_GoodInf").Value = value;
-            }
-        }
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<tb_GoodInf> tb_GoodInfReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_GoodInf>("CampusNerdyModel.FK_goodInfo_superMarket_tb_GoodInf", "tb_GoodInf");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tb_GoodInf>("CampusNerdyModel.FK_goodInfo_superMarket_tb_GoodInf", "tb_GoodInf", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_goodInfo_superMarket_tb_SuperMaket", "tb_SuperMaket")]
-        public tb_SuperMaket tb_SuperMaket
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_SuperMaket>("CampusNerdyModel.FK_goodInfo_superMarket_tb_SuperMaket", "tb_SuperMaket").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_SuperMaket>("CampusNerdyModel.FK_goodInfo_superMarket_tb_SuperMaket", "tb_SuperMaket").Value = value;
-            }
-        }
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<tb_SuperMaket> tb_SuperMaketReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_SuperMaket>("CampusNerdyModel.FK_goodInfo_superMarket_tb_SuperMaket", "tb_SuperMaket");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tb_SuperMaket>("CampusNerdyModel.FK_goodInfo_superMarket_tb_SuperMaket", "tb_SuperMaket", value);
-                }
-            }
-        }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// 没有元数据文档可用。
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="CampusNerdyModel", Name="sender")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class sender : EntityObject
-    {
-        #region 工厂方法
-    
-        /// <summary>
-        /// 创建新的 sender 对象。
-        /// </summary>
-        /// <param name="id">id 属性的初始值。</param>
-        public static sender Createsender(global::System.Int32 id)
-        {
-            sender sender = new sender();
-            sender.id = id;
-            return sender;
-        }
-
-        #endregion
-
-        #region 基元属性
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                if (_id != value)
-                {
-                    OnidChanging(value);
-                    ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("id");
-                    OnidChanged();
-                }
-            }
-        }
-        private global::System.Int32 _id;
-        partial void OnidChanging(global::System.Int32 value);
-        partial void OnidChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String serderID_FromUser
-        {
-            get
-            {
-                return _serderID_FromUser;
-            }
-            set
-            {
-                OnserderID_FromUserChanging(value);
-                ReportPropertyChanging("serderID_FromUser");
-                _serderID_FromUser = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("serderID_FromUser");
-                OnserderID_FromUserChanged();
-            }
-        }
-        private global::System.String _serderID_FromUser;
-        partial void OnserderID_FromUserChanging(global::System.String value);
-        partial void OnserderID_FromUserChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> isUse
-        {
-            get
-            {
-                return _isUse;
-            }
-            set
-            {
-                OnisUseChanging(value);
-                ReportPropertyChanging("isUse");
-                _isUse = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("isUse");
-                OnisUseChanged();
-            }
-        }
-        private Nullable<global::System.Boolean> _isUse;
-        partial void OnisUseChanging(Nullable<global::System.Boolean> value);
-        partial void OnisUseChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> canSendNow
-        {
-            get
-            {
-                return _canSendNow;
-            }
-            set
-            {
-                OncanSendNowChanging(value);
-                ReportPropertyChanging("canSendNow");
-                _canSendNow = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("canSendNow");
-                OncanSendNowChanged();
-            }
-        }
-        private Nullable<global::System.Boolean> _canSendNow;
-        partial void OncanSendNowChanging(Nullable<global::System.Boolean> value);
-        partial void OncanSendNowChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> senderAreaID
-        {
-            get
-            {
-                return _senderAreaID;
-            }
-            set
-            {
-                OnsenderAreaIDChanging(value);
-                ReportPropertyChanging("senderAreaID");
-                _senderAreaID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("senderAreaID");
-                OnsenderAreaIDChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _senderAreaID;
-        partial void OnsenderAreaIDChanging(Nullable<global::System.Int32> value);
-        partial void OnsenderAreaIDChanged();
-
-        #endregion
-
-    
-        #region 导航属性
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_sender_areaInfo", "areaInfo")]
-        public areaInfo areaInfo
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<areaInfo>("CampusNerdyModel.FK_sender_areaInfo", "areaInfo").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<areaInfo>("CampusNerdyModel.FK_sender_areaInfo", "areaInfo").Value = value;
-            }
-        }
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<areaInfo> areaInfoReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<areaInfo>("CampusNerdyModel.FK_sender_areaInfo", "areaInfo");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<areaInfo>("CampusNerdyModel.FK_sender_areaInfo", "areaInfo", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_dealRequest_sender", "dealRequest")]
-        public EntityCollection<dealRequest> dealRequest
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<dealRequest>("CampusNerdyModel.FK_dealRequest_sender", "dealRequest");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<dealRequest>("CampusNerdyModel.FK_dealRequest_sender", "dealRequest", value);
-                }
-            }
-        }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// 没有元数据文档可用。
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="CampusNerdyModel", Name="senderForMarket")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class senderForMarket : EntityObject
-    {
-        #region 工厂方法
-    
-        /// <summary>
-        /// 创建新的 senderForMarket 对象。
-        /// </summary>
-        /// <param name="id">id 属性的初始值。</param>
-        public static senderForMarket CreatesenderForMarket(global::System.Int32 id)
-        {
-            senderForMarket senderForMarket = new senderForMarket();
-            senderForMarket.id = id;
-            return senderForMarket;
-        }
-
-        #endregion
-
-        #region 基元属性
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                if (_id != value)
-                {
-                    OnidChanging(value);
-                    ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("id");
-                    OnidChanged();
-                }
-            }
-        }
-        private global::System.Int32 _id;
-        partial void OnidChanging(global::System.Int32 value);
-        partial void OnidChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> senderID
-        {
-            get
-            {
-                return _senderID;
-            }
-            set
-            {
-                OnsenderIDChanging(value);
-                ReportPropertyChanging("senderID");
-                _senderID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("senderID");
-                OnsenderIDChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _senderID;
-        partial void OnsenderIDChanging(Nullable<global::System.Int32> value);
-        partial void OnsenderIDChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> supermarketID
-        {
-            get
-            {
-                return _supermarketID;
-            }
-            set
-            {
-                OnsupermarketIDChanging(value);
-                ReportPropertyChanging("supermarketID");
-                _supermarketID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("supermarketID");
-                OnsupermarketIDChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _supermarketID;
-        partial void OnsupermarketIDChanging(Nullable<global::System.Int32> value);
-        partial void OnsupermarketIDChanged();
-
-        #endregion
-
-    
-        #region 导航属性
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_senderForMarket_tb_SuperMaket", "tb_SuperMaket")]
-        public tb_SuperMaket tb_SuperMaket
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_SuperMaket>("CampusNerdyModel.FK_senderForMarket_tb_SuperMaket", "tb_SuperMaket").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_SuperMaket>("CampusNerdyModel.FK_senderForMarket_tb_SuperMaket", "tb_SuperMaket").Value = value;
-            }
-        }
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<tb_SuperMaket> tb_SuperMaketReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_SuperMaket>("CampusNerdyModel.FK_senderForMarket_tb_SuperMaket", "tb_SuperMaket");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tb_SuperMaket>("CampusNerdyModel.FK_senderForMarket_tb_SuperMaket", "tb_SuperMaket", value);
-                }
-            }
-        }
-
-        #endregion
-
-    }
     
     /// <summary>
     /// 没有元数据文档可用。
@@ -1841,22 +612,22 @@ namespace CampusNerdy.Model
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="CampusNerdyModel", Name="tb_Dictionary")]
+    [EdmEntityTypeAttribute(NamespaceName="CampusNerdyModel", Name="tb_Area")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class tb_Dictionary : EntityObject
+    public partial class tb_Area : EntityObject
     {
         #region 工厂方法
     
         /// <summary>
-        /// 创建新的 tb_Dictionary 对象。
+        /// 创建新的 tb_Area 对象。
         /// </summary>
-        /// <param name="id">id 属性的初始值。</param>
-        public static tb_Dictionary Createtb_Dictionary(global::System.Int32 id)
+        /// <param name="areaId">AreaId 属性的初始值。</param>
+        public static tb_Area Createtb_Area(global::System.String areaId)
         {
-            tb_Dictionary tb_Dictionary = new tb_Dictionary();
-            tb_Dictionary.id = id;
-            return tb_Dictionary;
+            tb_Area tb_Area = new tb_Area();
+            tb_Area.AreaId = areaId;
+            return tb_Area;
         }
 
         #endregion
@@ -1868,228 +639,75 @@ namespace CampusNerdy.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 id
+        public global::System.String AreaId
         {
             get
             {
-                return _id;
+                return _AreaId;
             }
             set
             {
-                if (_id != value)
+                if (_AreaId != value)
                 {
-                    OnidChanging(value);
-                    ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("id");
-                    OnidChanged();
+                    OnAreaIdChanging(value);
+                    ReportPropertyChanging("AreaId");
+                    _AreaId = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("AreaId");
+                    OnAreaIdChanged();
                 }
             }
         }
-        private global::System.Int32 _id;
-        partial void OnidChanging(global::System.Int32 value);
-        partial void OnidChanged();
+        private global::System.String _AreaId;
+        partial void OnAreaIdChanging(global::System.String value);
+        partial void OnAreaIdChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String type
+        public global::System.String AreaName
         {
             get
             {
-                return _type;
+                return _AreaName;
             }
             set
             {
-                OntypeChanging(value);
-                ReportPropertyChanging("type");
-                _type = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("type");
-                OntypeChanged();
+                OnAreaNameChanging(value);
+                ReportPropertyChanging("AreaName");
+                _AreaName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("AreaName");
+                OnAreaNameChanged();
             }
         }
-        private global::System.String _type;
-        partial void OntypeChanging(global::System.String value);
-        partial void OntypeChanged();
+        private global::System.String _AreaName;
+        partial void OnAreaNameChanging(global::System.String value);
+        partial void OnAreaNameChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String theKey
+        public global::System.String AreaInfo
         {
             get
             {
-                return _theKey;
+                return _AreaInfo;
             }
             set
             {
-                OntheKeyChanging(value);
-                ReportPropertyChanging("theKey");
-                _theKey = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("theKey");
-                OntheKeyChanged();
+                OnAreaInfoChanging(value);
+                ReportPropertyChanging("AreaInfo");
+                _AreaInfo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("AreaInfo");
+                OnAreaInfoChanged();
             }
         }
-        private global::System.String _theKey;
-        partial void OntheKeyChanging(global::System.String value);
-        partial void OntheKeyChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String theValue
-        {
-            get
-            {
-                return _theValue;
-            }
-            set
-            {
-                OntheValueChanging(value);
-                ReportPropertyChanging("theValue");
-                _theValue = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("theValue");
-                OntheValueChanged();
-            }
-        }
-        private global::System.String _theValue;
-        partial void OntheValueChanging(global::System.String value);
-        partial void OntheValueChanged();
-
-        #endregion
-
-    
-    }
-    
-    /// <summary>
-    /// 没有元数据文档可用。
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="CampusNerdyModel", Name="tb_GoodInf")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class tb_GoodInf : EntityObject
-    {
-        #region 工厂方法
-    
-        /// <summary>
-        /// 创建新的 tb_GoodInf 对象。
-        /// </summary>
-        /// <param name="id">id 属性的初始值。</param>
-        public static tb_GoodInf Createtb_GoodInf(global::System.Int32 id)
-        {
-            tb_GoodInf tb_GoodInf = new tb_GoodInf();
-            tb_GoodInf.id = id;
-            return tb_GoodInf;
-        }
-
-        #endregion
-
-        #region 基元属性
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                if (_id != value)
-                {
-                    OnidChanging(value);
-                    ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("id");
-                    OnidChanged();
-                }
-            }
-        }
-        private global::System.Int32 _id;
-        partial void OnidChanging(global::System.Int32 value);
-        partial void OnidChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String goodName
-        {
-            get
-            {
-                return _goodName;
-            }
-            set
-            {
-                OngoodNameChanging(value);
-                ReportPropertyChanging("goodName");
-                _goodName = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("goodName");
-                OngoodNameChanged();
-            }
-        }
-        private global::System.String _goodName;
-        partial void OngoodNameChanging(global::System.String value);
-        partial void OngoodNameChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String goodInfo
-        {
-            get
-            {
-                return _goodInfo;
-            }
-            set
-            {
-                OngoodInfoChanging(value);
-                ReportPropertyChanging("goodInfo");
-                _goodInfo = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("goodInfo");
-                OngoodInfoChanged();
-            }
-        }
-        private global::System.String _goodInfo;
-        partial void OngoodInfoChanging(global::System.String value);
-        partial void OngoodInfoChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> isUse
-        {
-            get
-            {
-                return _isUse;
-            }
-            set
-            {
-                OnisUseChanging(value);
-                ReportPropertyChanging("isUse");
-                _isUse = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("isUse");
-                OnisUseChanged();
-            }
-        }
-        private Nullable<global::System.Boolean> _isUse;
-        partial void OnisUseChanging(Nullable<global::System.Boolean> value);
-        partial void OnisUseChanged();
+        private global::System.String _AreaInfo;
+        partial void OnAreaInfoChanging(global::System.String value);
+        partial void OnAreaInfoChanged();
 
         #endregion
 
@@ -2102,18 +720,1457 @@ namespace CampusNerdy.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_goodInfo_superMarket_tb_GoodInf", "goodInfo_superMarket")]
-        public EntityCollection<goodInfo_superMarket> goodInfo_superMarket
+        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_areaInfo_tb_Group1", "tb_Group")]
+        public tb_Group tb_Group
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<goodInfo_superMarket>("CampusNerdyModel.FK_goodInfo_superMarket_tb_GoodInf", "goodInfo_superMarket");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_Group>("CampusNerdyModel.FK_areaInfo_tb_Group1", "tb_Group").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_Group>("CampusNerdyModel.FK_areaInfo_tb_Group1", "tb_Group").Value = value;
+            }
+        }
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tb_Group> tb_GroupReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_Group>("CampusNerdyModel.FK_areaInfo_tb_Group1", "tb_Group");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<goodInfo_superMarket>("CampusNerdyModel.FK_goodInfo_superMarket_tb_GoodInf", "goodInfo_superMarket", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tb_Group>("CampusNerdyModel.FK_areaInfo_tb_Group1", "tb_Group", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_tb_SuperMaket_tb_Area", "tb_SuperMaket")]
+        public EntityCollection<tb_SuperMaket> tb_SuperMaket
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tb_SuperMaket>("CampusNerdyModel.FK_tb_SuperMaket_tb_Area", "tb_SuperMaket");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tb_SuperMaket>("CampusNerdyModel.FK_tb_SuperMaket_tb_Area", "tb_SuperMaket", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="CampusNerdyModel", Name="tb_DealHistory")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tb_DealHistory : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 tb_DealHistory 对象。
+        /// </summary>
+        /// <param name="dealHId">DealHId 属性的初始值。</param>
+        public static tb_DealHistory Createtb_DealHistory(global::System.Int32 dealHId)
+        {
+            tb_DealHistory tb_DealHistory = new tb_DealHistory();
+            tb_DealHistory.DealHId = dealHId;
+            return tb_DealHistory;
+        }
+
+        #endregion
+
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 DealHId
+        {
+            get
+            {
+                return _DealHId;
+            }
+            set
+            {
+                if (_DealHId != value)
+                {
+                    OnDealHIdChanging(value);
+                    ReportPropertyChanging("DealHId");
+                    _DealHId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("DealHId");
+                    OnDealHIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _DealHId;
+        partial void OnDealHIdChanging(global::System.Int32 value);
+        partial void OnDealHIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SenderID
+        {
+            get
+            {
+                return _SenderID;
+            }
+            set
+            {
+                OnSenderIDChanging(value);
+                ReportPropertyChanging("SenderID");
+                _SenderID = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SenderID");
+                OnSenderIDChanged();
+            }
+        }
+        private global::System.String _SenderID;
+        partial void OnSenderIDChanging(global::System.String value);
+        partial void OnSenderIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> DealRequestID
+        {
+            get
+            {
+                return _DealRequestID;
+            }
+            set
+            {
+                OnDealRequestIDChanging(value);
+                ReportPropertyChanging("DealRequestID");
+                _DealRequestID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DealRequestID");
+                OnDealRequestIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _DealRequestID;
+        partial void OnDealRequestIDChanging(Nullable<global::System.Int32> value);
+        partial void OnDealRequestIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> HasDone
+        {
+            get
+            {
+                return _HasDone;
+            }
+            set
+            {
+                OnHasDoneChanging(value);
+                ReportPropertyChanging("HasDone");
+                _HasDone = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HasDone");
+                OnHasDoneChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _HasDone;
+        partial void OnHasDoneChanging(Nullable<global::System.Int32> value);
+        partial void OnHasDoneChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String HasDoneInfo
+        {
+            get
+            {
+                return _HasDoneInfo;
+            }
+            set
+            {
+                OnHasDoneInfoChanging(value);
+                ReportPropertyChanging("HasDoneInfo");
+                _HasDoneInfo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("HasDoneInfo");
+                OnHasDoneInfoChanged();
+            }
+        }
+        private global::System.String _HasDoneInfo;
+        partial void OnHasDoneInfoChanging(global::System.String value);
+        partial void OnHasDoneInfoChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SingleMarketCount
+        {
+            get
+            {
+                return _SingleMarketCount;
+            }
+            set
+            {
+                OnSingleMarketCountChanging(value);
+                ReportPropertyChanging("SingleMarketCount");
+                _SingleMarketCount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SingleMarketCount");
+                OnSingleMarketCountChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _SingleMarketCount;
+        partial void OnSingleMarketCountChanging(Nullable<global::System.Int32> value);
+        partial void OnSingleMarketCountChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Cash
+        {
+            get
+            {
+                return _Cash;
+            }
+            set
+            {
+                OnCashChanging(value);
+                ReportPropertyChanging("Cash");
+                _Cash = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Cash");
+                OnCashChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Cash;
+        partial void OnCashChanging(Nullable<global::System.Decimal> value);
+        partial void OnCashChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="CampusNerdyModel", Name="tb_DealRequest")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tb_DealRequest : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 tb_DealRequest 对象。
+        /// </summary>
+        /// <param name="dealRId">DealRId 属性的初始值。</param>
+        public static tb_DealRequest Createtb_DealRequest(global::System.Int32 dealRId)
+        {
+            tb_DealRequest tb_DealRequest = new tb_DealRequest();
+            tb_DealRequest.DealRId = dealRId;
+            return tb_DealRequest;
+        }
+
+        #endregion
+
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 DealRId
+        {
+            get
+            {
+                return _DealRId;
+            }
+            set
+            {
+                if (_DealRId != value)
+                {
+                    OnDealRIdChanging(value);
+                    ReportPropertyChanging("DealRId");
+                    _DealRId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("DealRId");
+                    OnDealRIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _DealRId;
+        partial void OnDealRIdChanging(global::System.Int32 value);
+        partial void OnDealRIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
+            }
+        }
+        private global::System.String _UserId;
+        partial void OnUserIdChanging(global::System.String value);
+        partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> RequestGoodsID
+        {
+            get
+            {
+                return _RequestGoodsID;
+            }
+            set
+            {
+                OnRequestGoodsIDChanging(value);
+                ReportPropertyChanging("RequestGoodsID");
+                _RequestGoodsID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("RequestGoodsID");
+                OnRequestGoodsIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _RequestGoodsID;
+        partial void OnRequestGoodsIDChanging(Nullable<global::System.Int32> value);
+        partial void OnRequestGoodsIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Cash
+        {
+            get
+            {
+                return _Cash;
+            }
+            set
+            {
+                OnCashChanging(value);
+                ReportPropertyChanging("Cash");
+                _Cash = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Cash");
+                OnCashChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Cash;
+        partial void OnCashChanging(Nullable<global::System.Int32> value);
+        partial void OnCashChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> State
+        {
+            get
+            {
+                return _State;
+            }
+            set
+            {
+                OnStateChanging(value);
+                ReportPropertyChanging("State");
+                _State = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("State");
+                OnStateChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _State;
+        partial void OnStateChanging(Nullable<global::System.Int32> value);
+        partial void OnStateChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String GroupId
+        {
+            get
+            {
+                return _GroupId;
+            }
+            set
+            {
+                OnGroupIdChanging(value);
+                ReportPropertyChanging("GroupId");
+                _GroupId = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("GroupId");
+                OnGroupIdChanged();
+            }
+        }
+        private global::System.String _GroupId;
+        partial void OnGroupIdChanging(global::System.String value);
+        partial void OnGroupIdChanged();
+
+        #endregion
+
+    
+        #region 导航属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_dealRequest_goodInfo_superMarket", "tb_GoodInfoToSuperMarket")]
+        public tb_GoodInfoToSuperMarket tb_GoodInfoToSuperMarket
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_GoodInfoToSuperMarket>("CampusNerdyModel.FK_dealRequest_goodInfo_superMarket", "tb_GoodInfoToSuperMarket").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_GoodInfoToSuperMarket>("CampusNerdyModel.FK_dealRequest_goodInfo_superMarket", "tb_GoodInfoToSuperMarket").Value = value;
+            }
+        }
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tb_GoodInfoToSuperMarket> tb_GoodInfoToSuperMarketReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_GoodInfoToSuperMarket>("CampusNerdyModel.FK_dealRequest_goodInfo_superMarket", "tb_GoodInfoToSuperMarket");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tb_GoodInfoToSuperMarket>("CampusNerdyModel.FK_dealRequest_goodInfo_superMarket", "tb_GoodInfoToSuperMarket", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="CampusNerdyModel", Name="tb_Dictionary")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tb_Dictionary : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 tb_Dictionary 对象。
+        /// </summary>
+        /// <param name="dicId">DicId 属性的初始值。</param>
+        public static tb_Dictionary Createtb_Dictionary(global::System.Int32 dicId)
+        {
+            tb_Dictionary tb_Dictionary = new tb_Dictionary();
+            tb_Dictionary.DicId = dicId;
+            return tb_Dictionary;
+        }
+
+        #endregion
+
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 DicId
+        {
+            get
+            {
+                return _DicId;
+            }
+            set
+            {
+                if (_DicId != value)
+                {
+                    OnDicIdChanging(value);
+                    ReportPropertyChanging("DicId");
+                    _DicId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("DicId");
+                    OnDicIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _DicId;
+        partial void OnDicIdChanging(global::System.Int32 value);
+        partial void OnDicIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String dicType
+        {
+            get
+            {
+                return _dicType;
+            }
+            set
+            {
+                OndicTypeChanging(value);
+                ReportPropertyChanging("dicType");
+                _dicType = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("dicType");
+                OndicTypeChanged();
+            }
+        }
+        private global::System.String _dicType;
+        partial void OndicTypeChanging(global::System.String value);
+        partial void OndicTypeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String dicKey
+        {
+            get
+            {
+                return _dicKey;
+            }
+            set
+            {
+                OndicKeyChanging(value);
+                ReportPropertyChanging("dicKey");
+                _dicKey = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("dicKey");
+                OndicKeyChanged();
+            }
+        }
+        private global::System.String _dicKey;
+        partial void OndicKeyChanging(global::System.String value);
+        partial void OndicKeyChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String dicValue
+        {
+            get
+            {
+                return _dicValue;
+            }
+            set
+            {
+                OndicValueChanging(value);
+                ReportPropertyChanging("dicValue");
+                _dicValue = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("dicValue");
+                OndicValueChanged();
+            }
+        }
+        private global::System.String _dicValue;
+        partial void OndicValueChanging(global::System.String value);
+        partial void OndicValueChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String dicPreKey
+        {
+            get
+            {
+                return _dicPreKey;
+            }
+            set
+            {
+                OndicPreKeyChanging(value);
+                ReportPropertyChanging("dicPreKey");
+                _dicPreKey = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("dicPreKey");
+                OndicPreKeyChanged();
+            }
+        }
+        private global::System.String _dicPreKey;
+        partial void OndicPreKeyChanging(global::System.String value);
+        partial void OndicPreKeyChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String dicRemark
+        {
+            get
+            {
+                return _dicRemark;
+            }
+            set
+            {
+                OndicRemarkChanging(value);
+                ReportPropertyChanging("dicRemark");
+                _dicRemark = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("dicRemark");
+                OndicRemarkChanged();
+            }
+        }
+        private global::System.String _dicRemark;
+        partial void OndicRemarkChanging(global::System.String value);
+        partial void OndicRemarkChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="CampusNerdyModel", Name="tb_Good")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tb_Good : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 tb_Good 对象。
+        /// </summary>
+        /// <param name="goodId">GoodId 属性的初始值。</param>
+        public static tb_Good Createtb_Good(global::System.Int32 goodId)
+        {
+            tb_Good tb_Good = new tb_Good();
+            tb_Good.GoodId = goodId;
+            return tb_Good;
+        }
+
+        #endregion
+
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 GoodId
+        {
+            get
+            {
+                return _GoodId;
+            }
+            set
+            {
+                if (_GoodId != value)
+                {
+                    OnGoodIdChanging(value);
+                    ReportPropertyChanging("GoodId");
+                    _GoodId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("GoodId");
+                    OnGoodIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _GoodId;
+        partial void OnGoodIdChanging(global::System.Int32 value);
+        partial void OnGoodIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String GoodName
+        {
+            get
+            {
+                return _GoodName;
+            }
+            set
+            {
+                OnGoodNameChanging(value);
+                ReportPropertyChanging("GoodName");
+                _GoodName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("GoodName");
+                OnGoodNameChanged();
+            }
+        }
+        private global::System.String _GoodName;
+        partial void OnGoodNameChanging(global::System.String value);
+        partial void OnGoodNameChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String GoodDescription
+        {
+            get
+            {
+                return _GoodDescription;
+            }
+            set
+            {
+                OnGoodDescriptionChanging(value);
+                ReportPropertyChanging("GoodDescription");
+                _GoodDescription = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("GoodDescription");
+                OnGoodDescriptionChanged();
+            }
+        }
+        private global::System.String _GoodDescription;
+        partial void OnGoodDescriptionChanging(global::System.String value);
+        partial void OnGoodDescriptionChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsUse
+        {
+            get
+            {
+                return _IsUse;
+            }
+            set
+            {
+                OnIsUseChanging(value);
+                ReportPropertyChanging("IsUse");
+                _IsUse = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsUse");
+                OnIsUseChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsUse;
+        partial void OnIsUseChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsUseChanged();
+
+        #endregion
+
+    
+        #region 导航属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_goodInfo_superMarket_tb_GoodInf", "tb_GoodInfoToSuperMarket")]
+        public EntityCollection<tb_GoodInfoToSuperMarket> tb_GoodInfoToSuperMarket
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tb_GoodInfoToSuperMarket>("CampusNerdyModel.FK_goodInfo_superMarket_tb_GoodInf", "tb_GoodInfoToSuperMarket");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tb_GoodInfoToSuperMarket>("CampusNerdyModel.FK_goodInfo_superMarket_tb_GoodInf", "tb_GoodInfoToSuperMarket", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="CampusNerdyModel", Name="tb_GoodInfoToSuperMarket")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tb_GoodInfoToSuperMarket : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 tb_GoodInfoToSuperMarket 对象。
+        /// </summary>
+        /// <param name="goodSuperId">GoodSuperId 属性的初始值。</param>
+        public static tb_GoodInfoToSuperMarket Createtb_GoodInfoToSuperMarket(global::System.Int32 goodSuperId)
+        {
+            tb_GoodInfoToSuperMarket tb_GoodInfoToSuperMarket = new tb_GoodInfoToSuperMarket();
+            tb_GoodInfoToSuperMarket.GoodSuperId = goodSuperId;
+            return tb_GoodInfoToSuperMarket;
+        }
+
+        #endregion
+
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 GoodSuperId
+        {
+            get
+            {
+                return _GoodSuperId;
+            }
+            set
+            {
+                if (_GoodSuperId != value)
+                {
+                    OnGoodSuperIdChanging(value);
+                    ReportPropertyChanging("GoodSuperId");
+                    _GoodSuperId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("GoodSuperId");
+                    OnGoodSuperIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _GoodSuperId;
+        partial void OnGoodSuperIdChanging(global::System.Int32 value);
+        partial void OnGoodSuperIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> GoodId
+        {
+            get
+            {
+                return _GoodId;
+            }
+            set
+            {
+                OnGoodIdChanging(value);
+                ReportPropertyChanging("GoodId");
+                _GoodId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("GoodId");
+                OnGoodIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _GoodId;
+        partial void OnGoodIdChanging(Nullable<global::System.Int32> value);
+        partial void OnGoodIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SuperMarketId
+        {
+            get
+            {
+                return _SuperMarketId;
+            }
+            set
+            {
+                OnSuperMarketIdChanging(value);
+                ReportPropertyChanging("SuperMarketId");
+                _SuperMarketId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SuperMarketId");
+                OnSuperMarketIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _SuperMarketId;
+        partial void OnSuperMarketIdChanging(Nullable<global::System.Int32> value);
+        partial void OnSuperMarketIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Cash
+        {
+            get
+            {
+                return _Cash;
+            }
+            set
+            {
+                OnCashChanging(value);
+                ReportPropertyChanging("Cash");
+                _Cash = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Cash");
+                OnCashChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Cash;
+        partial void OnCashChanging(Nullable<global::System.Int32> value);
+        partial void OnCashChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String IsNormalEnum
+        {
+            get
+            {
+                return _IsNormalEnum;
+            }
+            set
+            {
+                OnIsNormalEnumChanging(value);
+                ReportPropertyChanging("IsNormalEnum");
+                _IsNormalEnum = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("IsNormalEnum");
+                OnIsNormalEnumChanged();
+            }
+        }
+        private global::System.String _IsNormalEnum;
+        partial void OnIsNormalEnumChanging(global::System.String value);
+        partial void OnIsNormalEnumChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String AbnormalInfo
+        {
+            get
+            {
+                return _AbnormalInfo;
+            }
+            set
+            {
+                OnAbnormalInfoChanging(value);
+                ReportPropertyChanging("AbnormalInfo");
+                _AbnormalInfo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("AbnormalInfo");
+                OnAbnormalInfoChanged();
+            }
+        }
+        private global::System.String _AbnormalInfo;
+        partial void OnAbnormalInfoChanging(global::System.String value);
+        partial void OnAbnormalInfoChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsUse
+        {
+            get
+            {
+                return _IsUse;
+            }
+            set
+            {
+                OnIsUseChanging(value);
+                ReportPropertyChanging("IsUse");
+                _IsUse = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsUse");
+                OnIsUseChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsUse;
+        partial void OnIsUseChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsUseChanged();
+
+        #endregion
+
+    
+        #region 导航属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_dealRequest_goodInfo_superMarket", "tb_DealRequest")]
+        public EntityCollection<tb_DealRequest> tb_DealRequest
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tb_DealRequest>("CampusNerdyModel.FK_dealRequest_goodInfo_superMarket", "tb_DealRequest");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tb_DealRequest>("CampusNerdyModel.FK_dealRequest_goodInfo_superMarket", "tb_DealRequest", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_goodInfo_superMarket_tb_GoodInf", "tb_Good")]
+        public tb_Good tb_Good
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_Good>("CampusNerdyModel.FK_goodInfo_superMarket_tb_GoodInf", "tb_Good").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_Good>("CampusNerdyModel.FK_goodInfo_superMarket_tb_GoodInf", "tb_Good").Value = value;
+            }
+        }
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tb_Good> tb_GoodReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_Good>("CampusNerdyModel.FK_goodInfo_superMarket_tb_GoodInf", "tb_Good");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tb_Good>("CampusNerdyModel.FK_goodInfo_superMarket_tb_GoodInf", "tb_Good", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_goodInfo_superMarket_tb_SuperMaket", "tb_SuperMaket")]
+        public tb_SuperMaket tb_SuperMaket
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_SuperMaket>("CampusNerdyModel.FK_goodInfo_superMarket_tb_SuperMaket", "tb_SuperMaket").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_SuperMaket>("CampusNerdyModel.FK_goodInfo_superMarket_tb_SuperMaket", "tb_SuperMaket").Value = value;
+            }
+        }
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tb_SuperMaket> tb_SuperMaketReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_SuperMaket>("CampusNerdyModel.FK_goodInfo_superMarket_tb_SuperMaket", "tb_SuperMaket");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tb_SuperMaket>("CampusNerdyModel.FK_goodInfo_superMarket_tb_SuperMaket", "tb_SuperMaket", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="CampusNerdyModel", Name="tb_Group")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tb_Group : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 tb_Group 对象。
+        /// </summary>
+        /// <param name="groupId">GroupId 属性的初始值。</param>
+        public static tb_Group Createtb_Group(global::System.String groupId)
+        {
+            tb_Group tb_Group = new tb_Group();
+            tb_Group.GroupId = groupId;
+            return tb_Group;
+        }
+
+        #endregion
+
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String GroupId
+        {
+            get
+            {
+                return _GroupId;
+            }
+            set
+            {
+                if (_GroupId != value)
+                {
+                    OnGroupIdChanging(value);
+                    ReportPropertyChanging("GroupId");
+                    _GroupId = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("GroupId");
+                    OnGroupIdChanged();
+                }
+            }
+        }
+        private global::System.String _GroupId;
+        partial void OnGroupIdChanging(global::System.String value);
+        partial void OnGroupIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String GroupName
+        {
+            get
+            {
+                return _GroupName;
+            }
+            set
+            {
+                OnGroupNameChanging(value);
+                ReportPropertyChanging("GroupName");
+                _GroupName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("GroupName");
+                OnGroupNameChanged();
+            }
+        }
+        private global::System.String _GroupName;
+        partial void OnGroupNameChanging(global::System.String value);
+        partial void OnGroupNameChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String AreaID
+        {
+            get
+            {
+                return _AreaID;
+            }
+            set
+            {
+                OnAreaIDChanging(value);
+                ReportPropertyChanging("AreaID");
+                _AreaID = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("AreaID");
+                OnAreaIDChanged();
+            }
+        }
+        private global::System.String _AreaID;
+        partial void OnAreaIDChanging(global::System.String value);
+        partial void OnAreaIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LeaderId
+        {
+            get
+            {
+                return _LeaderId;
+            }
+            set
+            {
+                OnLeaderIdChanging(value);
+                ReportPropertyChanging("LeaderId");
+                _LeaderId = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LeaderId");
+                OnLeaderIdChanged();
+            }
+        }
+        private global::System.String _LeaderId;
+        partial void OnLeaderIdChanging(global::System.String value);
+        partial void OnLeaderIdChanged();
+
+        #endregion
+
+    
+        #region 导航属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_areaInfo_tb_Group1", "tb_Area")]
+        public tb_Area tb_Area
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_Area>("CampusNerdyModel.FK_areaInfo_tb_Group1", "tb_Area").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_Area>("CampusNerdyModel.FK_areaInfo_tb_Group1", "tb_Area").Value = value;
+            }
+        }
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tb_Area> tb_AreaReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_Area>("CampusNerdyModel.FK_areaInfo_tb_Group1", "tb_Area");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tb_Area>("CampusNerdyModel.FK_areaInfo_tb_Group1", "tb_Area", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_sender_tb_Group", "tb_Sender")]
+        public EntityCollection<tb_Sender> tb_Sender
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tb_Sender>("CampusNerdyModel.FK_sender_tb_Group", "tb_Sender");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tb_Sender>("CampusNerdyModel.FK_sender_tb_Group", "tb_Sender", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_tb_SuperMaket_tb_Group", "tb_SuperMaket")]
+        public EntityCollection<tb_SuperMaket> tb_SuperMaket
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tb_SuperMaket>("CampusNerdyModel.FK_tb_SuperMaket_tb_Group", "tb_SuperMaket");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tb_SuperMaket>("CampusNerdyModel.FK_tb_SuperMaket_tb_Group", "tb_SuperMaket", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="CampusNerdyModel", Name="tb_Module")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tb_Module : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 tb_Module 对象。
+        /// </summary>
+        /// <param name="moduleId">ModuleId 属性的初始值。</param>
+        public static tb_Module Createtb_Module(global::System.String moduleId)
+        {
+            tb_Module tb_Module = new tb_Module();
+            tb_Module.ModuleId = moduleId;
+            return tb_Module;
+        }
+
+        #endregion
+
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ModuleId
+        {
+            get
+            {
+                return _ModuleId;
+            }
+            set
+            {
+                if (_ModuleId != value)
+                {
+                    OnModuleIdChanging(value);
+                    ReportPropertyChanging("ModuleId");
+                    _ModuleId = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("ModuleId");
+                    OnModuleIdChanged();
+                }
+            }
+        }
+        private global::System.String _ModuleId;
+        partial void OnModuleIdChanging(global::System.String value);
+        partial void OnModuleIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ModuleName
+        {
+            get
+            {
+                return _ModuleName;
+            }
+            set
+            {
+                OnModuleNameChanging(value);
+                ReportPropertyChanging("ModuleName");
+                _ModuleName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ModuleName");
+                OnModuleNameChanged();
+            }
+        }
+        private global::System.String _ModuleName;
+        partial void OnModuleNameChanging(global::System.String value);
+        partial void OnModuleNameChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String PagePath
+        {
+            get
+            {
+                return _PagePath;
+            }
+            set
+            {
+                OnPagePathChanging(value);
+                ReportPropertyChanging("PagePath");
+                _PagePath = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("PagePath");
+                OnPagePathChanged();
+            }
+        }
+        private global::System.String _PagePath;
+        partial void OnPagePathChanging(global::System.String value);
+        partial void OnPagePathChanged();
+
+        #endregion
+
+    
+        #region 导航属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_tb_Role_ModuleRelation_tb_Module1", "tb_RoleToModule")]
+        public EntityCollection<tb_RoleToModule> tb_RoleToModule
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tb_RoleToModule>("CampusNerdyModel.FK_tb_Role_ModuleRelation_tb_Module1", "tb_RoleToModule");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tb_RoleToModule>("CampusNerdyModel.FK_tb_Role_ModuleRelation_tb_Module1", "tb_RoleToModule", value);
                 }
             }
         }
@@ -2135,11 +2192,11 @@ namespace CampusNerdy.Model
         /// <summary>
         /// 创建新的 tb_Role 对象。
         /// </summary>
-        /// <param name="roleID">roleID 属性的初始值。</param>
+        /// <param name="roleID">RoleID 属性的初始值。</param>
         public static tb_Role Createtb_Role(global::System.String roleID)
         {
             tb_Role tb_Role = new tb_Role();
-            tb_Role.roleID = roleID;
+            tb_Role.RoleID = roleID;
             return tb_Role;
         }
 
@@ -2152,51 +2209,75 @@ namespace CampusNerdy.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String roleID
+        public global::System.String RoleID
         {
             get
             {
-                return _roleID;
+                return _RoleID;
             }
             set
             {
-                if (_roleID != value)
+                if (_RoleID != value)
                 {
-                    OnroleIDChanging(value);
-                    ReportPropertyChanging("roleID");
-                    _roleID = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("roleID");
-                    OnroleIDChanged();
+                    OnRoleIDChanging(value);
+                    ReportPropertyChanging("RoleID");
+                    _RoleID = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("RoleID");
+                    OnRoleIDChanged();
                 }
             }
         }
-        private global::System.String _roleID;
-        partial void OnroleIDChanging(global::System.String value);
-        partial void OnroleIDChanged();
+        private global::System.String _RoleID;
+        partial void OnRoleIDChanging(global::System.String value);
+        partial void OnRoleIDChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String roleName
+        public global::System.String RoleName
         {
             get
             {
-                return _roleName;
+                return _RoleName;
             }
             set
             {
-                OnroleNameChanging(value);
-                ReportPropertyChanging("roleName");
-                _roleName = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("roleName");
-                OnroleNameChanged();
+                OnRoleNameChanging(value);
+                ReportPropertyChanging("RoleName");
+                _RoleName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("RoleName");
+                OnRoleNameChanged();
             }
         }
-        private global::System.String _roleName;
-        partial void OnroleNameChanging(global::System.String value);
-        partial void OnroleNameChanged();
+        private global::System.String _RoleName;
+        partial void OnRoleNameChanging(global::System.String value);
+        partial void OnRoleNameChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String RoleType
+        {
+            get
+            {
+                return _RoleType;
+            }
+            set
+            {
+                OnRoleTypeChanging(value);
+                ReportPropertyChanging("RoleType");
+                _RoleType = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("RoleType");
+                OnRoleTypeChanged();
+            }
+        }
+        private global::System.String _RoleType;
+        partial void OnRoleTypeChanging(global::System.String value);
+        partial void OnRoleTypeChanged();
 
         #endregion
 
@@ -2209,18 +2290,18 @@ namespace CampusNerdy.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_tb_Role_UserRelations_tb_Role", "tb_Role_UserRelations")]
-        public EntityCollection<tb_Role_UserRelations> tb_Role_UserRelations
+        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_tb_Role_UserRelations_tb_Role", "tb_RoleToUser")]
+        public EntityCollection<tb_RoleToUser> tb_RoleToUser
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tb_Role_UserRelations>("CampusNerdyModel.FK_tb_Role_UserRelations_tb_Role", "tb_Role_UserRelations");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tb_RoleToUser>("CampusNerdyModel.FK_tb_Role_UserRelations_tb_Role", "tb_RoleToUser");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tb_Role_UserRelations>("CampusNerdyModel.FK_tb_Role_UserRelations_tb_Role", "tb_Role_UserRelations", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tb_RoleToUser>("CampusNerdyModel.FK_tb_Role_UserRelations_tb_Role", "tb_RoleToUser", value);
                 }
             }
         }
@@ -2232,22 +2313,22 @@ namespace CampusNerdy.Model
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="CampusNerdyModel", Name="tb_Role_UserRelations")]
+    [EdmEntityTypeAttribute(NamespaceName="CampusNerdyModel", Name="tb_RoleToModule")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class tb_Role_UserRelations : EntityObject
+    public partial class tb_RoleToModule : EntityObject
     {
         #region 工厂方法
     
         /// <summary>
-        /// 创建新的 tb_Role_UserRelations 对象。
+        /// 创建新的 tb_RoleToModule 对象。
         /// </summary>
-        /// <param name="id">id 属性的初始值。</param>
-        public static tb_Role_UserRelations Createtb_Role_UserRelations(global::System.Int32 id)
+        /// <param name="roleModuleId">RoleModuleId 属性的初始值。</param>
+        public static tb_RoleToModule Createtb_RoleToModule(global::System.Int32 roleModuleId)
         {
-            tb_Role_UserRelations tb_Role_UserRelations = new tb_Role_UserRelations();
-            tb_Role_UserRelations.id = id;
-            return tb_Role_UserRelations;
+            tb_RoleToModule tb_RoleToModule = new tb_RoleToModule();
+            tb_RoleToModule.RoleModuleId = roleModuleId;
+            return tb_RoleToModule;
         }
 
         #endregion
@@ -2259,75 +2340,222 @@ namespace CampusNerdy.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 id
+        public global::System.Int32 RoleModuleId
         {
             get
             {
-                return _id;
+                return _RoleModuleId;
             }
             set
             {
-                if (_id != value)
+                if (_RoleModuleId != value)
                 {
-                    OnidChanging(value);
-                    ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("id");
-                    OnidChanged();
+                    OnRoleModuleIdChanging(value);
+                    ReportPropertyChanging("RoleModuleId");
+                    _RoleModuleId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("RoleModuleId");
+                    OnRoleModuleIdChanged();
                 }
             }
         }
-        private global::System.Int32 _id;
-        partial void OnidChanging(global::System.Int32 value);
-        partial void OnidChanged();
+        private global::System.Int32 _RoleModuleId;
+        partial void OnRoleModuleIdChanging(global::System.Int32 value);
+        partial void OnRoleModuleIdChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String roleID
+        public global::System.String ModuleId
         {
             get
             {
-                return _roleID;
+                return _ModuleId;
             }
             set
             {
-                OnroleIDChanging(value);
-                ReportPropertyChanging("roleID");
-                _roleID = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("roleID");
-                OnroleIDChanged();
+                OnModuleIdChanging(value);
+                ReportPropertyChanging("ModuleId");
+                _ModuleId = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ModuleId");
+                OnModuleIdChanged();
             }
         }
-        private global::System.String _roleID;
-        partial void OnroleIDChanging(global::System.String value);
-        partial void OnroleIDChanged();
+        private global::System.String _ModuleId;
+        partial void OnModuleIdChanging(global::System.String value);
+        partial void OnModuleIdChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String userID
+        public global::System.String RoleType
         {
             get
             {
-                return _userID;
+                return _RoleType;
             }
             set
             {
-                OnuserIDChanging(value);
-                ReportPropertyChanging("userID");
-                _userID = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("userID");
-                OnuserIDChanged();
+                OnRoleTypeChanging(value);
+                ReportPropertyChanging("RoleType");
+                _RoleType = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("RoleType");
+                OnRoleTypeChanged();
             }
         }
-        private global::System.String _userID;
-        partial void OnuserIDChanging(global::System.String value);
-        partial void OnuserIDChanged();
+        private global::System.String _RoleType;
+        partial void OnRoleTypeChanging(global::System.String value);
+        partial void OnRoleTypeChanged();
+
+        #endregion
+
+    
+        #region 导航属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_tb_Role_ModuleRelation_tb_Module1", "tb_Module")]
+        public tb_Module tb_Module
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_Module>("CampusNerdyModel.FK_tb_Role_ModuleRelation_tb_Module1", "tb_Module").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_Module>("CampusNerdyModel.FK_tb_Role_ModuleRelation_tb_Module1", "tb_Module").Value = value;
+            }
+        }
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tb_Module> tb_ModuleReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_Module>("CampusNerdyModel.FK_tb_Role_ModuleRelation_tb_Module1", "tb_Module");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tb_Module>("CampusNerdyModel.FK_tb_Role_ModuleRelation_tb_Module1", "tb_Module", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="CampusNerdyModel", Name="tb_RoleToUser")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tb_RoleToUser : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 tb_RoleToUser 对象。
+        /// </summary>
+        /// <param name="roleUserId">RoleUserId 属性的初始值。</param>
+        public static tb_RoleToUser Createtb_RoleToUser(global::System.Int32 roleUserId)
+        {
+            tb_RoleToUser tb_RoleToUser = new tb_RoleToUser();
+            tb_RoleToUser.RoleUserId = roleUserId;
+            return tb_RoleToUser;
+        }
+
+        #endregion
+
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 RoleUserId
+        {
+            get
+            {
+                return _RoleUserId;
+            }
+            set
+            {
+                if (_RoleUserId != value)
+                {
+                    OnRoleUserIdChanging(value);
+                    ReportPropertyChanging("RoleUserId");
+                    _RoleUserId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("RoleUserId");
+                    OnRoleUserIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _RoleUserId;
+        partial void OnRoleUserIdChanging(global::System.Int32 value);
+        partial void OnRoleUserIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String RoleID
+        {
+            get
+            {
+                return _RoleID;
+            }
+            set
+            {
+                OnRoleIDChanging(value);
+                ReportPropertyChanging("RoleID");
+                _RoleID = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("RoleID");
+                OnRoleIDChanged();
+            }
+        }
+        private global::System.String _RoleID;
+        partial void OnRoleIDChanging(global::System.String value);
+        partial void OnRoleIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String UserID
+        {
+            get
+            {
+                return _UserID;
+            }
+            set
+            {
+                OnUserIDChanging(value);
+                ReportPropertyChanging("UserID");
+                _UserID = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("UserID");
+                OnUserIDChanged();
+            }
+        }
+        private global::System.String _UserID;
+        partial void OnUserIDChanging(global::System.String value);
+        partial void OnUserIDChanged();
 
         #endregion
 
@@ -2417,6 +2645,201 @@ namespace CampusNerdy.Model
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="CampusNerdyModel", Name="tb_Sender")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tb_Sender : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 tb_Sender 对象。
+        /// </summary>
+        /// <param name="serderID">SerderID 属性的初始值。</param>
+        public static tb_Sender Createtb_Sender(global::System.String serderID)
+        {
+            tb_Sender tb_Sender = new tb_Sender();
+            tb_Sender.SerderID = serderID;
+            return tb_Sender;
+        }
+
+        #endregion
+
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String SerderID
+        {
+            get
+            {
+                return _SerderID;
+            }
+            set
+            {
+                if (_SerderID != value)
+                {
+                    OnSerderIDChanging(value);
+                    ReportPropertyChanging("SerderID");
+                    _SerderID = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("SerderID");
+                    OnSerderIDChanged();
+                }
+            }
+        }
+        private global::System.String _SerderID;
+        partial void OnSerderIDChanging(global::System.String value);
+        partial void OnSerderIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> CanSendNow
+        {
+            get
+            {
+                return _CanSendNow;
+            }
+            set
+            {
+                OnCanSendNowChanging(value);
+                ReportPropertyChanging("CanSendNow");
+                _CanSendNow = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CanSendNow");
+                OnCanSendNowChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _CanSendNow;
+        partial void OnCanSendNowChanging(Nullable<global::System.Boolean> value);
+        partial void OnCanSendNowChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SenderAreaID
+        {
+            get
+            {
+                return _SenderAreaID;
+            }
+            set
+            {
+                OnSenderAreaIDChanging(value);
+                ReportPropertyChanging("SenderAreaID");
+                _SenderAreaID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SenderAreaID");
+                OnSenderAreaIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _SenderAreaID;
+        partial void OnSenderAreaIDChanging(Nullable<global::System.Int32> value);
+        partial void OnSenderAreaIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String GroupId
+        {
+            get
+            {
+                return _GroupId;
+            }
+            set
+            {
+                OnGroupIdChanging(value);
+                ReportPropertyChanging("GroupId");
+                _GroupId = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("GroupId");
+                OnGroupIdChanged();
+            }
+        }
+        private global::System.String _GroupId;
+        partial void OnGroupIdChanging(global::System.String value);
+        partial void OnGroupIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsUse
+        {
+            get
+            {
+                return _IsUse;
+            }
+            set
+            {
+                OnIsUseChanging(value);
+                ReportPropertyChanging("IsUse");
+                _IsUse = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsUse");
+                OnIsUseChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsUse;
+        partial void OnIsUseChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsUseChanged();
+
+        #endregion
+
+    
+        #region 导航属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_sender_tb_Group", "tb_Group")]
+        public tb_Group tb_Group
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_Group>("CampusNerdyModel.FK_sender_tb_Group", "tb_Group").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_Group>("CampusNerdyModel.FK_sender_tb_Group", "tb_Group").Value = value;
+            }
+        }
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<tb_Group> tb_GroupReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_Group>("CampusNerdyModel.FK_sender_tb_Group", "tb_Group");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tb_Group>("CampusNerdyModel.FK_sender_tb_Group", "tb_Group", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="CampusNerdyModel", Name="tb_SuperMaket")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -2427,12 +2850,12 @@ namespace CampusNerdy.Model
         /// <summary>
         /// 创建新的 tb_SuperMaket 对象。
         /// </summary>
-        /// <param name="id">id 属性的初始值。</param>
+        /// <param name="superMarketId">SuperMarketId 属性的初始值。</param>
         /// <param name="superMarketName">superMarketName 属性的初始值。</param>
-        public static tb_SuperMaket Createtb_SuperMaket(global::System.Int32 id, global::System.String superMarketName)
+        public static tb_SuperMaket Createtb_SuperMaket(global::System.Int32 superMarketId, global::System.String superMarketName)
         {
             tb_SuperMaket tb_SuperMaket = new tb_SuperMaket();
-            tb_SuperMaket.id = id;
+            tb_SuperMaket.SuperMarketId = superMarketId;
             tb_SuperMaket.superMarketName = superMarketName;
             return tb_SuperMaket;
         }
@@ -2446,27 +2869,27 @@ namespace CampusNerdy.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 id
+        public global::System.Int32 SuperMarketId
         {
             get
             {
-                return _id;
+                return _SuperMarketId;
             }
             set
             {
-                if (_id != value)
+                if (_SuperMarketId != value)
                 {
-                    OnidChanging(value);
-                    ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("id");
-                    OnidChanged();
+                    OnSuperMarketIdChanging(value);
+                    ReportPropertyChanging("SuperMarketId");
+                    _SuperMarketId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("SuperMarketId");
+                    OnSuperMarketIdChanged();
                 }
             }
         }
-        private global::System.Int32 _id;
-        partial void OnidChanging(global::System.Int32 value);
-        partial void OnidChanged();
+        private global::System.Int32 _SuperMarketId;
+        partial void OnSuperMarketIdChanging(global::System.Int32 value);
+        partial void OnSuperMarketIdChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
@@ -2497,96 +2920,96 @@ namespace CampusNerdy.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String info
+        public global::System.String SuperDescription
         {
             get
             {
-                return _info;
+                return _SuperDescription;
             }
             set
             {
-                OninfoChanging(value);
-                ReportPropertyChanging("info");
-                _info = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("info");
-                OninfoChanged();
+                OnSuperDescriptionChanging(value);
+                ReportPropertyChanging("SuperDescription");
+                _SuperDescription = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SuperDescription");
+                OnSuperDescriptionChanged();
             }
         }
-        private global::System.String _info;
-        partial void OninfoChanging(global::System.String value);
-        partial void OninfoChanged();
+        private global::System.String _SuperDescription;
+        partial void OnSuperDescriptionChanging(global::System.String value);
+        partial void OnSuperDescriptionChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> isUse
+        public global::System.String AreaId
         {
             get
             {
-                return _isUse;
+                return _AreaId;
             }
             set
             {
-                OnisUseChanging(value);
-                ReportPropertyChanging("isUse");
-                _isUse = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("isUse");
-                OnisUseChanged();
+                OnAreaIdChanging(value);
+                ReportPropertyChanging("AreaId");
+                _AreaId = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("AreaId");
+                OnAreaIdChanged();
             }
         }
-        private Nullable<global::System.Boolean> _isUse;
-        partial void OnisUseChanging(Nullable<global::System.Boolean> value);
-        partial void OnisUseChanged();
+        private global::System.String _AreaId;
+        partial void OnAreaIdChanging(global::System.String value);
+        partial void OnAreaIdChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> showAreaID
+        public global::System.String GroupId
         {
             get
             {
-                return _showAreaID;
+                return _GroupId;
             }
             set
             {
-                OnshowAreaIDChanging(value);
-                ReportPropertyChanging("showAreaID");
-                _showAreaID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("showAreaID");
-                OnshowAreaIDChanged();
+                OnGroupIdChanging(value);
+                ReportPropertyChanging("GroupId");
+                _GroupId = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("GroupId");
+                OnGroupIdChanged();
             }
         }
-        private Nullable<global::System.Int32> _showAreaID;
-        partial void OnshowAreaIDChanging(Nullable<global::System.Int32> value);
-        partial void OnshowAreaIDChanged();
+        private global::System.String _GroupId;
+        partial void OnGroupIdChanging(global::System.String value);
+        partial void OnGroupIdChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> factArea
+        public Nullable<global::System.Boolean> IsUse
         {
             get
             {
-                return _factArea;
+                return _IsUse;
             }
             set
             {
-                OnfactAreaChanging(value);
-                ReportPropertyChanging("factArea");
-                _factArea = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("factArea");
-                OnfactAreaChanged();
+                OnIsUseChanging(value);
+                ReportPropertyChanging("IsUse");
+                _IsUse = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsUse");
+                OnIsUseChanged();
             }
         }
-        private Nullable<global::System.Int32> _factArea;
-        partial void OnfactAreaChanging(Nullable<global::System.Int32> value);
-        partial void OnfactAreaChanged();
+        private Nullable<global::System.Boolean> _IsUse;
+        partial void OnIsUseChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsUseChanged();
 
         #endregion
 
@@ -2599,16 +3022,16 @@ namespace CampusNerdy.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_tb_SuperMaket_areaInfo", "areaInfo")]
-        public areaInfo areaInfo
+        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_tb_SuperMaket_tb_Area", "tb_Area")]
+        public tb_Area tb_Area
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<areaInfo>("CampusNerdyModel.FK_tb_SuperMaket_areaInfo", "areaInfo").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_Area>("CampusNerdyModel.FK_tb_SuperMaket_tb_Area", "tb_Area").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<areaInfo>("CampusNerdyModel.FK_tb_SuperMaket_areaInfo", "areaInfo").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_Area>("CampusNerdyModel.FK_tb_SuperMaket_tb_Area", "tb_Area").Value = value;
             }
         }
         /// <summary>
@@ -2616,17 +3039,17 @@ namespace CampusNerdy.Model
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<areaInfo> areaInfoReference
+        public EntityReference<tb_Area> tb_AreaReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<areaInfo>("CampusNerdyModel.FK_tb_SuperMaket_areaInfo", "areaInfo");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_Area>("CampusNerdyModel.FK_tb_SuperMaket_tb_Area", "tb_Area");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<areaInfo>("CampusNerdyModel.FK_tb_SuperMaket_areaInfo", "areaInfo", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tb_Area>("CampusNerdyModel.FK_tb_SuperMaket_tb_Area", "tb_Area", value);
                 }
             }
         }
@@ -2637,16 +3060,38 @@ namespace CampusNerdy.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_tb_SuperMaket_areaInfo1", "areaInfo")]
-        public areaInfo areaInfo1
+        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_goodInfo_superMarket_tb_SuperMaket", "tb_GoodInfoToSuperMarket")]
+        public EntityCollection<tb_GoodInfoToSuperMarket> tb_GoodInfoToSuperMarket
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<areaInfo>("CampusNerdyModel.FK_tb_SuperMaket_areaInfo1", "areaInfo").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tb_GoodInfoToSuperMarket>("CampusNerdyModel.FK_goodInfo_superMarket_tb_SuperMaket", "tb_GoodInfoToSuperMarket");
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<areaInfo>("CampusNerdyModel.FK_tb_SuperMaket_areaInfo1", "areaInfo").Value = value;
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tb_GoodInfoToSuperMarket>("CampusNerdyModel.FK_goodInfo_superMarket_tb_SuperMaket", "tb_GoodInfoToSuperMarket", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_tb_SuperMaket_tb_Group", "tb_Group")]
+        public tb_Group tb_Group
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_Group>("CampusNerdyModel.FK_tb_SuperMaket_tb_Group", "tb_Group").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_Group>("CampusNerdyModel.FK_tb_SuperMaket_tb_Group", "tb_Group").Value = value;
             }
         }
         /// <summary>
@@ -2654,61 +3099,17 @@ namespace CampusNerdy.Model
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<areaInfo> areaInfo1Reference
+        public EntityReference<tb_Group> tb_GroupReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<areaInfo>("CampusNerdyModel.FK_tb_SuperMaket_areaInfo1", "areaInfo");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_Group>("CampusNerdyModel.FK_tb_SuperMaket_tb_Group", "tb_Group");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<areaInfo>("CampusNerdyModel.FK_tb_SuperMaket_areaInfo1", "areaInfo", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_goodInfo_superMarket_tb_SuperMaket", "goodInfo_superMarket")]
-        public EntityCollection<goodInfo_superMarket> goodInfo_superMarket
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<goodInfo_superMarket>("CampusNerdyModel.FK_goodInfo_superMarket_tb_SuperMaket", "goodInfo_superMarket");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<goodInfo_superMarket>("CampusNerdyModel.FK_goodInfo_superMarket_tb_SuperMaket", "goodInfo_superMarket", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_senderForMarket_tb_SuperMaket", "senderForMarket")]
-        public EntityCollection<senderForMarket> senderForMarket
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<senderForMarket>("CampusNerdyModel.FK_senderForMarket_tb_SuperMaket", "senderForMarket");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<senderForMarket>("CampusNerdyModel.FK_senderForMarket_tb_SuperMaket", "senderForMarket", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tb_Group>("CampusNerdyModel.FK_tb_SuperMaket_tb_Group", "tb_Group", value);
                 }
             }
         }
@@ -2730,11 +3131,11 @@ namespace CampusNerdy.Model
         /// <summary>
         /// 创建新的 tb_User 对象。
         /// </summary>
-        /// <param name="userID">userID 属性的初始值。</param>
-        public static tb_User Createtb_User(global::System.String userID)
+        /// <param name="userId">UserId 属性的初始值。</param>
+        public static tb_User Createtb_User(global::System.String userId)
         {
             tb_User tb_User = new tb_User();
-            tb_User.userID = userID;
+            tb_User.UserId = userId;
             return tb_User;
         }
 
@@ -2747,123 +3148,171 @@ namespace CampusNerdy.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String userID
+        public global::System.String UserId
         {
             get
             {
-                return _userID;
+                return _UserId;
             }
             set
             {
-                if (_userID != value)
+                if (_UserId != value)
                 {
-                    OnuserIDChanging(value);
-                    ReportPropertyChanging("userID");
-                    _userID = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("userID");
-                    OnuserIDChanged();
+                    OnUserIdChanging(value);
+                    ReportPropertyChanging("UserId");
+                    _UserId = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("UserId");
+                    OnUserIdChanged();
                 }
             }
         }
-        private global::System.String _userID;
-        partial void OnuserIDChanging(global::System.String value);
-        partial void OnuserIDChanged();
+        private global::System.String _UserId;
+        partial void OnUserIdChanging(global::System.String value);
+        partial void OnUserIdChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String userName
+        public global::System.String UserName
         {
             get
             {
-                return _userName;
+                return _UserName;
             }
             set
             {
-                OnuserNameChanging(value);
-                ReportPropertyChanging("userName");
-                _userName = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("userName");
-                OnuserNameChanged();
+                OnUserNameChanging(value);
+                ReportPropertyChanging("UserName");
+                _UserName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("UserName");
+                OnUserNameChanged();
             }
         }
-        private global::System.String _userName;
-        partial void OnuserNameChanging(global::System.String value);
-        partial void OnuserNameChanged();
+        private global::System.String _UserName;
+        partial void OnUserNameChanging(global::System.String value);
+        partial void OnUserNameChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String hashed_PassWord
+        public global::System.String Hashed_PassWord
         {
             get
             {
-                return _hashed_PassWord;
+                return _Hashed_PassWord;
             }
             set
             {
-                Onhashed_PassWordChanging(value);
-                ReportPropertyChanging("hashed_PassWord");
-                _hashed_PassWord = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("hashed_PassWord");
-                Onhashed_PassWordChanged();
+                OnHashed_PassWordChanging(value);
+                ReportPropertyChanging("Hashed_PassWord");
+                _Hashed_PassWord = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Hashed_PassWord");
+                OnHashed_PassWordChanged();
             }
         }
-        private global::System.String _hashed_PassWord;
-        partial void Onhashed_PassWordChanging(global::System.String value);
-        partial void Onhashed_PassWordChanged();
+        private global::System.String _Hashed_PassWord;
+        partial void OnHashed_PassWordChanging(global::System.String value);
+        partial void OnHashed_PassWordChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String salt
+        public global::System.String Salt
         {
             get
             {
-                return _salt;
+                return _Salt;
             }
             set
             {
-                OnsaltChanging(value);
-                ReportPropertyChanging("salt");
-                _salt = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("salt");
-                OnsaltChanged();
+                OnSaltChanging(value);
+                ReportPropertyChanging("Salt");
+                _Salt = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Salt");
+                OnSaltChanged();
             }
         }
-        private global::System.String _salt;
-        partial void OnsaltChanging(global::System.String value);
-        partial void OnsaltChanged();
+        private global::System.String _Salt;
+        partial void OnSaltChanging(global::System.String value);
+        partial void OnSaltChanged();
     
         /// <summary>
         /// 没有元数据文档可用。
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> createDate
+        public Nullable<global::System.DateTime> CreateDate
         {
             get
             {
-                return _createDate;
+                return _CreateDate;
             }
             set
             {
-                OncreateDateChanging(value);
-                ReportPropertyChanging("createDate");
-                _createDate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("createDate");
-                OncreateDateChanged();
+                OnCreateDateChanging(value);
+                ReportPropertyChanging("CreateDate");
+                _CreateDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CreateDate");
+                OnCreateDateChanged();
             }
         }
-        private Nullable<global::System.DateTime> _createDate;
-        partial void OncreateDateChanging(Nullable<global::System.DateTime> value);
-        partial void OncreateDateChanged();
+        private Nullable<global::System.DateTime> _CreateDate;
+        partial void OnCreateDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnCreateDateChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Email
+        {
+            get
+            {
+                return _Email;
+            }
+            set
+            {
+                OnEmailChanging(value);
+                ReportPropertyChanging("Email");
+                _Email = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Email");
+                OnEmailChanged();
+            }
+        }
+        private global::System.String _Email;
+        partial void OnEmailChanging(global::System.String value);
+        partial void OnEmailChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String UserDescribe
+        {
+            get
+            {
+                return _UserDescribe;
+            }
+            set
+            {
+                OnUserDescribeChanging(value);
+                ReportPropertyChanging("UserDescribe");
+                _UserDescribe = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("UserDescribe");
+                OnUserDescribeChanged();
+            }
+        }
+        private global::System.String _UserDescribe;
+        partial void OnUserDescribeChanging(global::System.String value);
+        partial void OnUserDescribeChanged();
 
         #endregion
 
@@ -2876,211 +3325,18 @@ namespace CampusNerdy.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_tb_Role_UserRelations_tb_User", "tb_Role_UserRelations")]
-        public EntityCollection<tb_Role_UserRelations> tb_Role_UserRelations
+        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_tb_Role_UserRelations_tb_User", "tb_RoleToUser")]
+        public EntityCollection<tb_RoleToUser> tb_RoleToUser
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tb_Role_UserRelations>("CampusNerdyModel.FK_tb_Role_UserRelations_tb_User", "tb_Role_UserRelations");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tb_RoleToUser>("CampusNerdyModel.FK_tb_Role_UserRelations_tb_User", "tb_RoleToUser");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tb_Role_UserRelations>("CampusNerdyModel.FK_tb_Role_UserRelations_tb_User", "tb_Role_UserRelations", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_tb_UserInfo_tb_User", "tb_UserInfo")]
-        public EntityCollection<tb_UserInfo> tb_UserInfo
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tb_UserInfo>("CampusNerdyModel.FK_tb_UserInfo_tb_User", "tb_UserInfo");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tb_UserInfo>("CampusNerdyModel.FK_tb_UserInfo_tb_User", "tb_UserInfo", value);
-                }
-            }
-        }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// 没有元数据文档可用。
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="CampusNerdyModel", Name="tb_UserInfo")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class tb_UserInfo : EntityObject
-    {
-        #region 工厂方法
-    
-        /// <summary>
-        /// 创建新的 tb_UserInfo 对象。
-        /// </summary>
-        /// <param name="id">id 属性的初始值。</param>
-        public static tb_UserInfo Createtb_UserInfo(global::System.Int32 id)
-        {
-            tb_UserInfo tb_UserInfo = new tb_UserInfo();
-            tb_UserInfo.id = id;
-            return tb_UserInfo;
-        }
-
-        #endregion
-
-        #region 基元属性
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                if (_id != value)
-                {
-                    OnidChanging(value);
-                    ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("id");
-                    OnidChanged();
-                }
-            }
-        }
-        private global::System.Int32 _id;
-        partial void OnidChanging(global::System.Int32 value);
-        partial void OnidChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String userID
-        {
-            get
-            {
-                return _userID;
-            }
-            set
-            {
-                OnuserIDChanging(value);
-                ReportPropertyChanging("userID");
-                _userID = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("userID");
-                OnuserIDChanged();
-            }
-        }
-        private global::System.String _userID;
-        partial void OnuserIDChanging(global::System.String value);
-        partial void OnuserIDChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String userDescribe
-        {
-            get
-            {
-                return _userDescribe;
-            }
-            set
-            {
-                OnuserDescribeChanging(value);
-                ReportPropertyChanging("userDescribe");
-                _userDescribe = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("userDescribe");
-                OnuserDescribeChanged();
-            }
-        }
-        private global::System.String _userDescribe;
-        partial void OnuserDescribeChanging(global::System.String value);
-        partial void OnuserDescribeChanged();
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String email
-        {
-            get
-            {
-                return _email;
-            }
-            set
-            {
-                OnemailChanging(value);
-                ReportPropertyChanging("email");
-                _email = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("email");
-                OnemailChanged();
-            }
-        }
-        private global::System.String _email;
-        partial void OnemailChanging(global::System.String value);
-        partial void OnemailChanged();
-
-        #endregion
-
-    
-        #region 导航属性
-    
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CampusNerdyModel", "FK_tb_UserInfo_tb_User", "tb_User")]
-        public tb_User tb_User
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_User>("CampusNerdyModel.FK_tb_UserInfo_tb_User", "tb_User").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_User>("CampusNerdyModel.FK_tb_UserInfo_tb_User", "tb_User").Value = value;
-            }
-        }
-        /// <summary>
-        /// 没有元数据文档可用。
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<tb_User> tb_UserReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tb_User>("CampusNerdyModel.FK_tb_UserInfo_tb_User", "tb_User");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tb_User>("CampusNerdyModel.FK_tb_UserInfo_tb_User", "tb_User", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tb_RoleToUser>("CampusNerdyModel.FK_tb_Role_UserRelations_tb_User", "tb_RoleToUser", value);
                 }
             }
         }

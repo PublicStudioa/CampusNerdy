@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,7 +41,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAreaDal.cs" />
+    <Compile Include="IDealhistoryDal.cs" />
+    <Compile Include="IDealrequestDal.cs" />
+    <Compile Include="IDictionaryDal.cs" />
+    <Compile Include="IGoodDal.cs" />
+    <Compile Include="IGoodinfotosupermarketDal.cs" />
+    <Compile Include="IGroupDal.cs" />
+    <Compile Include="IModuleDal.cs" />
+    <Compile Include="IRoleDal.cs" />
+    <Compile Include="IRoletouserDal.cs" />
+    <Compile Include="ISenderDal.cs" />
+    <Compile Include="ISupermaketDal.cs" />
+    <Compile Include="IUserDal.cs" />
+    <Compile Include="Model1DAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CampusNerdy.Model\CampusNerdy.Model.csproj">
+      <Project>{6286D49C-84A8-4CCB-802F-4D91D0323F22}</Project>
+      <Name>CampusNerdy.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
