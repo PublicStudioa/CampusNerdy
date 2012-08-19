@@ -1,0 +1,30 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Customer.master.cs" Inherits="CampusNerdy.Web.Background.CustomerPlatform.Customer" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="../BaseCss/terran.css" type="text/css" rel="stylesheet" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <div class="gs_content">
+            <div class="gs_left">
+                <div class="gs_guidebar_dropbox">
+                </div>
+                <asp:ContentPlaceHolder ID="SideBar" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="gs_right">
+                <asp:ContentPlaceHolder ID="MainBodyPlace" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

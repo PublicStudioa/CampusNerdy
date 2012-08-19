@@ -21,7 +21,6 @@ namespace CampusNerdy.Dal
     {
         //日志数据库写入接口
         CampusNerdyEntities _context;
-
         #region 构造函数
         public GroupDal()
         {
