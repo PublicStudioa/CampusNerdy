@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAreaDal.cs" />
+    <Compile Include="ICheckitemDal.cs" />
+    <Compile Include="ICheckoutDal.cs" />
     <Compile Include="IDealhistoryDal.cs" />
     <Compile Include="IDealrequestDal.cs" />
     <Compile Include="IDictionaryDal.cs" />
@@ -53,6 +55,7 @@
     <Compile Include="IRoletouserDal.cs" />
     <Compile Include="ISenderDal.cs" />
     <Compile Include="ISupermaketDal.cs" />
+    <Compile Include="IUserandroleDal.cs" />
     <Compile Include="IUserDal.cs" />
     <Compile Include="Model1DAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

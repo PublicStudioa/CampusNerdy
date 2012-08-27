@@ -58,11 +58,11 @@ namespace CampusNerdy.Web.Background.Control.UserCenter
                 string[] strs = e.CommandName.ToString().Split('-');
                 if (strs[1] == "plus")
                 {
-                    JS.Alert("加1" + strs[0]);
+                    lbMarketName.Text= "加1" + strs[0] ;
                 }
                 else
                 {
-                    JS.Alert("减1" + strs[0]);
+                    lbMarketName.Text = "减1" + strs[0];
                 }
             }
         }

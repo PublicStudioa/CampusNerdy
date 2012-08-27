@@ -50,6 +50,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Control\Verify\VerifyCode.aspx" />
+    <Content Include="Control\Verify\yanCode.ascx" />
     <Content Include="Login.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -61,6 +63,14 @@
     <Content Include="zxTest.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control\Verify\VerifyCode.aspx.cs">
+      <DependentUpon>VerifyCode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\Verify\yanCode.ascx.cs">
+      <DependentUpon>yanCode.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -86,6 +96,9 @@
       <Project>{3E39A52E-EB26-47AC-A7DD-90CD3FD23CE1}</Project>
       <Name>CampusNerdy.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Control\Control\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

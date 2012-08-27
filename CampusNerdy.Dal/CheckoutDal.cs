@@ -2,7 +2,7 @@
  * 说明：本文件由代码工具自动生成。
  * 版本：V1.0.0
  * 版权：贵州省邮电规划设计院有限公司 * 制作：蓝善根
- * 时间：2012年08月06日 22:25:16
+ * 时间：2012年08月27日 22:57:27
  ******************************************/
 using System;
 using System.Data;
@@ -11,19 +11,20 @@ using System.Linq;
 using System.Web;
 using CampusNerdy.Model;
 using CampusNerdy.IDal;
+using nameSpace;
 
-namespace CampusNerdy.Dal
+namespace nameSpace
 {
     /// <summary>
-    /// 用户表
+    /// 
     /// </summary>
-    public class UserDal:IUserDal
+    public class CheckoutDal:ICheckoutDal
     {
         //日志数据库写入接口
         CampusNerdyEntities _context;
 
         #region 构造函数
-        public UserDal()
+        public CheckoutDal()
         {
             _context = new CampusNerdyEntities(SqlDBCon.ShopEntityCon);
         }
@@ -33,14 +34,16 @@ namespace CampusNerdy.Dal
         /// <summary>
         /// 查询表单，判断实体是否存在
         /// </summary>
-        /// <param name="paraUserid">用户编号</param>
+        /// <param name="paraCheckoutid"></param>
         /// <returns>查询成功返回true，否则返回false</returns>
-        public bool existModeByUserid(string paraUserid)
+        public bool existModeByCheckoutid(string paraCheckoutid)
         {
             try
             {
-                var query = from p in _context.tb_User
-                    where p.UserID == paraUserid 
+                Int32 tempCheckoutid =  Int32.Parse(paraCheckoutid.Trim());
+
+                var query = from p in _context.tb_CheckOut
+                    where p.CheckOutID == tempCheckoutid 
                     select p;
                 return query.ToList().Count() > 0;
             }
@@ -55,16 +58,18 @@ namespace CampusNerdy.Dal
         /// <summary>
         /// 删除数据
         /// </summary>
-        /// <param name="paraUserid">用户编号</param>
+        /// <param name="paraCheckoutid"></param>
         /// <returns>true：删除成功，false：不存在该记录</returns>
-        public bool deleteModeByUserid(string paraUserid)
+        public bool deleteModeByCheckoutid(string paraCheckoutid)
         {
-            if(paraUserid == null)
-                throw new ArgumentNullException("paraUserid");
+            if(paraCheckoutid == null)
+                throw new ArgumentNullException("paraCheckoutid");
             try
             {
-                var query = from p in _context.tb_User
-                    where p.UserID == paraUserid 
+                Int32 tempCheckoutid =  Int32.Parse(paraCheckoutid.Trim());
+
+                var query = from p in _context.tb_CheckOut
+                    where p.CheckOutID == tempCheckoutid 
                     select p;
                 if (query.ToList().Count<1)
                 {
@@ -75,8 +80,8 @@ namespace CampusNerdy.Dal
                     foreach(var model in query.ToList())
                     {
                         if(!_context.IsAttached(model))
-                            _context.tb_User.Attach(model);
-                        _context.tb_User.DeleteObject(model);
+                            _context.tb_CheckOut.Attach(model);
+                        _context.tb_CheckOut.DeleteObject(model);
                         _context.SaveChanges();
                     }
                     return true;
@@ -90,16 +95,16 @@ namespace CampusNerdy.Dal
         /// <summary>
         /// 删除数据
         /// </summary>
-        /// <param name="paraTb_User"></param>
+        /// <param name="paraTb_Checkout"></param>
         /// <returns>true：删除成功，false：不存在该记录</returns>
-        public bool deleteMode(tb_User paraTb_User)
+        public bool deleteMode(tb_CheckOut paraTb_Checkout)
         {
-            if(paraTb_User == null)
-                throw new ArgumentNullException("paraTb_User");
+            if(paraTb_Checkout == null)
+                throw new ArgumentNullException("paraTb_Checkout");
             try
             {
-                var query = from p in _context.tb_User
-                    where p.UserID == paraTb_User.UserID 
+                var query = from p in _context.tb_CheckOut
+                    where p.CheckOutID == paraTb_Checkout.CheckOutID 
                     select p;
                 if (query.ToList().Count<1)
                 {
@@ -110,8 +115,8 @@ namespace CampusNerdy.Dal
                     foreach(var model in query.ToList())
                     {
                         if(!_context.IsAttached(model))
-                            _context.tb_User.Attach(model);
-                        _context.tb_User.DeleteObject(model);
+                            _context.tb_CheckOut.Attach(model);
+                        _context.tb_CheckOut.DeleteObject(model);
                         _context.SaveChanges();
                     }
                     return true;
@@ -128,16 +133,16 @@ namespace CampusNerdy.Dal
         /// <summary>
         /// 更新数据
         /// </summary>
-        /// <param name="paraTb_User"></param>
+        /// <param name="paraTb_Checkout"></param>
         /// <returns>true：更新成功，false：更新数据失败，不存在该记录！</returns>
-        public bool updateMode(tb_User paraTb_User)
+        public bool updateMode(tb_CheckOut paraTb_Checkout)
         {
-            if(paraTb_User == null)
-                throw new ArgumentNullException("paraTb_User");
+            if(paraTb_Checkout == null)
+                throw new ArgumentNullException("paraTb_Checkout");
             try
             {
-                var oldEntity = (from p in _context.tb_User
-                    where p.UserID == paraTb_User.UserID 
+                var oldEntity = (from p in _context.tb_CheckOut
+                    where p.CheckOutID == paraTb_Checkout.CheckOutID 
                     select p).FirstOrDefault();
                 if (oldEntity == null)
                 {
@@ -145,7 +150,7 @@ namespace CampusNerdy.Dal
                 }
                 else
                 {
-                    _context.ApplyCurrentValues(oldEntity.GetType().Name, paraTb_User);
+                    _context.ApplyCurrentValues(oldEntity.GetType().Name, paraTb_Checkout);
                     _context.SaveChanges();
                     return true;
                 }
@@ -161,16 +166,16 @@ namespace CampusNerdy.Dal
         /// <summary>
         /// 插入数据
         /// </summary>
-        /// <param name="paraTb_User"></param>
+        /// <param name="paraTb_Checkout"></param>
         /// <returns>true：插入成功，false：已存在该记录</returns>
-        public bool addMode(tb_User paraTb_User)
+        public bool addMode(tb_CheckOut paraTb_Checkout)
         {
-            if(paraTb_User == null)
-                throw new ArgumentNullException("paraTb_User");
+            if(paraTb_Checkout == null)
+                throw new ArgumentNullException("paraTb_Checkout");
             try
             {
-                var query = from p in _context.tb_User
-                    where p.UserID == paraTb_User.UserID 
+                var query = from p in _context.tb_CheckOut
+                    where p.CheckOutID == paraTb_Checkout.CheckOutID 
                     select p;
                 if (query.ToList().Count() > 0)
                 {
@@ -178,7 +183,7 @@ namespace CampusNerdy.Dal
                 }
                 else
                 {
-                    _context.tb_User.AddObject(paraTb_User);
+                    _context.tb_CheckOut.AddObject(paraTb_Checkout);
                     _context.SaveChanges();
                     return true;
                 }
@@ -194,36 +199,17 @@ namespace CampusNerdy.Dal
         /// <summary>
         /// 查询表单，获取单个数据模型对象
         /// </summary>
-        /// <param name="paraUserid">用户编号</param>
+        /// <param name="paraCheckoutid"></param>
         /// <returns>null为没找到匹配对象，否则返回单行数据模型对象</returns>
-        public tb_User getModelByUserid(string paraUserid)
+        public tb_CheckOut getModelByCheckoutid(string paraCheckoutid)
         {
             try
             {
-                var query = from p in _context.tb_User
-                    orderby p.UserID descending
-                    where p.UserID == paraUserid 
-                    select p;
-                return query.FirstOrDefault();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        /// <summary>
-        /// 查询表单，获取单个数据模型对象
-        /// </summary>
-        /// <param name="paraUserid">用户编号</param>
-        /// <param name="paraHashed_Password">加密后密码</param>
-        /// <returns>null为没找到匹配对象，否则返回单行数据模型对象</returns>
-        public tb_User getModelByUseridAndHashed_Password(string paraUserid,string paraHashed_Password)
-        {
-            try
-            {
-                var query = from p in _context.tb_User
-                    orderby p.UserID descending
-                    where p.UserID == paraUserid && p.Hashed_PassWord == paraHashed_Password 
+                Int32 tempCheckoutid =  Int32.Parse(paraCheckoutid.Trim());
+
+                var query = from p in _context.tb_CheckOut
+                    orderby p.CheckOutID descending
+                    where p.CheckOutID == tempCheckoutid 
                     select p;
                 return query.FirstOrDefault();
             }
@@ -238,15 +224,17 @@ namespace CampusNerdy.Dal
         /// <summary>
         /// 查询表单，获取模型实体集合
         /// </summary>
-        /// <param name="paraUserid">用户编号</param>
+        /// <param name="paraCheckoutid"></param>
         /// <returns>查询成功返回符合条件的集合，否则返回空集合</returns>
-        public List<tb_User> getListByUserid(string paraUserid)
+        public List<tb_CheckOut> getListByCheckoutid(string paraCheckoutid)
         {
             try
             {
-                var query = from p in _context.tb_User
-                    orderby p.UserID
-                    where p.UserID == paraUserid 
+                Int32 tempCheckoutid =  Int32.Parse(paraCheckoutid.Trim());
+
+                var query = from p in _context.tb_CheckOut
+                    orderby p.CheckOutID
+                    where p.CheckOutID == tempCheckoutid 
                     select p;
                 return query.ToList();
             }
@@ -259,12 +247,12 @@ namespace CampusNerdy.Dal
         /// 查询表单，获取模型实体集合
         /// </summary>
         /// <returns>查询成功返回符合条件的集合，否则返回空集合</returns>
-        public List<tb_User> getList()
+        public List<tb_CheckOut> getList()
         {
             try
             {
-                var query = from p in _context.tb_User
-                    orderby p.UserID
+                var query = from p in _context.tb_CheckOut
+                    orderby p.CheckOutID
                     select p;
                 return query.ToList();
             }

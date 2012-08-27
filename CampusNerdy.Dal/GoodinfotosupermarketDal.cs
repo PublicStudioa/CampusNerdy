@@ -42,7 +42,7 @@ namespace CampusNerdy.Dal
                 Int32 tempGoodsuperid =  Int32.Parse(paraGoodsuperid.Trim());
 
                 var query = from p in _context.tb_GoodInfoToSuperMarket
-                    where p.GoodSuperId == tempGoodsuperid 
+                    where p.GoodSuperID == tempGoodsuperid 
                     select p;
                 return query.ToList().Count() > 0;
             }
@@ -68,7 +68,7 @@ namespace CampusNerdy.Dal
                 Int32 tempGoodsuperid =  Int32.Parse(paraGoodsuperid.Trim());
 
                 var query = from p in _context.tb_GoodInfoToSuperMarket
-                    where p.GoodSuperId == tempGoodsuperid 
+                    where p.GoodSuperID == tempGoodsuperid 
                     select p;
                 if (query.ToList().Count<1)
                 {
@@ -103,7 +103,7 @@ namespace CampusNerdy.Dal
             try
             {
                 var query = from p in _context.tb_GoodInfoToSuperMarket
-                    where p.GoodSuperId == paraTb_Goodinfotosupermarket.GoodSuperId 
+                    where p.GoodSuperID == paraTb_Goodinfotosupermarket.GoodSuperID 
                     select p;
                 if (query.ToList().Count<1)
                 {
@@ -141,7 +141,7 @@ namespace CampusNerdy.Dal
             try
             {
                 var oldEntity = (from p in _context.tb_GoodInfoToSuperMarket
-                    where p.GoodSuperId == paraTb_Goodinfotosupermarket.GoodSuperId 
+                    where p.GoodSuperID == paraTb_Goodinfotosupermarket.GoodSuperID 
                     select p).FirstOrDefault();
                 if (oldEntity == null)
                 {
@@ -174,7 +174,7 @@ namespace CampusNerdy.Dal
             try
             {
                 var query = from p in _context.tb_GoodInfoToSuperMarket
-                    where p.GoodSuperId == paraTb_Goodinfotosupermarket.GoodSuperId 
+                    where p.GoodSuperID == paraTb_Goodinfotosupermarket.GoodSuperID
                     select p;
                 if (query.ToList().Count() > 0)
                 {
@@ -209,7 +209,7 @@ namespace CampusNerdy.Dal
 Int32 tempSupermarketid =  Int32.Parse(paraSupermarketid.Trim());
 
                 var query = from p in _context.tb_GoodInfoToSuperMarket
-                    orderby p.GoodSuperId descending
+                    orderby p.GoodSuperID descending
                     where p.GoodId == tempGoodid && p.SuperMarketId == tempSupermarketid 
                     select p;
                 return query.FirstOrDefault();
@@ -231,8 +231,8 @@ Int32 tempSupermarketid =  Int32.Parse(paraSupermarketid.Trim());
                 Int32 tempGoodsuperid =  Int32.Parse(paraGoodsuperid.Trim());
 
                 var query = from p in _context.tb_GoodInfoToSuperMarket
-                    orderby p.GoodSuperId descending
-                    where p.GoodSuperId == tempGoodsuperid 
+                    orderby p.GoodSuperID descending
+                    where p.GoodSuperID == tempGoodsuperid 
                     select p;
                 return query.FirstOrDefault();
             }
@@ -256,7 +256,7 @@ Int32 tempSupermarketid =  Int32.Parse(paraSupermarketid.Trim());
                 Int32 tempSupermarketid =  Int32.Parse(paraSupermarketid.Trim());
 
                 var query = from p in _context.tb_GoodInfoToSuperMarket
-                    orderby p.GoodSuperId
+                    orderby p.GoodSuperID
                     where p.SuperMarketId == tempSupermarketid 
                     select p;
                 return query.ToList();
@@ -278,7 +278,7 @@ Int32 tempSupermarketid =  Int32.Parse(paraSupermarketid.Trim());
                 Int32 tempGoodid =  Int32.Parse(paraGoodid.Trim());
 
                 var query = from p in _context.tb_GoodInfoToSuperMarket
-                    orderby p.GoodSuperId
+                    orderby p.GoodSuperID
                     where p.GoodId == tempGoodid 
                     select p;
                 return query.ToList();
@@ -300,8 +300,8 @@ Int32 tempSupermarketid =  Int32.Parse(paraSupermarketid.Trim());
                 Int32 tempGoodsuperid =  Int32.Parse(paraGoodsuperid.Trim());
 
                 var query = from p in _context.tb_GoodInfoToSuperMarket
-                    orderby p.GoodSuperId
-                    where p.GoodSuperId == tempGoodsuperid 
+                    orderby p.GoodSuperID
+                    where p.GoodSuperID == tempGoodsuperid 
                     select p;
                 return query.ToList();
             }
@@ -319,7 +319,7 @@ Int32 tempSupermarketid =  Int32.Parse(paraSupermarketid.Trim());
             try
             {
                 var query = from p in _context.tb_GoodInfoToSuperMarket
-                    orderby p.GoodSuperId
+                    orderby p.GoodSuperID
                     select p;
                 return query.ToList();
             }

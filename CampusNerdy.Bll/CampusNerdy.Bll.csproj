@@ -31,8 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CampusNerdy.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CampusNerdy.Model\bin\Debug\CampusNerdy.Model.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,11 +48,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserCenter\UserCenter.cs" />
+    <Compile Include="VerifyGen\VerifyGenEngine.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CampusNerdy.DalFactory\CampusNerdy.DalFactory.csproj">
       <Project>{4C6E9D86-E2C3-49BD-A011-F20CF2F764E7}</Project>
       <Name>CampusNerdy.DalFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CampusNerdy.Dal\CampusNerdy.Dal.csproj">
+      <Project>{C16FC99F-5C37-444B-B4EE-3AC8B0178CF7}</Project>
+      <Name>CampusNerdy.Dal</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
