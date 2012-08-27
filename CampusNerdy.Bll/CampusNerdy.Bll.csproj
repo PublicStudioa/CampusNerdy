@@ -31,10 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CampusNerdy.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\CampusNerdy.Model\bin\Debug\CampusNerdy.Model.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -59,6 +55,10 @@
     <ProjectReference Include="..\CampusNerdy.Dal\CampusNerdy.Dal.csproj">
       <Project>{C16FC99F-5C37-444B-B4EE-3AC8B0178CF7}</Project>
       <Name>CampusNerdy.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CampusNerdy.Model\CampusNerdy.Model.csproj">
+      <Project>{6286D49C-84A8-4CCB-802F-4D91D0323F22}</Project>
+      <Name>CampusNerdy.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

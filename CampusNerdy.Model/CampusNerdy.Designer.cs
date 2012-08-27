@@ -2691,6 +2691,30 @@ namespace CampusNerdy.Model
         private global::System.String _RoleType;
         partial void OnRoleTypeChanging(global::System.String value);
         partial void OnRoleTypeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String RoleDescribe
+        {
+            get
+            {
+                return _RoleDescribe;
+            }
+            set
+            {
+                OnRoleDescribeChanging(value);
+                ReportPropertyChanging("RoleDescribe");
+                _RoleDescribe = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("RoleDescribe");
+                OnRoleDescribeChanged();
+            }
+        }
+        private global::System.String _RoleDescribe;
+        partial void OnRoleDescribeChanging(global::System.String value);
+        partial void OnRoleDescribeChanged();
 
         #endregion
 
@@ -4122,6 +4146,54 @@ namespace CampusNerdy.Model
         private global::System.String _RoleID;
         partial void OnRoleIDChanging(global::System.String value);
         partial void OnRoleIDChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String RoleName
+        {
+            get
+            {
+                return _RoleName;
+            }
+            set
+            {
+                OnRoleNameChanging(value);
+                ReportPropertyChanging("RoleName");
+                _RoleName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("RoleName");
+                OnRoleNameChanged();
+            }
+        }
+        private global::System.String _RoleName;
+        partial void OnRoleNameChanging(global::System.String value);
+        partial void OnRoleNameChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String RoleType
+        {
+            get
+            {
+                return _RoleType;
+            }
+            set
+            {
+                OnRoleTypeChanging(value);
+                ReportPropertyChanging("RoleType");
+                _RoleType = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("RoleType");
+                OnRoleTypeChanged();
+            }
+        }
+        private global::System.String _RoleType;
+        partial void OnRoleTypeChanging(global::System.String value);
+        partial void OnRoleTypeChanged();
 
         #endregion
 

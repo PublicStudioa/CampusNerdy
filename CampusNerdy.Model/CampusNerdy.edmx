@@ -33,7 +33,9 @@
       [View_UserAndRole].[Email] AS [Email], 
       [View_UserAndRole].[UserDescribe] AS [UserDescribe], 
       [View_UserAndRole].[UserID] AS [UserID], 
-      [View_UserAndRole].[RoleID] AS [RoleID]
+      [View_UserAndRole].[RoleID] AS [RoleID], 
+      [View_UserAndRole].[RoleName] AS [RoleName], 
+      [View_UserAndRole].[RoleType] AS [RoleType]
       FROM [dbo].[View_UserAndRole] AS [View_UserAndRole]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_areaInfo_tb_Group1" Association="CampusNerdyModel.Store.FK_areaInfo_tb_Group1">
@@ -201,6 +203,7 @@
           <Property Name="RoleID" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
           <Property Name="RoleType" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoleDescribe" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="tb_RoleToModule">
           <Key>
@@ -273,6 +276,8 @@
           <Property Name="UserDescribe" Type="nvarchar" MaxLength="50" />
           <Property Name="UserID" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="RoleID" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoleType" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_areaInfo_tb_Group1">
           <End Role="tb_Group" Type="CampusNerdyModel.Store.tb_Group" Multiplicity="1" />
@@ -488,7 +493,6 @@
           <EntitySet Name="tb_SuperMaket" EntityType="CampusNerdyModel.tb_SuperMaket" />
           <EntitySet Name="tb_User" EntityType="CampusNerdyModel.tb_User" />
           <EntitySet Name="tb_UserInfo" EntityType="CampusNerdyModel.tb_UserInfo" />
-          <EntitySet Name="View_UserAndRole" EntityType="CampusNerdyModel.View_UserAndRole" />
           <AssociationSet Name="FK_areaInfo_tb_Group1" Association="CampusNerdyModel.FK_areaInfo_tb_Group1">
             <End Role="tb_Group" EntitySet="tb_Group" />
             <End Role="tb_Area" EntitySet="tb_Area" />
@@ -541,6 +545,7 @@
             <End Role="tb_User" EntitySet="tb_User" />
             <End Role="tb_UserInfo" EntitySet="tb_UserInfo" />
           </AssociationSet>
+          <EntitySet Name="View_UserAndRole" EntityType="CampusNerdyModel.View_UserAndRole" />
         </EntityContainer>
         <EntityType Name="sysdiagram">
           <Key>
@@ -670,6 +675,7 @@
           <Property Type="String" Name="RoleName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="RoleType" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tb_RoleToUser" Relationship="CampusNerdyModel.FK_tb_Role_UserRelations_tb_Role" FromRole="tb_Role" ToRole="tb_RoleToUser" />
+          <Property Type="String" Name="RoleDescribe" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tb_RoleToModule">
           <Key>
@@ -736,19 +742,6 @@
           <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="UserID" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tb_User" Relationship="CampusNerdyModel.FK_tb_UserInfo_tb_User" FromRole="tb_UserInfo" ToRole="tb_User" />
-        </EntityType>
-        <EntityType Name="View_UserAndRole">
-          <Key>
-            <PropertyRef Name="UserID" />
-          </Key>
-          <Property Type="String" Name="UserName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Hashed_PassWord" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Salt" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="CreateDate" />
-          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="UserDescribe" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="UserID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="RoleID" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_areaInfo_tb_Group1">
           <End Type="CampusNerdyModel.tb_Group" Role="tb_Group" Multiplicity="1" />
@@ -906,6 +899,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="View_UserAndRole">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Type="String" Name="UserName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Hashed_PassWord" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Salt" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreateDate" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UserDescribe" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UserID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RoleID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RoleName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RoleType" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1031,6 +1039,7 @@
           <EntitySetMapping Name="tb_Role">
             <EntityTypeMapping TypeName="CampusNerdyModel.tb_Role">
               <MappingFragment StoreEntitySet="tb_Role">
+                <ScalarProperty Name="RoleDescribe" ColumnName="RoleDescribe" />
                 <ScalarProperty Name="RoleType" ColumnName="RoleType" />
                 <ScalarProperty Name="RoleName" ColumnName="RoleName" />
                 <ScalarProperty Name="RoleID" ColumnName="RoleID" />
@@ -1102,6 +1111,8 @@
           <EntitySetMapping Name="View_UserAndRole">
             <EntityTypeMapping TypeName="CampusNerdyModel.View_UserAndRole">
               <MappingFragment StoreEntitySet="View_UserAndRole">
+                <ScalarProperty Name="RoleType" ColumnName="RoleType" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
                 <ScalarProperty Name="RoleID" ColumnName="RoleID" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="UserDescribe" ColumnName="UserDescribe" />
@@ -1152,7 +1163,6 @@
         <EntityTypeShape EntityType="CampusNerdyModel.tb_SuperMaket" Width="1.5" PointX="5.25" PointY="4.375" Height="2.7341113281250102" />
         <EntityTypeShape EntityType="CampusNerdyModel.tb_User" Width="1.5" PointX="0.75" PointY="10.875" Height="2.7341113281250102" />
         <EntityTypeShape EntityType="CampusNerdyModel.tb_UserInfo" Width="1.5" PointX="3" PointY="14.125" Height="1.587993164062496" />
-        <EntityTypeShape EntityType="CampusNerdyModel.View_UserAndRole" Width="1.5" PointX="5.75" PointY="13.75" Height="2.5430916341145746" />
         <AssociationConnector Association="CampusNerdyModel.FK_areaInfo_tb_Group1" >
           <ConnectorPoint PointX="2.25" PointY="5.5475162760416694" />
           <ConnectorPoint PointX="3" PointY="5.5475162760416694" />
@@ -1215,6 +1225,7 @@
           <ConnectorPoint PointX="2.8125" PointY="13.936347153846153" />
           <ConnectorPoint PointX="3.0011528461538459" PointY="14.125" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="CampusNerdyModel.View_UserAndRole" Width="1.5" PointX="5.375" PointY="13.75" Height="2.9251310221354174" />
       </Diagram>
     </Diagrams>
   </Designer>

@@ -41,8 +41,8 @@ namespace nameSpace
             try
             {
                 var query = from p in _context.View_UserAndRole
-                    where p.UserID == paraUserid 
-                    select p;
+                            where p.UserID == paraUserid
+                            select p;
                 return query.ToList().Count() > 0;
             }
             catch (Exception ex)
@@ -63,9 +63,9 @@ namespace nameSpace
             try
             {
                 var query = from p in _context.View_UserAndRole
-                    
-                    where p.UserID == paraUserid 
-                    select p;
+
+                            where p.UserID == paraUserid
+                            select p;
                 return query.FirstOrDefault();
             }
             catch (Exception ex)
@@ -86,8 +86,46 @@ namespace nameSpace
             try
             {
                 var query = from p in _context.View_UserAndRole
-                    where p.UserID == paraUserid 
-                    select p;
+                            where p.UserID == paraUserid
+                            select p;
+                return query.ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        /// <summary>
+        /// 查询表单，获取模型实体集合
+        /// </summary>
+        /// <param name="paraRoletype">角色类型</param>
+        /// <returns>查询成功返回符合条件的集合，否则返回空集合</returns>
+        public List<View_UserAndRole> getListByRoletype(string paraRoletype)
+        {
+            try
+            {
+                var query = from p in _context.View_UserAndRole
+                            where p.RoleType == paraRoletype
+                            select p;
+                return query.ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        /// <summary>
+        /// 查询表单，获取模型实体集合
+        /// </summary>
+        /// <param name="paraRoleid">角色编号</param>
+        /// <returns>查询成功返回符合条件的集合，否则返回空集合</returns>
+        public List<View_UserAndRole> getListByRoleid(string paraRoleid)
+        {
+            try
+            {
+                var query = from p in _context.View_UserAndRole
+                            where p.RoleID == paraRoleid
+                            select p;
                 return query.ToList();
             }
             catch (Exception ex)
@@ -104,7 +142,7 @@ namespace nameSpace
             try
             {
                 var query = from p in _context.View_UserAndRole
-                    select p;
+                            select p;
                 return query.ToList();
             }
             catch (Exception ex)

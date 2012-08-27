@@ -19,7 +19,7 @@ namespace nameSpace
     /// </summary>
     public interface IUserandroleDal
     {
-        
+
         #region[判断实体是否存在]
         /// <summary>
         /// 查询表单，判断实体是否存在
@@ -45,6 +45,18 @@ namespace nameSpace
         /// <param name="paraUserid">用户编号</param>
         /// <returns>查询成功返回符合条件的集合，否则返回空集合</returns>
         List<View_UserAndRole> getListByUserid(string paraUserid);
+        /// <summary>
+        /// 查询表单，获取模型实体集合
+        /// </summary>
+        /// <param name="paraRoletype">角色类型</param>
+        /// <returns>查询成功返回符合条件的集合，否则返回空集合</returns>
+        List<View_UserAndRole> getListByRoletype(string paraRoletype);
+        /// <summary>
+        /// 查询表单，获取模型实体集合
+        /// </summary>
+        /// <param name="paraRoleid">角色编号</param>
+        /// <returns>查询成功返回符合条件的集合，否则返回空集合</returns>
+        List<View_UserAndRole> getListByRoleid(string paraRoleid);
         /// <summary>
         /// 查询表单，获取模型实体集合
         /// </summary>
