@@ -11,9 +11,8 @@ using System.Linq;
 using System.Web;
 using CampusNerdy.Model;
 using CampusNerdy.IDal;
-using nameSpace;
 
-namespace nameSpace
+namespace CampusNerdy.Dal
 {
     /// <summary>
     /// 

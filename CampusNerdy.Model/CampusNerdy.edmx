@@ -35,7 +35,8 @@
       [View_UserAndRole].[UserID] AS [UserID], 
       [View_UserAndRole].[RoleID] AS [RoleID], 
       [View_UserAndRole].[RoleName] AS [RoleName], 
-      [View_UserAndRole].[RoleType] AS [RoleType]
+      [View_UserAndRole].[RoleType] AS [RoleType], 
+      [View_UserAndRole].[IsUse] AS [IsUse]
       FROM [dbo].[View_UserAndRole] AS [View_UserAndRole]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_areaInfo_tb_Group1" Association="CampusNerdyModel.Store.FK_areaInfo_tb_Group1">
@@ -253,6 +254,7 @@
           <Property Name="CreateDate" Type="date" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
           <Property Name="UserDescribe" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsUse" Type="bit" />
         </EntityType>
         <EntityType Name="tb_UserInfo">
           <Key>
@@ -278,6 +280,7 @@
           <Property Name="RoleID" Type="nvarchar" MaxLength="50" />
           <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
           <Property Name="RoleType" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsUse" Type="bit" />
         </EntityType>
         <Association Name="FK_areaInfo_tb_Group1">
           <End Role="tb_Group" Type="CampusNerdyModel.Store.tb_Group" Multiplicity="1" />
@@ -493,6 +496,7 @@
           <EntitySet Name="tb_SuperMaket" EntityType="CampusNerdyModel.tb_SuperMaket" />
           <EntitySet Name="tb_User" EntityType="CampusNerdyModel.tb_User" />
           <EntitySet Name="tb_UserInfo" EntityType="CampusNerdyModel.tb_UserInfo" />
+          <EntitySet Name="View_UserAndRole" EntityType="CampusNerdyModel.View_UserAndRole" />
           <AssociationSet Name="FK_areaInfo_tb_Group1" Association="CampusNerdyModel.FK_areaInfo_tb_Group1">
             <End Role="tb_Group" EntitySet="tb_Group" />
             <End Role="tb_Area" EntitySet="tb_Area" />
@@ -545,7 +549,6 @@
             <End Role="tb_User" EntitySet="tb_User" />
             <End Role="tb_UserInfo" EntitySet="tb_UserInfo" />
           </AssociationSet>
-          <EntitySet Name="View_UserAndRole" EntityType="CampusNerdyModel.View_UserAndRole" />
         </EntityContainer>
         <EntityType Name="sysdiagram">
           <Key>
@@ -674,8 +677,8 @@
           <Property Type="String" Name="RoleID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="RoleName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="RoleType" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="tb_RoleToUser" Relationship="CampusNerdyModel.FK_tb_Role_UserRelations_tb_Role" FromRole="tb_Role" ToRole="tb_RoleToUser" />
           <Property Type="String" Name="RoleDescribe" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tb_RoleToUser" Relationship="CampusNerdyModel.FK_tb_Role_UserRelations_tb_Role" FromRole="tb_Role" ToRole="tb_RoleToUser" />
         </EntityType>
         <EntityType Name="tb_RoleToModule">
           <Key>
@@ -732,6 +735,7 @@
           <Property Type="DateTime" Name="CreateDate" />
           <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="UserDescribe" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsUse" />
           <NavigationProperty Name="tb_RoleToUser" Relationship="CampusNerdyModel.FK_tb_Role_UserRelations_tb_User" FromRole="tb_User" ToRole="tb_RoleToUser" />
           <NavigationProperty Name="tb_UserInfo" Relationship="CampusNerdyModel.FK_tb_UserInfo_tb_User" FromRole="tb_User" ToRole="tb_UserInfo" />
         </EntityType>
@@ -742,6 +746,22 @@
           <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="UserID" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tb_User" Relationship="CampusNerdyModel.FK_tb_UserInfo_tb_User" FromRole="tb_UserInfo" ToRole="tb_User" />
+        </EntityType>
+        <EntityType Name="View_UserAndRole">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Type="String" Name="UserName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Hashed_PassWord" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Salt" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreateDate" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UserDescribe" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UserID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RoleID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RoleName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RoleType" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsUse" />
         </EntityType>
         <Association Name="FK_areaInfo_tb_Group1">
           <End Type="CampusNerdyModel.tb_Group" Role="tb_Group" Multiplicity="1" />
@@ -899,21 +919,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="View_UserAndRole">
-          <Key>
-            <PropertyRef Name="UserID" />
-          </Key>
-          <Property Type="String" Name="UserName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Hashed_PassWord" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Salt" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="CreateDate" />
-          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="UserDescribe" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="UserID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="RoleID" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="RoleName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="RoleType" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1090,6 +1095,7 @@
           <EntitySetMapping Name="tb_User">
             <EntityTypeMapping TypeName="CampusNerdyModel.tb_User">
               <MappingFragment StoreEntitySet="tb_User">
+                <ScalarProperty Name="IsUse" ColumnName="IsUse" />
                 <ScalarProperty Name="UserDescribe" ColumnName="UserDescribe" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
@@ -1111,6 +1117,7 @@
           <EntitySetMapping Name="View_UserAndRole">
             <EntityTypeMapping TypeName="CampusNerdyModel.View_UserAndRole">
               <MappingFragment StoreEntitySet="View_UserAndRole">
+                <ScalarProperty Name="IsUse" ColumnName="IsUse" />
                 <ScalarProperty Name="RoleType" ColumnName="RoleType" />
                 <ScalarProperty Name="RoleName" ColumnName="RoleName" />
                 <ScalarProperty Name="RoleID" ColumnName="RoleID" />
@@ -1156,13 +1163,14 @@
         <EntityTypeShape EntityType="CampusNerdyModel.tb_GoodInfoToSuperMarket" Width="1.5" PointX="7.5" PointY="4.125" Height="3.1161507161458246" />
         <EntityTypeShape EntityType="CampusNerdyModel.tb_Group" Width="1.5" PointX="0.75" PointY="5.25" Height="2.3520719401041674" />
         <EntityTypeShape EntityType="CampusNerdyModel.tb_Module" Width="1.5" PointX="5.75" PointY="11" Height="1.7790128580729174" />
-        <EntityTypeShape EntityType="CampusNerdyModel.tb_Role" Width="1.5" PointX="0.75" PointY="15.375" Height="1.7790128580729174" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_Role" Width="1.5" PointX="0.75" PointY="15.25" Height="1.9700325520833246" />
         <EntityTypeShape EntityType="CampusNerdyModel.tb_RoleToModule" Width="1.5" PointX="8" PointY="11" Height="1.7790128580729174" />
         <EntityTypeShape EntityType="CampusNerdyModel.tb_RoleToUser" Width="1.5" PointX="3" PointY="11.25" Height="1.9700325520833388" />
         <EntityTypeShape EntityType="CampusNerdyModel.tb_Sender" Width="1.5" PointX="3" PointY="6.625" Height="2.161052246093746" />
         <EntityTypeShape EntityType="CampusNerdyModel.tb_SuperMaket" Width="1.5" PointX="5.25" PointY="4.375" Height="2.7341113281250102" />
-        <EntityTypeShape EntityType="CampusNerdyModel.tb_User" Width="1.5" PointX="0.75" PointY="10.875" Height="2.7341113281250102" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_User" Width="1.5" PointX="0.75" PointY="10.75" Height="2.9251310221354174" />
         <EntityTypeShape EntityType="CampusNerdyModel.tb_UserInfo" Width="1.5" PointX="3" PointY="14.125" Height="1.587993164062496" />
+        <EntityTypeShape EntityType="CampusNerdyModel.View_UserAndRole" Width="1.5" PointX="5.75" PointY="13.75" Height="3.1161507161458246" />
         <AssociationConnector Association="CampusNerdyModel.FK_areaInfo_tb_Group1" >
           <ConnectorPoint PointX="2.25" PointY="5.5475162760416694" />
           <ConnectorPoint PointX="3" PointY="5.5475162760416694" />
@@ -1208,8 +1216,8 @@
           <ConnectorPoint PointX="8" PointY="11.889506429036459" />
         </AssociationConnector>
         <AssociationConnector Association="CampusNerdyModel.FK_tb_Role_UserRelations_tb_Role" >
-          <ConnectorPoint PointX="2.25" PointY="15.376152846153847" />
-          <ConnectorPoint PointX="2.625" PointY="15.001152846153847" />
+          <ConnectorPoint PointX="2.25" PointY="15.251152846153847" />
+          <ConnectorPoint PointX="2.625" PointY="14.876152846153847" />
           <ConnectorPoint PointX="2.625" PointY="12.235016276041669" />
           <ConnectorPoint PointX="3" PointY="12.235016276041669" />
         </AssociationConnector>
@@ -1218,14 +1226,13 @@
           <ConnectorPoint PointX="3" PointY="11.680008138020835" />
         </AssociationConnector>
         <AssociationConnector Association="CampusNerdyModel.FK_tb_UserInfo_tb_User" >
-          <ConnectorPoint PointX="2.25" PointY="13.546802635817318" />
-          <ConnectorPoint PointX="2.5660744349011213" PointY="13.862877070718438" />
-          <ConnectorPoint PointX="2.6839255650988791" PointY="13.980728200916197" />
-          <ConnectorPoint PointX="2.8125" PointY="14.109302635817318" />
+          <ConnectorPoint PointX="2.25" PointY="13.612822329827726" />
+          <ConnectorPoint PointX="2.5660744349011213" PointY="13.928896764728846" />
+          <ConnectorPoint PointX="2.6839255650988791" PointY="14.046747894926604" />
+          <ConnectorPoint PointX="2.8125" PointY="14.175322329827726" />
           <ConnectorPoint PointX="2.8125" PointY="13.936347153846153" />
           <ConnectorPoint PointX="3.0011528461538459" PointY="14.125" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="CampusNerdyModel.View_UserAndRole" Width="1.5" PointX="5.375" PointY="13.75" Height="2.9251310221354174" />
       </Diagram>
     </Diagrams>
   </Designer>

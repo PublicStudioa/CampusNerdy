@@ -12,7 +12,7 @@ using System.Web;
 using CampusNerdy.Model;
 using CampusNerdy.IDal;
 
-namespace nameSpace
+namespace CampusNerdy.IDal
 {
     /// <summary>
     /// 

@@ -11,14 +11,14 @@ using System.Linq;
 using System.Web;
 using CampusNerdy.Model;
 using CampusNerdy.IDal;
-using nameSpace;
 
-namespace nameSpace
+
+namespace CampusNerdy.Dal
 {
     /// <summary>
     /// 
     /// </summary>
-    public class CheckitemDal:ICheckitemDal
+    public class CheckitemDal
     {
         //日志数据库写入接口
         CampusNerdyEntities _context;

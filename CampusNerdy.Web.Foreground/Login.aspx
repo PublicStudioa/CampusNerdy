@@ -4,6 +4,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <script language="javascript" type="text/javascript">
+// <![CDATA[
+
+        function btnsubmit_onclick() {
+
+        }
+
+// ]]>
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -42,7 +51,7 @@
             </table>
             <div>
                 <input id="btnsubmit" type="button" value="登陆" runat="server" onserverclick="btnsubmit_Click"
-                    class="login_subbtn"    /></div>
+                    class="login_subbtn"     /></div>
             <div>
                 <asp:Label ID="lberrormessage" runat="server"></asp:Label></div>
         </div>

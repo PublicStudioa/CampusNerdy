@@ -3750,6 +3750,30 @@ namespace CampusNerdy.Model
         private global::System.String _UserDescribe;
         partial void OnUserDescribeChanging(global::System.String value);
         partial void OnUserDescribeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsUse
+        {
+            get
+            {
+                return _IsUse;
+            }
+            set
+            {
+                OnIsUseChanging(value);
+                ReportPropertyChanging("IsUse");
+                _IsUse = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsUse");
+                OnIsUseChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsUse;
+        partial void OnIsUseChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsUseChanged();
 
         #endregion
 
@@ -4194,6 +4218,30 @@ namespace CampusNerdy.Model
         private global::System.String _RoleType;
         partial void OnRoleTypeChanging(global::System.String value);
         partial void OnRoleTypeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsUse
+        {
+            get
+            {
+                return _IsUse;
+            }
+            set
+            {
+                OnIsUseChanging(value);
+                ReportPropertyChanging("IsUse");
+                _IsUse = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsUse");
+                OnIsUseChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsUse;
+        partial void OnIsUseChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsUseChanged();
 
         #endregion
 

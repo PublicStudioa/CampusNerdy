@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CacheHelper.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="CHelper\BaseHelper.cs" />
     <Compile Include="CHelper\JS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

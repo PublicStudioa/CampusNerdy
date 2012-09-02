@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -95,6 +96,18 @@
     <ProjectReference Include="..\CampusNerdy.Common\CampusNerdy.Common.csproj">
       <Project>{3E39A52E-EB26-47AC-A7DD-90CD3FD23CE1}</Project>
       <Name>CampusNerdy.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CampusNerdy.Dal\CampusNerdy.Dal.csproj">
+      <Project>{C16FC99F-5C37-444B-B4EE-3AC8B0178CF7}</Project>
+      <Name>CampusNerdy.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CampusNerdy.IDal\CampusNerdy.IDal.csproj">
+      <Project>{2771E0F6-9116-456E-9309-9E0C594114E2}</Project>
+      <Name>CampusNerdy.IDal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CampusNerdy.Model\CampusNerdy.Model.csproj">
+      <Project>{6286D49C-84A8-4CCB-802F-4D91D0323F22}</Project>
+      <Name>CampusNerdy.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
