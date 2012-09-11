@@ -105,7 +105,7 @@ namespace CampusNerdy.Web.Foreground
                         }
                     }
                     FormsAuthentication.RedirectFromLoginPage(userName, false);
-
+                    JS.Alert("123");
                     return;
                 }
                 else
