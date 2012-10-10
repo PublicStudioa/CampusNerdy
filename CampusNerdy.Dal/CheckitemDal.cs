@@ -242,12 +242,36 @@ namespace CampusNerdy.Dal
         {
             try
             {
-                Int32 tempID =  Int32.Parse(paraID.Trim());
+                Int32 tempID = Int32.Parse(paraID.Trim());
 
                 var query = from p in _context.tb_CheckItem
-                    orderby p.ID descending
-                    where p.ID == tempID 
-                    select p;
+                            orderby p.ID descending
+                            where p.ID == tempID
+                            select p;
+                return query.FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        /// <summary>
+        /// 查询表单，获取单个数据模型对象
+        /// </summary>
+        /// <param name="paraCheckoutid"></param>
+        /// <param name="paraGoodsuperid">此项ID未验证ID当发现</param>
+        /// <returns>null为没找到匹配对象，否则返回单行数据模型对象</returns>
+        public tb_CheckItem getModelByCheckoutidAndGoodsuperid(string paraCheckoutid, string paraGoodsuperid)
+        {
+            try
+            {
+                Int32 tempCheckoutid = Int32.Parse(paraCheckoutid.Trim());
+                Int32 tempGoodsuperid = Int32.Parse(paraGoodsuperid.Trim());
+
+                var query = from p in _context.tb_CheckItem
+                            orderby p.ID descending
+                            where p.CheckOutID == tempCheckoutid && p.GoodSuperId == tempGoodsuperid
+                            select p;
                 return query.FirstOrDefault();
             }
             catch (Exception ex)

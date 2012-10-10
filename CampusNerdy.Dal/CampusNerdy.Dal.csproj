@@ -58,6 +58,7 @@
     <Compile Include="SupermaketDal.cs" />
     <Compile Include="UserandroleDal.cs" />
     <Compile Include="UserDal.cs" />
+    <Compile Include="ViewchectoutDal.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CampusNerdy.IDal\CampusNerdy.IDal.csproj">

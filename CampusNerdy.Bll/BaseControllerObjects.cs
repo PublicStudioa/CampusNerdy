@@ -69,8 +69,8 @@ namespace CampusNerdy.Bll
         /// </summary>
         public UserDal userDal { get { return new UserDal(); } }
         /// <summary>
-        /// 地区操作类
+        /// 结账视图
         /// </summary>
-
+        public ViewchectoutDal viewchectoutDal { get { return new ViewchectoutDal(); } }
     }
 }

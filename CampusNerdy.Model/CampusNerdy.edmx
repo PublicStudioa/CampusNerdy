@@ -39,10 +39,22 @@
       [View_UserAndRole].[IsUse] AS [IsUse]
       FROM [dbo].[View_UserAndRole] AS [View_UserAndRole]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK_areaInfo_tb_Group1" Association="CampusNerdyModel.Store.FK_areaInfo_tb_Group1">
-            <End Role="tb_Group" EntitySet="tb_Group" />
-            <End Role="tb_Area" EntitySet="tb_Area" />
-          </AssociationSet>
+          <EntitySet Name="View_ViewChectOut" EntityType="CampusNerdyModel.Store.View_ViewChectOut" store:Type="Views" store:Schema="dbo" store:Name="View_ViewChectOut">
+            <DefiningQuery>SELECT 
+      [View_ViewChectOut].[ID] AS [ID], 
+      [View_ViewChectOut].[CheckOutID] AS [CheckOutID], 
+      [View_ViewChectOut].[GoodSuperId] AS [GoodSuperId], 
+      [View_ViewChectOut].[SuperMarketID] AS [SuperMarketID], 
+      [View_ViewChectOut].[GoodId] AS [GoodId], 
+      [View_ViewChectOut].[GoodName] AS [GoodName], 
+      [View_ViewChectOut].[Image] AS [Image], 
+      [View_ViewChectOut].[MarketIMG] AS [MarketIMG], 
+      [View_ViewChectOut].[GoodsSuperCount] AS [GoodsSuperCount], 
+      [View_ViewChectOut].[GoodsSuperCost] AS [GoodsSuperCost], 
+      [View_ViewChectOut].[superMarketName] AS [superMarketName], 
+      [View_ViewChectOut].[Cash] AS [Cash]
+      FROM [dbo].[View_ViewChectOut] AS [View_ViewChectOut]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_dealRequest_goodInfo_superMarket" Association="CampusNerdyModel.Store.FK_dealRequest_goodInfo_superMarket">
             <End Role="tb_GoodInfoToSuperMarket" EntitySet="tb_GoodInfoToSuperMarket" />
             <End Role="tb_DealRequest" EntitySet="tb_DealRequest" />
@@ -66,6 +78,10 @@
           <AssociationSet Name="FK_tb_CheckItem_tb_GoodInfoToSuperMarket" Association="CampusNerdyModel.Store.FK_tb_CheckItem_tb_GoodInfoToSuperMarket">
             <End Role="tb_GoodInfoToSuperMarket" EntitySet="tb_GoodInfoToSuperMarket" />
             <End Role="tb_CheckItem" EntitySet="tb_CheckItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_Group_tb_Area" Association="CampusNerdyModel.Store.FK_tb_Group_tb_Area">
+            <End Role="tb_Area" EntitySet="tb_Area" />
+            <End Role="tb_Group" EntitySet="tb_Group" />
           </AssociationSet>
           <AssociationSet Name="FK_tb_Role_ModuleRelation_tb_Module1" Association="CampusNerdyModel.Store.FK_tb_Role_ModuleRelation_tb_Module1">
             <End Role="tb_Module" EntitySet="tb_Module" />
@@ -118,12 +134,15 @@
           <Property Name="CheckOutID" Type="int" />
           <Property Name="GoodSuperId" Type="int" />
           <Property Name="SuperMarketID" Type="int" />
+          <Property Name="GoodsSuperCount" Type="int" />
+          <Property Name="GoodsSuperCost" Type="decimal" Precision="8" Scale="2" />
         </EntityType>
         <EntityType Name="tb_CheckOut">
           <Key>
             <PropertyRef Name="CheckOutID" />
           </Key>
           <Property Name="CheckOutID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDate" Type="date" />
         </EntityType>
         <EntityType Name="tb_DealHistory">
           <Key>
@@ -167,6 +186,7 @@
           <Property Name="GoodName" Type="nvarchar" MaxLength="50" />
           <Property Name="GoodDescription" Type="ntext" />
           <Property Name="IsUse" Type="bit" />
+          <Property Name="Image" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="tb_GoodInfoToSuperMarket">
           <Key>
@@ -175,10 +195,11 @@
           <Property Name="GoodSuperID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="GoodId" Type="int" />
           <Property Name="SuperMarketId" Type="int" />
-          <Property Name="Cash" Type="int" />
+          <Property Name="Cash" Type="money" />
           <Property Name="IsNormalEnum" Type="nvarchar" MaxLength="50" />
           <Property Name="AbnormalInfo" Type="nvarchar" MaxLength="50" />
           <Property Name="IsUse" Type="bit" />
+          <Property Name="AbnormalGoodIMG" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="tb_Group">
           <Key>
@@ -242,6 +263,7 @@
           <Property Name="AreaId" Type="nvarchar" MaxLength="50" />
           <Property Name="GroupId" Type="nvarchar" MaxLength="50" />
           <Property Name="IsUse" Type="bit" />
+          <Property Name="MarketIMG" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="tb_User">
           <Key>
@@ -282,18 +304,27 @@
           <Property Name="RoleType" Type="nvarchar" MaxLength="50" />
           <Property Name="IsUse" Type="bit" />
         </EntityType>
-        <Association Name="FK_areaInfo_tb_Group1">
-          <End Role="tb_Group" Type="CampusNerdyModel.Store.tb_Group" Multiplicity="1" />
-          <End Role="tb_Area" Type="CampusNerdyModel.Store.tb_Area" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="tb_Group">
-              <PropertyRef Name="GroupId" />
-            </Principal>
-            <Dependent Role="tb_Area">
-              <PropertyRef Name="AreaId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <!--生成过程中发现错误:
+      警告 6002: 表/视图“CampusNerdy.dbo.View_ViewChectOut”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="View_ViewChectOut">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="superMarketName" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CheckOutID" Type="int" />
+          <Property Name="GoodSuperId" Type="int" />
+          <Property Name="SuperMarketID" Type="int" />
+          <Property Name="GoodId" Type="int" />
+          <Property Name="GoodName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Image" Type="nvarchar" MaxLength="500" />
+          <Property Name="MarketIMG" Type="nvarchar" MaxLength="500" />
+          <Property Name="GoodsSuperCount" Type="int" />
+          <Property Name="GoodsSuperCost" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="superMarketName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Cash" Type="money" />
+        </EntityType>
         <Association Name="FK_dealRequest_goodInfo_superMarket">
           <End Role="tb_GoodInfoToSuperMarket" Type="CampusNerdyModel.Store.tb_GoodInfoToSuperMarket" Multiplicity="0..1" />
           <End Role="tb_DealRequest" Type="CampusNerdyModel.Store.tb_DealRequest" Multiplicity="*" />
@@ -365,6 +396,18 @@
             </Principal>
             <Dependent Role="tb_CheckItem">
               <PropertyRef Name="GoodSuperId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_Group_tb_Area">
+          <End Role="tb_Area" Type="CampusNerdyModel.Store.tb_Area" Multiplicity="0..1" />
+          <End Role="tb_Group" Type="CampusNerdyModel.Store.tb_Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Area">
+              <PropertyRef Name="AreaId" />
+            </Principal>
+            <Dependent Role="tb_Group">
+              <PropertyRef Name="AreaID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -497,9 +540,9 @@
           <EntitySet Name="tb_User" EntityType="CampusNerdyModel.tb_User" />
           <EntitySet Name="tb_UserInfo" EntityType="CampusNerdyModel.tb_UserInfo" />
           <EntitySet Name="View_UserAndRole" EntityType="CampusNerdyModel.View_UserAndRole" />
-          <AssociationSet Name="FK_areaInfo_tb_Group1" Association="CampusNerdyModel.FK_areaInfo_tb_Group1">
-            <End Role="tb_Group" EntitySet="tb_Group" />
+          <AssociationSet Name="FK_tb_Group_tb_Area" Association="CampusNerdyModel.FK_tb_Group_tb_Area">
             <End Role="tb_Area" EntitySet="tb_Area" />
+            <End Role="tb_Group" EntitySet="tb_Group" />
           </AssociationSet>
           <AssociationSet Name="FK_tb_SuperMaket_tb_Area" Association="CampusNerdyModel.FK_tb_SuperMaket_tb_Area">
             <End Role="tb_Area" EntitySet="tb_Area" />
@@ -549,6 +592,7 @@
             <End Role="tb_User" EntitySet="tb_User" />
             <End Role="tb_UserInfo" EntitySet="tb_UserInfo" />
           </AssociationSet>
+          <EntitySet Name="View_ViewChectOut" EntityType="CampusNerdyModel.View_ViewChectOut" />
         </EntityContainer>
         <EntityType Name="sysdiagram">
           <Key>
@@ -567,7 +611,7 @@
           <Property Type="String" Name="AreaId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="AreaName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="AreaInfo" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="tb_Group" Relationship="CampusNerdyModel.FK_areaInfo_tb_Group1" FromRole="tb_Area" ToRole="tb_Group" />
+          <NavigationProperty Name="tb_Group" Relationship="CampusNerdyModel.FK_tb_Group_tb_Area" FromRole="tb_Area" ToRole="tb_Group" />
           <NavigationProperty Name="tb_SuperMaket" Relationship="CampusNerdyModel.FK_tb_SuperMaket_tb_Area" FromRole="tb_Area" ToRole="tb_SuperMaket" />
         </EntityType>
         <EntityType Name="tb_CheckItem">
@@ -578,6 +622,8 @@
           <Property Type="Int32" Name="CheckOutID" />
           <Property Type="Int32" Name="GoodSuperId" />
           <Property Type="Int32" Name="SuperMarketID" />
+          <Property Type="Int32" Name="GoodsSuperCount" />
+          <Property Type="Decimal" Name="GoodsSuperCost" Precision="8" Scale="2" />
           <NavigationProperty Name="tb_CheckOut" Relationship="CampusNerdyModel.FK_tb_CheckItem_tb_CheckOut" FromRole="tb_CheckItem" ToRole="tb_CheckOut" />
           <NavigationProperty Name="tb_GoodInfoToSuperMarket" Relationship="CampusNerdyModel.FK_tb_CheckItem_tb_GoodInfoToSuperMarket" FromRole="tb_CheckItem" ToRole="tb_GoodInfoToSuperMarket" />
         </EntityType>
@@ -586,6 +632,7 @@
             <PropertyRef Name="CheckOutID" />
           </Key>
           <Property Type="Int32" Name="CheckOutID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="CreateDate" />
           <NavigationProperty Name="tb_CheckItem" Relationship="CampusNerdyModel.FK_tb_CheckItem_tb_CheckOut" FromRole="tb_CheckOut" ToRole="tb_CheckItem" />
         </EntityType>
         <EntityType Name="tb_DealHistory">
@@ -631,6 +678,7 @@
           <Property Type="String" Name="GoodName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="GoodDescription" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="IsUse" />
+          <Property Type="String" Name="Image" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tb_GoodInfoToSuperMarket" Relationship="CampusNerdyModel.FK_goodInfo_superMarket_tb_GoodInf" FromRole="tb_Good" ToRole="tb_GoodInfoToSuperMarket" />
         </EntityType>
         <EntityType Name="tb_GoodInfoToSuperMarket">
@@ -640,10 +688,11 @@
           <Property Type="Int32" Name="GoodSuperID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Int32" Name="GoodId" />
           <Property Type="Int32" Name="SuperMarketId" />
-          <Property Type="Int32" Name="Cash" />
+          <Property Type="Decimal" Name="Cash" Precision="19" Scale="4" />
           <Property Type="String" Name="IsNormalEnum" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="AbnormalInfo" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="IsUse" />
+          <Property Type="String" Name="AbnormalGoodIMG" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tb_CheckItem" Relationship="CampusNerdyModel.FK_tb_CheckItem_tb_GoodInfoToSuperMarket" FromRole="tb_GoodInfoToSuperMarket" ToRole="tb_CheckItem" />
           <NavigationProperty Name="tb_DealRequest" Relationship="CampusNerdyModel.FK_dealRequest_goodInfo_superMarket" FromRole="tb_GoodInfoToSuperMarket" ToRole="tb_DealRequest" />
           <NavigationProperty Name="tb_Good" Relationship="CampusNerdyModel.FK_goodInfo_superMarket_tb_GoodInf" FromRole="tb_GoodInfoToSuperMarket" ToRole="tb_Good" />
@@ -657,7 +706,7 @@
           <Property Type="String" Name="GroupName" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="AreaID" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="LeaderId" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="tb_Area" Relationship="CampusNerdyModel.FK_areaInfo_tb_Group1" FromRole="tb_Group" ToRole="tb_Area" />
+          <NavigationProperty Name="tb_Area" Relationship="CampusNerdyModel.FK_tb_Group_tb_Area" FromRole="tb_Group" ToRole="tb_Area" />
           <NavigationProperty Name="tb_Sender" Relationship="CampusNerdyModel.FK_sender_tb_Group" FromRole="tb_Group" ToRole="tb_Sender" />
           <NavigationProperty Name="tb_SuperMaket" Relationship="CampusNerdyModel.FK_tb_SuperMaket_tb_Group" FromRole="tb_Group" ToRole="tb_SuperMaket" />
         </EntityType>
@@ -720,6 +769,7 @@
           <Property Type="String" Name="AreaId" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="GroupId" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="IsUse" />
+          <Property Type="String" Name="MarketIMG" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tb_Area" Relationship="CampusNerdyModel.FK_tb_SuperMaket_tb_Area" FromRole="tb_SuperMaket" ToRole="tb_Area" />
           <NavigationProperty Name="tb_GoodInfoToSuperMarket" Relationship="CampusNerdyModel.FK_goodInfo_superMarket_tb_SuperMaket" FromRole="tb_SuperMaket" ToRole="tb_GoodInfoToSuperMarket" />
           <NavigationProperty Name="tb_Group" Relationship="CampusNerdyModel.FK_tb_SuperMaket_tb_Group" FromRole="tb_SuperMaket" ToRole="tb_Group" />
@@ -763,15 +813,15 @@
           <Property Type="String" Name="RoleType" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="IsUse" />
         </EntityType>
-        <Association Name="FK_areaInfo_tb_Group1">
-          <End Type="CampusNerdyModel.tb_Group" Role="tb_Group" Multiplicity="1" />
+        <Association Name="FK_tb_Group_tb_Area">
           <End Type="CampusNerdyModel.tb_Area" Role="tb_Area" Multiplicity="0..1" />
+          <End Type="CampusNerdyModel.tb_Group" Role="tb_Group" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="tb_Group">
-              <PropertyRef Name="GroupId" />
-            </Principal>
-            <Dependent Role="tb_Area">
+            <Principal Role="tb_Area">
               <PropertyRef Name="AreaId" />
+            </Principal>
+            <Dependent Role="tb_Group">
+              <PropertyRef Name="AreaID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -919,6 +969,24 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="View_ViewChectOut">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="superMarketName" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CheckOutID" />
+          <Property Type="Int32" Name="GoodSuperId" />
+          <Property Type="Int32" Name="SuperMarketID" />
+          <Property Type="Int32" Name="GoodId" />
+          <Property Type="String" Name="GoodName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Image" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MarketIMG" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="GoodsSuperCount" />
+          <Property Type="Decimal" Name="GoodsSuperCost" Precision="8" Scale="2" />
+          <Property Type="String" Name="superMarketName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Cash" Precision="19" Scale="4" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -948,6 +1016,8 @@
           <EntitySetMapping Name="tb_CheckItem">
             <EntityTypeMapping TypeName="CampusNerdyModel.tb_CheckItem">
               <MappingFragment StoreEntitySet="tb_CheckItem">
+                <ScalarProperty Name="GoodsSuperCost" ColumnName="GoodsSuperCost" />
+                <ScalarProperty Name="GoodsSuperCount" ColumnName="GoodsSuperCount" />
                 <ScalarProperty Name="SuperMarketID" ColumnName="SuperMarketID" />
                 <ScalarProperty Name="GoodSuperId" ColumnName="GoodSuperId" />
                 <ScalarProperty Name="CheckOutID" ColumnName="CheckOutID" />
@@ -958,6 +1028,7 @@
           <EntitySetMapping Name="tb_CheckOut">
             <EntityTypeMapping TypeName="CampusNerdyModel.tb_CheckOut">
               <MappingFragment StoreEntitySet="tb_CheckOut">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
                 <ScalarProperty Name="CheckOutID" ColumnName="CheckOutID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1002,6 +1073,7 @@
           <EntitySetMapping Name="tb_Good">
             <EntityTypeMapping TypeName="CampusNerdyModel.tb_Good">
               <MappingFragment StoreEntitySet="tb_Good">
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="IsUse" ColumnName="IsUse" />
                 <ScalarProperty Name="GoodDescription" ColumnName="GoodDescription" />
                 <ScalarProperty Name="GoodName" ColumnName="GoodName" />
@@ -1012,6 +1084,7 @@
           <EntitySetMapping Name="tb_GoodInfoToSuperMarket">
             <EntityTypeMapping TypeName="CampusNerdyModel.tb_GoodInfoToSuperMarket">
               <MappingFragment StoreEntitySet="tb_GoodInfoToSuperMarket">
+                <ScalarProperty Name="AbnormalGoodIMG" ColumnName="AbnormalGoodIMG" />
                 <ScalarProperty Name="IsUse" ColumnName="IsUse" />
                 <ScalarProperty Name="AbnormalInfo" ColumnName="AbnormalInfo" />
                 <ScalarProperty Name="IsNormalEnum" ColumnName="IsNormalEnum" />
@@ -1083,6 +1156,7 @@
           <EntitySetMapping Name="tb_SuperMaket">
             <EntityTypeMapping TypeName="CampusNerdyModel.tb_SuperMaket">
               <MappingFragment StoreEntitySet="tb_SuperMaket">
+                <ScalarProperty Name="MarketIMG" ColumnName="MarketIMG" />
                 <ScalarProperty Name="IsUse" ColumnName="IsUse" />
                 <ScalarProperty Name="GroupId" ColumnName="GroupId" />
                 <ScalarProperty Name="AreaId" ColumnName="AreaId" />
@@ -1131,6 +1205,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="View_ViewChectOut">
+            <EntityTypeMapping TypeName="CampusNerdyModel.View_ViewChectOut">
+              <MappingFragment StoreEntitySet="View_ViewChectOut">
+                <ScalarProperty Name="Cash" ColumnName="Cash" />
+                <ScalarProperty Name="superMarketName" ColumnName="superMarketName" />
+                <ScalarProperty Name="GoodsSuperCost" ColumnName="GoodsSuperCost" />
+                <ScalarProperty Name="GoodsSuperCount" ColumnName="GoodsSuperCount" />
+                <ScalarProperty Name="MarketIMG" ColumnName="MarketIMG" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="GoodName" ColumnName="GoodName" />
+                <ScalarProperty Name="GoodId" ColumnName="GoodId" />
+                <ScalarProperty Name="SuperMarketID" ColumnName="SuperMarketID" />
+                <ScalarProperty Name="GoodSuperId" ColumnName="GoodSuperId" />
+                <ScalarProperty Name="CheckOutID" ColumnName="CheckOutID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1152,87 +1244,89 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="CampusNerdy" ZoomLevel="56">
-        <EntityTypeShape EntityType="CampusNerdyModel.sysdiagram" Width="1.5" PointX="10.75" PointY="10.75" Height="1.9700325520833388" />
-        <EntityTypeShape EntityType="CampusNerdyModel.tb_Area" Width="1.5" PointX="3" PointY="3.875" Height="1.9700325520833388" />
-        <EntityTypeShape EntityType="CampusNerdyModel.tb_CheckItem" Width="1.5" PointX="9.75" PointY="3.625" Height="2.1610522460937567" />
-        <EntityTypeShape EntityType="CampusNerdyModel.tb_CheckOut" Width="1.5" PointX="7.5" PointY="1" Height="1.3969734700520746" />
-        <EntityTypeShape EntityType="CampusNerdyModel.tb_DealHistory" Width="1.5" PointX="11.75" PointY="1.75" Height="2.3520719401041674" />
-        <EntityTypeShape EntityType="CampusNerdyModel.tb_DealRequest" Width="1.5" PointX="9.75" PointY="7.5" Height="2.3520719401041674" />
-        <EntityTypeShape EntityType="CampusNerdyModel.tb_Dictionary" Width="1.5" PointX="11.75" PointY="5.75" Height="2.1610522460937602" />
-        <EntityTypeShape EntityType="CampusNerdyModel.tb_Good" Width="1.5" PointX="5.25" PointY="0.75" Height="1.9700325520833246" />
-        <EntityTypeShape EntityType="CampusNerdyModel.tb_GoodInfoToSuperMarket" Width="1.5" PointX="7.5" PointY="4.125" Height="3.1161507161458246" />
-        <EntityTypeShape EntityType="CampusNerdyModel.tb_Group" Width="1.5" PointX="0.75" PointY="5.25" Height="2.3520719401041674" />
-        <EntityTypeShape EntityType="CampusNerdyModel.tb_Module" Width="1.5" PointX="5.75" PointY="11" Height="1.7790128580729174" />
-        <EntityTypeShape EntityType="CampusNerdyModel.tb_Role" Width="1.5" PointX="0.75" PointY="15.25" Height="1.9700325520833246" />
-        <EntityTypeShape EntityType="CampusNerdyModel.tb_RoleToModule" Width="1.5" PointX="8" PointY="11" Height="1.7790128580729174" />
-        <EntityTypeShape EntityType="CampusNerdyModel.tb_RoleToUser" Width="1.5" PointX="3" PointY="11.25" Height="1.9700325520833388" />
-        <EntityTypeShape EntityType="CampusNerdyModel.tb_Sender" Width="1.5" PointX="3" PointY="6.625" Height="2.161052246093746" />
-        <EntityTypeShape EntityType="CampusNerdyModel.tb_SuperMaket" Width="1.5" PointX="5.25" PointY="4.375" Height="2.7341113281250102" />
-        <EntityTypeShape EntityType="CampusNerdyModel.tb_User" Width="1.5" PointX="0.75" PointY="10.75" Height="2.9251310221354174" />
-        <EntityTypeShape EntityType="CampusNerdyModel.tb_UserInfo" Width="1.5" PointX="3" PointY="14.125" Height="1.587993164062496" />
-        <EntityTypeShape EntityType="CampusNerdyModel.View_UserAndRole" Width="1.5" PointX="5.75" PointY="13.75" Height="3.1161507161458246" />
-        <AssociationConnector Association="CampusNerdyModel.FK_areaInfo_tb_Group1" >
-          <ConnectorPoint PointX="2.25" PointY="5.5475162760416694" />
-          <ConnectorPoint PointX="3" PointY="5.5475162760416694" />
+        <EntityTypeShape EntityType="CampusNerdyModel.sysdiagram" Width="1.5" PointX="5.75" PointY="8" Height="1.9700325520833246" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_Area" Width="1.5" PointX="0.75" PointY="4.875" Height="1.9700325520833388" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_CheckItem" Width="1.5" PointX="12.75" PointY="4.5" Height="2.5430916341145888" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_CheckOut" Width="1.5" PointX="10.5" PointY="1" Height="1.587993164062496" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_DealHistory" Width="1.5" PointX="7.75" PointY="8" Height="2.3520719401041674" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_DealRequest" Width="1.5" PointX="12.75" PointY="8" Height="2.3520719401041665" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_Dictionary" Width="1.5" PointX="9.75" PointY="9" Height="2.1610522460937602" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_Good" Width="1.5" PointX="8.25" PointY="0.75" Height="2.161052246093746" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_GoodInfoToSuperMarket" Width="1.5" PointX="10.5" PointY="4.125" Height="3.307170410156246" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_Group" Width="1.5" PointX="3" PointY="4.625" Height="2.3520719401041674" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_Module" Width="1.5" PointX="0.75" PointY="1.25" Height="1.7790128580729172" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_Role" Width="1.5" PointX="0.75" PointY="13.5" Height="1.9700325520833246" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_RoleToModule" Width="1.5" PointX="3" PointY="1.25" Height="1.7790128580729174" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_RoleToUser" Width="1.5" PointX="3" PointY="9.5" Height="1.9700325520833388" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_Sender" Width="1.5" PointX="5.25" PointY="4.75" Height="2.161052246093746" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_SuperMaket" Width="1.5" PointX="8.25" PointY="4.375" Height="2.9251310221354174" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_User" Width="1.5" PointX="0.75" PointY="9" Height="2.9251310221354174" />
+        <EntityTypeShape EntityType="CampusNerdyModel.tb_UserInfo" Width="1.5" PointX="3" PointY="12.375" Height="1.587993164062496" />
+        <EntityTypeShape EntityType="CampusNerdyModel.View_UserAndRole" Width="1.5" PointX="5.75" PointY="12" Height="3.1161507161458246" />
+        <AssociationConnector Association="CampusNerdyModel.FK_tb_Group_tb_Area" >
+          <ConnectorPoint PointX="2.25" PointY="5.8600162760416694" />
+          <ConnectorPoint PointX="3" PointY="5.8600162760416694" />
         </AssociationConnector>
         <AssociationConnector Association="CampusNerdyModel.FK_tb_SuperMaket_tb_Area" >
-          <ConnectorPoint PointX="4.5" PointY="5.1100162760416694" />
-          <ConnectorPoint PointX="5.25" PointY="5.1100162760416694" />
+          <ConnectorPoint PointX="1.5" PointY="6.8450325520833388" />
+          <ConnectorPoint PointX="1.5" PointY="7.1698514811197924" />
+          <ConnectorPoint PointX="8.25" PointY="7.1698514811197924" />
         </AssociationConnector>
         <AssociationConnector Association="CampusNerdyModel.FK_tb_CheckItem_tb_CheckOut" >
-          <ConnectorPoint PointX="9" PointY="1.6984867350260373" />
-          <ConnectorPoint PointX="10.5" PointY="1.6984867350260373" />
-          <ConnectorPoint PointX="10.5" PointY="3.625" />
+          <ConnectorPoint PointX="12" PointY="1.793996582031248" />
+          <ConnectorPoint PointX="13.5" PointY="1.793996582031248" />
+          <ConnectorPoint PointX="13.5" PointY="4.5" />
         </AssociationConnector>
         <AssociationConnector Association="CampusNerdyModel.FK_tb_CheckItem_tb_GoodInfoToSuperMarket" >
-          <ConnectorPoint PointX="9" PointY="4.9555261230468783" />
-          <ConnectorPoint PointX="9.75" PointY="4.9555261230468783" />
+          <ConnectorPoint PointX="12" PointY="5.7715458170572944" />
+          <ConnectorPoint PointX="12.75" PointY="5.7715458170572944" />
         </AssociationConnector>
         <AssociationConnector Association="CampusNerdyModel.FK_dealRequest_goodInfo_superMarket" >
-          <ConnectorPoint PointX="8.25" PointY="7.2411507161458246" />
-          <ConnectorPoint PointX="8.25" PointY="8.6760359700520837" />
-          <ConnectorPoint PointX="9.75" PointY="8.6760359700520837" />
+          <ConnectorPoint PointX="11.65625" PointY="7.432170410156246" />
+          <ConnectorPoint PointX="11.65625" PointY="8.46875" />
+          <ConnectorPoint PointX="12.75" PointY="8.46875" />
         </AssociationConnector>
         <AssociationConnector Association="CampusNerdyModel.FK_goodInfo_superMarket_tb_GoodInf" >
-          <ConnectorPoint PointX="6.75" PointY="2.7200325520833246" />
-          <ConnectorPoint PointX="7.125" PointY="3.0950325520833246" />
-          <ConnectorPoint PointX="7.125" PointY="5.6830753580729123" />
-          <ConnectorPoint PointX="7.5" PointY="5.6830753580729123" />
+          <ConnectorPoint PointX="9.75" PointY="2.9098973999399" />
+          <ConnectorPoint PointX="10.125" PointY="3.2848973999399" />
+          <ConnectorPoint PointX="10.125" PointY="5.778585205078123" />
+          <ConnectorPoint PointX="10.5" PointY="5.778585205078123" />
         </AssociationConnector>
         <AssociationConnector Association="CampusNerdyModel.FK_goodInfo_superMarket_tb_SuperMaket" >
-          <ConnectorPoint PointX="6.75" PointY="6.4585933430989613" />
-          <ConnectorPoint PointX="7.5" PointY="6.4585933430989613" />
+          <ConnectorPoint PointX="9.75" PointY="6.60185811360677" />
+          <ConnectorPoint PointX="10.5" PointY="6.60185811360677" />
         </AssociationConnector>
         <AssociationConnector Association="CampusNerdyModel.FK_sender_tb_Group" >
-          <ConnectorPoint PointX="2.25" PointY="7.1135359700520837" />
-          <ConnectorPoint PointX="3" PointY="7.1135359700520837" />
+          <ConnectorPoint PointX="4.5" PointY="5.830526123046873" />
+          <ConnectorPoint PointX="5.25" PointY="5.830526123046873" />
         </AssociationConnector>
         <AssociationConnector Association="CampusNerdyModel.FK_tb_SuperMaket_tb_Group" >
-          <ConnectorPoint PointX="2.25" PointY="6.2350162760416694" />
-          <ConnectorPoint PointX="5.25" PointY="6.2350162760416694" />
+          <ConnectorPoint PointX="4.5" PointY="4.65625" />
+          <ConnectorPoint PointX="8.25" PointY="4.65625" />
         </AssociationConnector>
         <AssociationConnector Association="CampusNerdyModel.FK_tb_Role_ModuleRelation_tb_Module1" >
-          <ConnectorPoint PointX="7.25" PointY="11.889506429036459" />
-          <ConnectorPoint PointX="8" PointY="11.889506429036459" />
+          <ConnectorPoint PointX="2.25" PointY="2.1395064290364587" />
+          <ConnectorPoint PointX="3" PointY="2.1395064290364587" />
         </AssociationConnector>
         <AssociationConnector Association="CampusNerdyModel.FK_tb_Role_UserRelations_tb_Role" >
-          <ConnectorPoint PointX="2.25" PointY="15.251152846153847" />
-          <ConnectorPoint PointX="2.625" PointY="14.876152846153847" />
-          <ConnectorPoint PointX="2.625" PointY="12.235016276041669" />
-          <ConnectorPoint PointX="3" PointY="12.235016276041669" />
+          <ConnectorPoint PointX="2.25" PointY="13.501152846153847" />
+          <ConnectorPoint PointX="2.625" PointY="13.126152846153847" />
+          <ConnectorPoint PointX="2.625" PointY="10.485016276041669" />
+          <ConnectorPoint PointX="3" PointY="10.485016276041669" />
         </AssociationConnector>
         <AssociationConnector Association="CampusNerdyModel.FK_tb_Role_UserRelations_tb_User" >
-          <ConnectorPoint PointX="2.25" PointY="11.680008138020835" />
-          <ConnectorPoint PointX="3" PointY="11.680008138020835" />
+          <ConnectorPoint PointX="2.25" PointY="9.9300081380208347" />
+          <ConnectorPoint PointX="3" PointY="9.9300081380208347" />
         </AssociationConnector>
         <AssociationConnector Association="CampusNerdyModel.FK_tb_UserInfo_tb_User" >
-          <ConnectorPoint PointX="2.25" PointY="13.612822329827726" />
-          <ConnectorPoint PointX="2.5660744349011213" PointY="13.928896764728846" />
-          <ConnectorPoint PointX="2.6839255650988791" PointY="14.046747894926604" />
-          <ConnectorPoint PointX="2.8125" PointY="14.175322329827726" />
-          <ConnectorPoint PointX="2.8125" PointY="13.936347153846153" />
-          <ConnectorPoint PointX="3.0011528461538459" PointY="14.125" />
+          <ConnectorPoint PointX="2.25" PointY="11.862822329827726" />
+          <ConnectorPoint PointX="2.5660744349011213" PointY="12.178896764728846" />
+          <ConnectorPoint PointX="2.6839255650988791" PointY="12.296747894926604" />
+          <ConnectorPoint PointX="2.8125" PointY="12.425322329827726" />
+          <ConnectorPoint PointX="2.8125" PointY="12.186347153846153" />
+          <ConnectorPoint PointX="3.0011528461538459" PointY="12.375" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="CampusNerdyModel.View_ViewChectOut" Width="1.5" PointX="7.625" PointY="11.875" Height="3.3071704101562602" />
       </Diagram>
     </Diagrams>
   </Designer>

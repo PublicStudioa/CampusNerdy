@@ -4,20 +4,23 @@
     超市：<asp:Label ID="lbMarketName" runat="server" Text="Label"></asp:Label>
 </div>
 <div>
-    <asp:DataList ID="dtlChechOutDetail" runat="server" 
-        onitemcommand="dtlChechOutDetail_ItemCommand"  >
+    <asp:DataList ID="dtlChechOutDetail" runat="server" OnItemCommand="dtlChechOutDetail_ItemCommand">
         <ItemTemplate>
             <table style="width: 100%;">
+                <tr>
+                    <td colspan="4">
+                        <asp:Image ID="Image1" runat="server" />
+                    </td>
+                </tr>
                 <tr>
                     <td>
                         <%#Eval("GoodNameACount")%>
                     </td>
                     <td>
-                        <asp:Button ID="btnPlus" runat="server" Text="[+]"  CommandName='<%#Convert.ToString( Eval("GoodNameACount")+"-"+"plus")%>'/>
-                          
+                        <asp:Button ID="btnPlus" runat="server" Text="[+]" CommandName='<%#Convert.ToString( Eval("GoodNameACount")+"-"+"plus")%>' />
                     </td>
                     <td>
-                        <asp:Button ID="btnSubtract" runat="server" Text="[-]"   CommandName='<%#Convert.ToString( Eval("GoodNameACount")+"-"+"Subtract")%>'/>
+                        <asp:Button ID="btnSubtract" runat="server" Text="[-]" CommandName='<%#Convert.ToString( Eval("GoodNameACount")+"-"+"Subtract")%>' />
                     </td>
                 </tr>
             </table>
