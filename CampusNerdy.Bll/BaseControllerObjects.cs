@@ -72,5 +72,9 @@ namespace CampusNerdy.Bll
         /// 结账视图
         /// </summary>
         public ViewchectoutDal viewchectoutDal { get { return new ViewchectoutDal(); } }
+        /// <summary>
+        /// 获取超市-商品视图
+        /// </summary>
+        public ViewgoodsuperinfoDal viewgoodsuperinfoDal { get { return new ViewgoodsuperinfoDal(); } }
     }
 }

@@ -17,13 +17,45 @@ namespace CampusNerdy.Bll.UserCenter
             _baseControllerObject = new BaseControllerObjects();
         }
         #endregion
+        #region[获取超市商品信息]返回DataTable
+        public DataTable getViewGoodSuperInfo(string marketID)
+        {
+            List<View_ViewGoodSuperInfo> ViewGoodSuperInfoList = _baseControllerObject.viewgoodsuperinfoDal.getListBySupermarketidAndIsusegoodAndIsusegoodinmarket(marketID, "true", "true");
+            if (ViewGoodSuperInfoList.Count > 0)
+            {
+                DataTable dtTemp = new DataTable();
+                dtTemp.Columns.Add("GoodName", "".GetType());
+                dtTemp.Columns.Add("GoodIMG", "".GetType());
+                dtTemp.Columns.Add("GoodSignCost", "".GetType());
+                dtTemp.Columns.Add("GoodSuperId", "".GetType());
+                dtTemp.Columns.Add("superMarketID", "".GetType());
+                foreach (View_ViewGoodSuperInfo one in ViewGoodSuperInfoList)
+                {
+                    DataRow dr = dtTemp.NewRow();
+                    dr["GoodName"] = one.GoodDescription.ToString();
+                    dr["GoodIMG"] = one.Image.ToString();
+                    dr["GoodSignCost"] = one.Cash.ToString();
+                    dr["GoodSuperId"] = one.GoodSuperID.ToString();
+                    dr["superMarketID"] = one.SuperMarketId.ToString();
+                    dtTemp.Rows.Add(dr);
+                }
+                return dtTemp;
+            }
+            return null;
+        }
 
-        #region[获取超市信息]
-        public DataTable getCheckOutViewTableByMarketID(string marketID)
+
+
+        #endregion
+
+
+
+        #region[获取结算商品相关信息]
+        public DataTable getCheckOutViewTableByMarketID(string checkOutID)
         {
             //获取超市-物品对象
 
-            List<View_ViewChectOut> viewChectOutList = _baseControllerObject.viewchectoutDal.getListBySupermarketid(marketID);
+            List<View_ViewChectOut> viewChectOutList = _baseControllerObject.viewchectoutDal.getListByCheckoutid(checkOutID);
             if (viewChectOutList.Count > 0)
             {
                 DataTable dtTemp = new DataTable();
@@ -53,8 +85,11 @@ namespace CampusNerdy.Bll.UserCenter
             return null;
         }
 
+
+
+
         /// <summary>
-        /// 结算信息+1
+        /// 结算信息±1
         /// </summary>
         /// <param name="checkOutID"></param>
         /// <param name="addCount"></param>
@@ -63,15 +98,16 @@ namespace CampusNerdy.Bll.UserCenter
         {
             tb_CheckItem checkItemModel = _baseControllerObject.checkItemDal.getModelByCheckoutidAndGoodsuperid(checkOutID, goodSupId);
             tb_GoodInfoToSuperMarket goodSpuerModel = _baseControllerObject.goodinfotosupermarketDal.getModelByGoodsuperid(goodSupId);
+
             if (checkItemModel != null && goodSpuerModel != null)
             {
                 if (addOrSub == "+")
                 {
                     checkItemModel.GoodsSuperCount += 1;
                 }
-                else 
+                else
                 {
-                    if (checkItemModel.GoodsSuperCount==1)
+                    if (checkItemModel.GoodsSuperCount == 1)
                     {
                         _baseControllerObject.checkItemDal.deleteMode(checkItemModel);
                     }
@@ -83,8 +119,41 @@ namespace CampusNerdy.Bll.UserCenter
             }
             return false;
         }
+        /// <summary>
+        /// 从商品列表里面给购物车添加商品
+        /// </summary>
+        /// <param name="checkOutID"></param>
+        /// <param name="goodSupId"></param>
+        /// <param name="superMarketID"></param>
+        /// <returns></returns>
+        public bool checkOutItemAddByGoodShow(string checkOutID, string goodSupId, string superMarketID)
+        {
+            tb_CheckItem checkItemModel = _baseControllerObject.checkItemDal.getModelByCheckoutidAndGoodsuperid(checkOutID, goodSupId);
+            tb_GoodInfoToSuperMarket goodSpuerModel = _baseControllerObject.goodinfotosupermarketDal.getModelByGoodsuperid(goodSupId);
+            if (goodSpuerModel == null) return false;
+            if (checkItemModel == null)
+            {
+                //购物车里面增加字段
+                tb_CheckItem checkItem = new tb_CheckItem();
+                checkItem.CheckOutID = checkOutID;
+                checkItem.GoodSuperId = Int32.Parse(goodSupId);
+                checkItem.SuperMarketID = Int32.Parse(superMarketID);
+                checkItem.GoodsSuperCount = 1;
+                checkItem.GoodsSuperCost = goodSpuerModel.Cash;
+                _baseControllerObject.checkItemDal.addMode(checkItem);
+            }
+            else
+            {
+                checkOutItemAddOrSub(checkOutID, goodSupId, 1, "+");
+            }
+
+            return true;
+        }
+
 
         #endregion
+
+
 
         #region 普通函数
         public List<string> getCheckOutMarketID(string checkOutID)

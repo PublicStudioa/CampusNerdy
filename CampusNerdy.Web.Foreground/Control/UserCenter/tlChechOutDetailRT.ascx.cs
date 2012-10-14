@@ -31,9 +31,10 @@ namespace CampusNerdy.Web.Foreground.Control.UserCenter
 
 
 
-        public void dataBind(string checkOutID = "1")
+        public void dataBind()
         {
-            this.dtlChechOutDetail.DataSource = getDTbyCheckOutMarketID(checkOutID);
+            string checkOutID = "1";
+            this.dtlChechOutDetail.DataSource = getDTbyCheckOutID(checkOutID);
             this.dtlChechOutDetail.DataBind();
         }
 
@@ -43,10 +44,10 @@ namespace CampusNerdy.Web.Foreground.Control.UserCenter
         /// </summary>
         /// <param name="checkOutID"></param>
         /// <returns></returns>
-        public DataTable getDTbyCheckOutMarketID(string marketID)
+        public DataTable getDTbyCheckOutID(string checkOutID)
         {
             //获取超市-物品对象
-            DataTable dt = _bllUsercenter.getCheckOutViewTableByMarketID(marketID);
+            DataTable dt = _bllUsercenter.getCheckOutViewTableByMarketID(checkOutID);
             if (dt != null)
             {
                 _marketIMG = dt.Rows[0]["SuperMarketIMG"].ToString();
@@ -65,13 +66,13 @@ namespace CampusNerdy.Web.Foreground.Control.UserCenter
                 {
 
                     _bllUsercenter.checkOutItemAddOrSub("1", strs[0], 1, "+");
-                    dataBind("1");
+                    dataBind();
                 }
                 else
                 {
 
                     _bllUsercenter.checkOutItemAddOrSub("1", strs[0], 1, "-");
-                    dataBind("1");
+                    dataBind();
 
                 }
             }

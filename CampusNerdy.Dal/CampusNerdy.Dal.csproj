@@ -59,6 +59,7 @@
     <Compile Include="UserandroleDal.cs" />
     <Compile Include="UserDal.cs" />
     <Compile Include="ViewchectoutDal.cs" />
+    <Compile Include="ViewgoodsuperinfoDal.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CampusNerdy.IDal\CampusNerdy.IDal.csproj">

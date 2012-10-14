@@ -32,7 +32,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\40\SanitizerProviders\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SanitizerProviders">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\40\SanitizerProviders\SanitizerProviders.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -52,6 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Control\UserCenter\CheckOut.ascx" />
+    <Content Include="Control\UserCenter\GoodsShow.ascx" />
+    <Content Include="Control\UserCenter\mutilViewShowGoods.ascx" />
     <Content Include="Control\UserCenter\tlChechOutDetailRT.ascx" />
     <Content Include="Control\UserCenter\zxTest.aspx" />
     <Content Include="Control\Verify\VerifyCode.aspx" />
@@ -78,6 +89,20 @@
     </Compile>
     <Compile Include="Control\UserCenter\CheckOut.ascx.designer.cs">
       <DependentUpon>CheckOut.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\UserCenter\GoodsShow.ascx.cs">
+      <DependentUpon>GoodsShow.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\UserCenter\GoodsShow.ascx.designer.cs">
+      <DependentUpon>GoodsShow.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\UserCenter\mutilViewShowGoods.ascx.cs">
+      <DependentUpon>mutilViewShowGoods.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\UserCenter\mutilViewShowGoods.ascx.designer.cs">
+      <DependentUpon>mutilViewShowGoods.ascx</DependentUpon>
     </Compile>
     <Compile Include="Control\UserCenter\tlChechOutDetailRT.ascx.cs">
       <DependentUpon>tlChechOutDetailRT.ascx</DependentUpon>
@@ -132,7 +157,9 @@
       <Name>CampusNerdy.Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>

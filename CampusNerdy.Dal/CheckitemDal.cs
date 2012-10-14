@@ -30,6 +30,7 @@ namespace CampusNerdy.Dal
         }
         #endregion
 
+
         #region[判断实体是否存在]
         /// <summary>
         /// 查询表单，判断实体是否存在
@@ -40,11 +41,11 @@ namespace CampusNerdy.Dal
         {
             try
             {
-                Int32 tempID =  Int32.Parse(paraID.Trim());
+                Int32 tempID = Int32.Parse(paraID.Trim());
 
                 var query = from p in _context.tb_CheckItem
-                    where p.ID == tempID 
-                    select p;
+                            where p.ID == tempID
+                            select p;
                 return query.ToList().Count() > 0;
             }
             catch (Exception ex)
@@ -62,24 +63,24 @@ namespace CampusNerdy.Dal
         /// <returns>true：删除成功，false：不存在该记录</returns>
         public bool deleteModeByID(string paraID)
         {
-            if(paraID == null)
+            if (paraID == null)
                 throw new ArgumentNullException("paraID");
             try
             {
-                Int32 tempID =  Int32.Parse(paraID.Trim());
+                Int32 tempID = Int32.Parse(paraID.Trim());
 
                 var query = from p in _context.tb_CheckItem
-                    where p.ID == tempID 
-                    select p;
-                if (query.ToList().Count<1)
+                            where p.ID == tempID
+                            select p;
+                if (query.ToList().Count < 1)
                 {
                     return false;
                 }
                 else
                 {
-                    foreach(var model in query.ToList())
+                    foreach (var model in query.ToList())
                     {
-                        if(!_context.IsAttached(model))
+                        if (!_context.IsAttached(model))
                             _context.tb_CheckItem.Attach(model);
                         _context.tb_CheckItem.DeleteObject(model);
                         _context.SaveChanges();
@@ -99,24 +100,22 @@ namespace CampusNerdy.Dal
         /// <returns>true：删除成功，false：不存在该记录</returns>
         public bool deleteModeByCheckoutid(string paraCheckoutid)
         {
-            if(paraCheckoutid == null)
+            if (paraCheckoutid == null)
                 throw new ArgumentNullException("paraCheckoutid");
             try
             {
-                Int32 tempCheckoutid =  Int32.Parse(paraCheckoutid.Trim());
-
                 var query = from p in _context.tb_CheckItem
-                    where p.CheckOutID == tempCheckoutid 
-                    select p;
-                if (query.ToList().Count<1)
+                            where p.CheckOutID == paraCheckoutid
+                            select p;
+                if (query.ToList().Count < 1)
                 {
                     return false;
                 }
                 else
                 {
-                    foreach(var model in query.ToList())
+                    foreach (var model in query.ToList())
                     {
-                        if(!_context.IsAttached(model))
+                        if (!_context.IsAttached(model))
                             _context.tb_CheckItem.Attach(model);
                         _context.tb_CheckItem.DeleteObject(model);
                         _context.SaveChanges();
@@ -136,22 +135,22 @@ namespace CampusNerdy.Dal
         /// <returns>true：删除成功，false：不存在该记录</returns>
         public bool deleteMode(tb_CheckItem paraTb_Checkitem)
         {
-            if(paraTb_Checkitem == null)
+            if (paraTb_Checkitem == null)
                 throw new ArgumentNullException("paraTb_Checkitem");
             try
             {
                 var query = from p in _context.tb_CheckItem
-                    where p.ID == paraTb_Checkitem.ID 
-                    select p;
-                if (query.ToList().Count<1)
+                            where p.ID == paraTb_Checkitem.ID
+                            select p;
+                if (query.ToList().Count < 1)
                 {
                     return false;
                 }
                 else
                 {
-                    foreach(var model in query.ToList())
+                    foreach (var model in query.ToList())
                     {
-                        if(!_context.IsAttached(model))
+                        if (!_context.IsAttached(model))
                             _context.tb_CheckItem.Attach(model);
                         _context.tb_CheckItem.DeleteObject(model);
                         _context.SaveChanges();
@@ -174,13 +173,13 @@ namespace CampusNerdy.Dal
         /// <returns>true：更新成功，false：更新数据失败，不存在该记录！</returns>
         public bool updateMode(tb_CheckItem paraTb_Checkitem)
         {
-            if(paraTb_Checkitem == null)
+            if (paraTb_Checkitem == null)
                 throw new ArgumentNullException("paraTb_Checkitem");
             try
             {
                 var oldEntity = (from p in _context.tb_CheckItem
-                    where p.ID == paraTb_Checkitem.ID 
-                    select p).FirstOrDefault();
+                                 where p.ID == paraTb_Checkitem.ID
+                                 select p).FirstOrDefault();
                 if (oldEntity == null)
                 {
                     return false;
@@ -207,13 +206,13 @@ namespace CampusNerdy.Dal
         /// <returns>true：插入成功，false：已存在该记录</returns>
         public bool addMode(tb_CheckItem paraTb_Checkitem)
         {
-            if(paraTb_Checkitem == null)
+            if (paraTb_Checkitem == null)
                 throw new ArgumentNullException("paraTb_Checkitem");
             try
             {
                 var query = from p in _context.tb_CheckItem
-                    where p.ID == paraTb_Checkitem.ID 
-                    select p;
+                            where p.ID == paraTb_Checkitem.ID
+                            select p;
                 if (query.ToList().Count() > 0)
                 {
                     return false;
@@ -265,12 +264,11 @@ namespace CampusNerdy.Dal
         {
             try
             {
-                Int32 tempCheckoutid = Int32.Parse(paraCheckoutid.Trim());
                 Int32 tempGoodsuperid = Int32.Parse(paraGoodsuperid.Trim());
 
                 var query = from p in _context.tb_CheckItem
                             orderby p.ID descending
-                            where p.CheckOutID == tempCheckoutid && p.GoodSuperId == tempGoodsuperid
+                            where p.CheckOutID == paraCheckoutid && p.GoodSuperId == tempGoodsuperid
                             select p;
                 return query.FirstOrDefault();
             }
@@ -285,18 +283,38 @@ namespace CampusNerdy.Dal
         /// <summary>
         /// 查询表单，获取模型实体集合
         /// </summary>
+        /// <param name="paraID"></param>
+        /// <returns>查询成功返回符合条件的集合，否则返回空集合</returns>
+        public List<tb_CheckItem> getListByID(string paraID)
+        {
+            try
+            {
+                Int32 tempID = Int32.Parse(paraID.Trim());
+
+                var query = from p in _context.tb_CheckItem
+                            orderby p.ID
+                            where p.ID == tempID
+                            select p;
+                return query.ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        /// <summary>
+        /// 查询表单，获取模型实体集合
+        /// </summary>
         /// <param name="paraCheckoutid"></param>
         /// <returns>查询成功返回符合条件的集合，否则返回空集合</returns>
         public List<tb_CheckItem> getListByCheckoutid(string paraCheckoutid)
         {
             try
             {
-                Int32 tempCheckoutid =  Int32.Parse(paraCheckoutid.Trim());
-
                 var query = from p in _context.tb_CheckItem
-                    orderby p.ID
-                    where p.CheckOutID == tempCheckoutid 
-                    select p;
+                            orderby p.ID
+                            where p.CheckOutID == paraCheckoutid
+                            select p;
                 return query.ToList();
             }
             catch (Exception ex)
@@ -313,8 +331,8 @@ namespace CampusNerdy.Dal
             try
             {
                 var query = from p in _context.tb_CheckItem
-                    orderby p.ID
-                    select p;
+                            orderby p.ID
+                            select p;
                 return query.ToList();
             }
             catch (Exception ex)

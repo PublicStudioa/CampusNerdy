@@ -39,11 +39,9 @@ namespace CampusNerdy.Dal
         {
             try
             {
-                Int32 tempCheckoutid =  Int32.Parse(paraCheckoutid.Trim());
-
                 var query = from p in _context.tb_CheckOut
-                    where p.CheckOutID == tempCheckoutid 
-                    select p;
+                            where p.CheckOutID == paraCheckoutid
+                            select p;
                 return query.ToList().Count() > 0;
             }
             catch (Exception ex)
@@ -61,24 +59,22 @@ namespace CampusNerdy.Dal
         /// <returns>true：删除成功，false：不存在该记录</returns>
         public bool deleteModeByCheckoutid(string paraCheckoutid)
         {
-            if(paraCheckoutid == null)
+            if (paraCheckoutid == null)
                 throw new ArgumentNullException("paraCheckoutid");
             try
             {
-                Int32 tempCheckoutid =  Int32.Parse(paraCheckoutid.Trim());
-
                 var query = from p in _context.tb_CheckOut
-                    where p.CheckOutID == tempCheckoutid 
-                    select p;
-                if (query.ToList().Count<1)
+                            where p.CheckOutID == paraCheckoutid
+                            select p;
+                if (query.ToList().Count < 1)
                 {
                     return false;
                 }
                 else
                 {
-                    foreach(var model in query.ToList())
+                    foreach (var model in query.ToList())
                     {
-                        if(!_context.IsAttached(model))
+                        if (!_context.IsAttached(model))
                             _context.tb_CheckOut.Attach(model);
                         _context.tb_CheckOut.DeleteObject(model);
                         _context.SaveChanges();
@@ -98,22 +94,22 @@ namespace CampusNerdy.Dal
         /// <returns>true：删除成功，false：不存在该记录</returns>
         public bool deleteMode(tb_CheckOut paraTb_Checkout)
         {
-            if(paraTb_Checkout == null)
+            if (paraTb_Checkout == null)
                 throw new ArgumentNullException("paraTb_Checkout");
             try
             {
                 var query = from p in _context.tb_CheckOut
-                    where p.CheckOutID == paraTb_Checkout.CheckOutID 
-                    select p;
-                if (query.ToList().Count<1)
+                            where p.CheckOutID == paraTb_Checkout.CheckOutID
+                            select p;
+                if (query.ToList().Count < 1)
                 {
                     return false;
                 }
                 else
                 {
-                    foreach(var model in query.ToList())
+                    foreach (var model in query.ToList())
                     {
-                        if(!_context.IsAttached(model))
+                        if (!_context.IsAttached(model))
                             _context.tb_CheckOut.Attach(model);
                         _context.tb_CheckOut.DeleteObject(model);
                         _context.SaveChanges();
@@ -136,13 +132,13 @@ namespace CampusNerdy.Dal
         /// <returns>true：更新成功，false：更新数据失败，不存在该记录！</returns>
         public bool updateMode(tb_CheckOut paraTb_Checkout)
         {
-            if(paraTb_Checkout == null)
+            if (paraTb_Checkout == null)
                 throw new ArgumentNullException("paraTb_Checkout");
             try
             {
                 var oldEntity = (from p in _context.tb_CheckOut
-                    where p.CheckOutID == paraTb_Checkout.CheckOutID 
-                    select p).FirstOrDefault();
+                                 where p.CheckOutID == paraTb_Checkout.CheckOutID
+                                 select p).FirstOrDefault();
                 if (oldEntity == null)
                 {
                     return false;
@@ -169,13 +165,13 @@ namespace CampusNerdy.Dal
         /// <returns>true：插入成功，false：已存在该记录</returns>
         public bool addMode(tb_CheckOut paraTb_Checkout)
         {
-            if(paraTb_Checkout == null)
+            if (paraTb_Checkout == null)
                 throw new ArgumentNullException("paraTb_Checkout");
             try
             {
                 var query = from p in _context.tb_CheckOut
-                    where p.CheckOutID == paraTb_Checkout.CheckOutID 
-                    select p;
+                            where p.CheckOutID == paraTb_Checkout.CheckOutID
+                            select p;
                 if (query.ToList().Count() > 0)
                 {
                     return false;
@@ -204,12 +200,10 @@ namespace CampusNerdy.Dal
         {
             try
             {
-                Int32 tempCheckoutid =  Int32.Parse(paraCheckoutid.Trim());
-
                 var query = from p in _context.tb_CheckOut
-                    orderby p.CheckOutID descending
-                    where p.CheckOutID == tempCheckoutid 
-                    select p;
+                            orderby p.CheckOutID descending
+                            where p.CheckOutID == paraCheckoutid
+                            select p;
                 return query.FirstOrDefault();
             }
             catch (Exception ex)
@@ -229,12 +223,10 @@ namespace CampusNerdy.Dal
         {
             try
             {
-                Int32 tempCheckoutid =  Int32.Parse(paraCheckoutid.Trim());
-
                 var query = from p in _context.tb_CheckOut
-                    orderby p.CheckOutID
-                    where p.CheckOutID == tempCheckoutid 
-                    select p;
+                            orderby p.CheckOutID
+                            where p.CheckOutID == paraCheckoutid
+                            select p;
                 return query.ToList();
             }
             catch (Exception ex)
@@ -251,8 +243,8 @@ namespace CampusNerdy.Dal
             try
             {
                 var query = from p in _context.tb_CheckOut
-                    orderby p.CheckOutID
-                    select p;
+                            orderby p.CheckOutID
+                            select p;
                 return query.ToList();
             }
             catch (Exception ex)

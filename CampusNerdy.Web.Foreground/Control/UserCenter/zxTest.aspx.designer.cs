@@ -47,5 +47,14 @@ namespace CampusNerdy.Web.Foreground.Control.UserCenter {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::CampusNerdy.Web.Foreground.Control.UserCenter.tlChechOutDetailRT tlChechOutDetailRT1;
+        
+        /// <summary>
+        /// TabContainer1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::AjaxControlToolkit.TabContainer TabContainer1;
     }
 }

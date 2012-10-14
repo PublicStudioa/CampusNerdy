@@ -39,10 +39,9 @@ namespace CampusNerdy.Dal
         {
             try
             {
-                Int32 tempCheckoutid = Int32.Parse(paraCheckoutid.Trim());
 
                 var query = from p in _context.View_ViewChectOut
-                            where p.CheckOutID == tempCheckoutid
+                            where p.CheckOutID == paraCheckoutid
                             select p;
                 return query.ToList().Count() > 0;
             }
@@ -109,10 +108,8 @@ namespace CampusNerdy.Dal
         {
             try
             {
-                Int32 tempCheckoutid = Int32.Parse(paraCheckoutid.Trim());
-
                 var query = from p in _context.View_ViewChectOut
-                            where p.CheckOutID == tempCheckoutid
+                            where p.CheckOutID == paraCheckoutid
                             select p;
                 return query.ToList();
             }
